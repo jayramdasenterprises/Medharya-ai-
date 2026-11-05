@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en-IN">
 <head>
@@ -58,7 +59,7 @@ body.chat-page .composer-wrap{z-index:5;}
 .student-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end;margin:10px 0;}
 .student-fields>div{min-width:0}.student-fields label{display:block}.student-fields .field{margin-top:5px;}
 @media(max-width:760px){#studytools.page-mode{padding:0 14px 28px}.student-fields{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.student-fields .field{padding:9px 6px;font-size:12px}.student-fields label{font-size:10px}}
-.side-login-point{width:100%;border:1px solid var(--line);background:#1a1b22;color:var(--text);border-radius:14px;padding:12px;text-align:left;font-weight:750;display:flex;justify-content:space-between;cursor:pointer;margin:10px 0}.auth-switch{display:flex;gap:6px}.auth-switch .toolaction{flex:1;margin:0;padding:7px 5px;font-size:11px}.side-login{border:1px solid var(--line);background:#1a1b22;border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:3px}.side-login-title{font-weight:750;font-size:14px;margin:0 0 5px}.side-login .field{margin:2px 0 5px;padding:8px 9px;font-size:12px}.side-login label{font-size:11px}.side-login .side-save{width:100%;margin:5px 0 2px}.side-login .smallmuted{font-size:10px;line-height:1.35}</style></head><body><div class="layout"><aside class="sidebar"><div class="brand"><div class="logo">✦</div> Medharya AI</div><button type="button" class="side-login-point" onclick="toggleAccountPanel()">👤 Student Account <span id="accountPointStatus">＋</span></button><section class="side-login hidden" id="accountPanel" aria-label="Student sign up and login"><div class="side-login-title">Student Account</div><div class="auth-switch"><button type="button" id="signupTab" class="toolaction" onclick="setAuthMode('signup')">Sign up</button><button type="button" id="loginTab" class="toolaction" onclick="setAuthMode('login')">Log in</button></div><div id="signupFields"><label for="sideName" class="smallmuted">Student Name</label><input id="sideName" class="field" placeholder="Your full name" autocomplete="name"><label for="sideClass" class="smallmuted">Class</label><select id="sideClass" class="field"><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="other">Other</option></select></div><label for="sideMobile" class="smallmuted">Mobile Number</label><input id="sideMobile" class="field" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile" autocomplete="tel"><label for="sidePassword" class="smallmuted">Password</label><input id="sidePassword" class="field" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="current-password"><button class="toolaction side-save" id="authSubmit" onclick="submitAuth()">Create account</button><button class="tooltoggle hidden" id="logoutBtn" onclick="logoutStudent()">Log out</button><div id="sideLoginStatus" class="smallmuted" aria-live="polite">Mobile number + password · No OTP</div><div class="smallmuted">Demo authentication is saved only in this browser/device. It is not secure server-side login or cloud sync.</div></section><button class="newchat" onclick="newChat()">＋ &nbsp; New chat</button><div><div class="label">Chat History</div><div id="chatHistoryList" class="history-list"><div class="smallmuted">Your saved chats will appear here.</div></div><div class="smallmuted">Saved only in this browser/device.</div></div><div><div class="label">Study subjects</div><div class="subjects"><button class="subject" onclick="preset('Explain this Maths question step by step for my class level.')">∑ &nbsp; Mathematics</button><button class="subject" onclick="preset('Explain this Science concept step by step for my class level.')">⚗ &nbsp; Science</button><button class="subject" onclick="preset('Help me revise this Social Science chapter.')">◈ &nbsp; Social Science</button><button class="subject" onclick="preset('Help me practise English grammar with examples.')">A &nbsp; English</button><button class="subject" onclick="preset('Explain this Computer Applications topic with examples.')">⌘ &nbsp; Computer</button></div></div><div><div class="label">Learning modes</div><div class="subjects"><button class="subject" onclick="setMode('explain')">🧠 &nbsp; Step-by-step</button><button class="subject" onclick="setMode('learn')">🎯 &nbsp; Learn with hints</button><button class="subject" onclick="setMode('exam')">📝 &nbsp; Exam practice</button></div></div><div class="sidefoot">Made for curious students<br>Hindi + English · All classes</div></aside><div class="menu-scrim" id="menuScrim" onclick="toggleMenu(false)"></div><main class="main"><header class="topbar"><button class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button><div class="mobilebrand"><div class="logo" style="width:30px;height:30px;font-size:16px">✦</div> Medharya AI</div><div class="toplabel" id="toplabel">Student Thinking Space</div><button id="backHome" class="tooltoggle hidden" onclick="backHome()">← Home</button><div style="display:flex;align-items:center;gap:8px"><button class="tooltoggle" onclick="toggleTools()">📚 Study tools</button><span class="pill">ALL CLASSES · ALL SUBJECTS</span></div></header><section class="scroll"><div id="welcome" class="welcome"><div class="orb">✦</div><h1>Medharya AI</h1><p>Your AI study companion for school students across classes. Get step-by-step help, practise subjects, revise chapters, explore questions, and plan exam preparation in Hindi or English.</p><div class="cards"><button class="prompt" onclick="preset('Explain photosynthesis in simple language with an example for my class level.')"><b>🌱 Explain a concept</b><span>Make a tough topic simple</span></button><button class="prompt" onclick="preset('Solve a sample maths problem for my class level and show every step.')"><b>∑ Solve step by step</b><span>Understand how to reach the answer</span></button><button class="prompt" onclick="preset('Quiz me with 5 Science MCQs for my class level, one at a time.')"><b>🎯 Practise questions</b><span>Test your understanding</span></button><button class="prompt" onclick="preset('Help me make a 7-day revision plan for my exams.')"><b>📚 Plan my revision</b><span>Study smarter for exams</span></button></div><section class="cards" aria-label="Medharya AI study resources"><div class="prompt"><b>School revision for all classes</b><span>Revise Maths, Science, Social Science, English and Computer topics with clear explanations and practice.</span></div><div class="prompt"><b>CBSE previous-year question practice</b><span>Explore the CBSE paper archive and practise exam-style questions. Always verify official papers and marking schemes from CBSE.</span></div><div class="prompt"><b>AI doubt solving</b><span>Ask a study question and learn the reasoning step by step, when the secure AI backend is configured.</span></div><div class="prompt"><b>Study planner</b><span>Organise revision sessions, test your understanding and keep notes on your device.</span></div></section></div><div class="launchers" aria-label="Study feature shortcuts">
+.side-login-point{width:100%;border:1px solid var(--line);background:#1a1b22;color:var(--text);border-radius:14px;padding:12px;text-align:left;font-weight:750;display:flex;justify-content:space-between;cursor:pointer;margin:10px 0}.auth-switch{display:flex;gap:6px}.auth-switch .toolaction{flex:1;margin:0;padding:7px 5px;font-size:11px}.side-login{border:1px solid var(--line);background:#1a1b22;border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:3px}.side-login-title{font-weight:750;font-size:14px;margin:0 0 5px}.side-login .field{margin:2px 0 5px;padding:8px 9px;font-size:12px}.side-login label{font-size:11px}.side-login .side-save{width:100%;margin:5px 0 2px}.side-login .smallmuted{font-size:10px;line-height:1.35}</style></head><body><div class="layout"><aside class="sidebar"><div class="brand"><div class="logo">✦</div> Medharya AI</div><button type="button" class="side-login-point" onclick="toggleAccountPanel()">👤 Student Account <span id="accountPointStatus">＋</span></button><section class="side-login hidden" id="accountPanel" aria-label="Student sign up and login"><div class="side-login-title">Student Account</div><div class="auth-switch"><button type="button" id="signupTab" class="toolaction" onclick="setAuthMode('signup')">Sign up</button><button type="button" id="loginTab" class="toolaction" onclick="setAuthMode('login')">Log in</button></div><div id="signupFields"><label for="sideName" class="smallmuted">Student Name</label><input id="sideName" class="field" placeholder="Your full name" autocomplete="name"><label for="sideClass" class="smallmuted">Class</label><select id="sideClass" class="field"><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="other">Other</option></select></div><label for="sideEmail" class="smallmuted">Email Address</label><input id="sideEmail" class="field" type="email" placeholder="you@example.com" autocomplete="email"><label for="sidePassword" class="smallmuted">Password</label><input id="sidePassword" class="field" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="current-password"><button class="toolaction side-save" id="authSubmit" onclick="submitAuth()">Create account</button><button class="toolaction side-save" id="googleAuthBtn" onclick="signInWithGoogle()">Continue with Google</button><button class="tooltoggle hidden" id="logoutBtn" onclick="logoutStudent()">Log out</button><div id="sideLoginStatus" class="smallmuted" aria-live="polite">Firebase account · Email/password or Google</div><div class="smallmuted">Your account uses Firebase Authentication. Chats and notes sync to your private Firestore account after sign-in.</div></section><button class="newchat" onclick="newChat()">＋ &nbsp; New chat</button><div><div class="label">Chat History</div><div id="chatHistoryList" class="history-list"><div class="smallmuted">Your saved chats will appear here.</div></div><div class="smallmuted">Sign in to sync your chats across devices.</div></div><div><div class="label">Study subjects</div><div class="subjects"><button class="subject" onclick="preset('Explain this Maths question step by step for my class level.')">∑ &nbsp; Mathematics</button><button class="subject" onclick="preset('Explain this Science concept step by step for my class level.')">⚗ &nbsp; Science</button><button class="subject" onclick="preset('Help me revise this Social Science chapter.')">◈ &nbsp; Social Science</button><button class="subject" onclick="preset('Help me practise English grammar with examples.')">A &nbsp; English</button><button class="subject" onclick="preset('Explain this Computer Applications topic with examples.')">⌘ &nbsp; Computer</button></div></div><div><div class="label">Learning modes</div><div class="subjects"><button class="subject" onclick="setMode('explain')">🧠 &nbsp; Step-by-step</button><button class="subject" onclick="setMode('learn')">🎯 &nbsp; Learn with hints</button><button class="subject" onclick="setMode('exam')">📝 &nbsp; Exam practice</button></div></div><div class="sidefoot">Made for curious students<br>Hindi + English · All classes</div></aside><div class="menu-scrim" id="menuScrim" onclick="toggleMenu(false)"></div><main class="main"><header class="topbar"><button class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button><div class="mobilebrand"><div class="logo" style="width:30px;height:30px;font-size:16px">✦</div> Medharya AI</div><div class="toplabel" id="toplabel">Student Thinking Space</div><button id="backHome" class="tooltoggle hidden" onclick="backHome()">← Home</button><div style="display:flex;align-items:center;gap:8px"><button class="tooltoggle" onclick="toggleTools()">📚 Study tools</button><span class="pill">ALL CLASSES · ALL SUBJECTS</span></div></header><section class="scroll"><div id="welcome" class="welcome"><div class="orb">✦</div><h1>Medharya AI</h1><p>Your AI study companion for school students across classes. Get step-by-step help, practise subjects, revise chapters, explore questions, and plan exam preparation in Hindi or English.</p><div class="cards"><button class="prompt" onclick="preset('Explain photosynthesis in simple language with an example for my class level.')"><b>🌱 Explain a concept</b><span>Make a tough topic simple</span></button><button class="prompt" onclick="preset('Solve a sample maths problem for my class level and show every step.')"><b>∑ Solve step by step</b><span>Understand how to reach the answer</span></button><button class="prompt" onclick="preset('Quiz me with 5 Science MCQs for my class level, one at a time.')"><b>🎯 Practise questions</b><span>Test your understanding</span></button><button class="prompt" onclick="preset('Help me make a 7-day revision plan for my exams.')"><b>📚 Plan my revision</b><span>Study smarter for exams</span></button></div><section class="cards" aria-label="Medharya AI study resources"><div class="prompt"><b>School revision for all classes</b><span>Revise Maths, Science, Social Science, English and Computer topics with clear explanations and practice.</span></div><div class="prompt"><b>CBSE previous-year question practice</b><span>Explore the CBSE paper archive and practise exam-style questions. Always verify official papers and marking schemes from CBSE.</span></div><div class="prompt"><b>AI doubt solving</b><span>Ask a study question and learn the reasoning step by step, when the secure AI backend is configured.</span></div><div class="prompt"><b>Study planner</b><span>Organise revision sessions, test your understanding and keep notes on your device.</span></div></section></div><div class="launchers" aria-label="Study feature shortcuts">
 <button class="launchcard" onclick="openTool('pyqCard')"><span class="launchicon">📚</span><strong>CBSE PYQ Library</strong><span>Year · subject · chapter · papers</span></button>
 
 
@@ -76,20 +77,80 @@ body.chat-page .composer-wrap{z-index:5;}
 
 <article class="toolcard" id="planCard"><h3>📅 Study Planner + Focus Timer</h3><p>Create a simple study plan and run a focus session.</p><input id="planSubject" class="field" placeholder="Subject / chapter"><input id="planMins" class="field" type="number" min="5" max="240" value="25" aria-label="Minutes"><button class="toolaction" onclick="createPlan()">Create plan</button><div id="planOut" class="toolout">Your plan will appear here.</div><div style="font-size:26px;font-weight:750;margin-top:10px" id="focusClock">25:00</div><button class="toolaction" onclick="startFocus()">▶ Start</button><button class="toolaction" onclick="pauseFocus()">Ⅱ Pause</button><button class="toolaction" onclick="resetFocus()">↺ Reset</button></article>
 
-<article class="toolcard" id="progressCard"><h3>📈 Learning Progress</h3><p>Local progress tracker for this browser; it is not an online student account.</p><div id="progressOut" class="toolout">Questions asked: 0<br>Quiz answers: 0<br>Notes saved: 0</div><button class="toolaction" onclick="speakLast()">🔊 Read last answer</button><button class="toolaction" onclick="startSpeech()">🎙️ Speak a question</button><div class="smallmuted" id="voiceStatus">Voice features depend on browser support.</div></article>
+<article class="toolcard" id="progressCard"><h3>📈 Learning Progress</h3><p>Your learning activity is saved locally and synced to your Firebase account when signed in.</p><div id="progressOut" class="toolout">Questions asked: 0<br>Quiz answers: 0<br>Notes saved: 0</div><button class="toolaction" onclick="speakLast()">🔊 Read last answer</button><button class="toolaction" onclick="startSpeech()">🎙️ Speak a question</button><div class="smallmuted" id="voiceStatus">Voice features depend on browser support.</div></article>
 <article class="toolcard" id="pyqCard" style="grid-column:1/-1"><h3>📚 CBSE PYQ Library</h3><p>Find previous-year papers by year and subject. This version links to the official CBSE question-paper portal; individual paper PDFs and answer keys are not bundled or marked verified unless checked separately.</p><div class="toolgrid"><div><label for="pyqYear" class="smallmuted">Year</label><select id="pyqYear" class="field"><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option></select></div><div><label for="pyqSubject" class="smallmuted">Subject</label><select id="pyqSubject" class="field"><option>Science</option><option>Mathematics Standard</option><option>Mathematics Basic</option><option>Social Science</option><option>English Language and Literature</option><option>Hindi</option><option>Computer Applications / IT</option></select></div><div><label for="pyqChapter" class="smallmuted">Chapter (practice filter)</label><select id="pyqChapter" class="field"><option value="all">All chapters</option><option>Real Numbers</option><option>Polynomials</option><option>Pair of Linear Equations</option><option>Light – Reflection and Refraction</option><option>Electricity</option><option>Life Processes</option><option>Nationalism in India</option><option>Power Sharing</option><option>Networking</option><option>HTML</option></select></div><div><label for="pyqType" class="smallmuted">Resource type</label><select id="pyqType" class="field"><option value="paper">Question paper</option><option value="answer">Answer key / marking scheme</option><option value="practice">Chapter practice (demo)</option></select></div></div><button class="toolaction" onclick="findPYQ()">Search library</button><div id="pyqOut" class="toolout">Choose filters and search. Official CBSE archive will open in a new tab.</div><a class="toolaction" style="display:inline-block;text-decoration:none" href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank" rel="noopener">Open official CBSE question-paper archive ↗</a><div class="notice">Verification note: the archive is an official starting point, but availability varies by year and subject. This app does not claim every 2016–2026 paper or answer key is already verified.</div></article>
 
 
 
 
 </div></div></section><div class="composer-wrap"><div class="composer"><textarea id="question" rows="1" placeholder="Ask anything about your studies…" onkeydown="handleKey(event)" oninput="resizeBox(this)"></textarea><div class="composer-bottom"><div class="tools"><button class="toolbtn" type="button" onclick="document.getElementById('chatImageInput').click()" title="Attach an image">🖼️ Image</button><input id="chatImageInput" type="file" accept="image/*" hidden onchange="previewChatImage(event)"><span id="chatImageStatus" class="smallmuted"></span><button class="toolbtn" onclick="setMode('explain')">🧠 <span id="modeLabel">Step-by-step</span></button><button class="toolbtn" onclick="toggleLanguage()" id="langBtn">🌐 English</button><button class="toolbtn" onclick="startSpeech()" title="Voice input">🎙️</button></div><button class="send" id="sendBtn" onclick="sendQuestion()">Send ↑</button></div></div><div class="hint">Medharya can make mistakes. Verify important answers with your textbook or teacher.</div></div></main></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script>
+// Firebase client configuration. This is not the Gemini API key.
+const firebaseConfig = {
+  apiKey: "AIzaSyB-N_KuCLsTm8do98EYq01DsQ2upBdeDOo",
+  authDomain: "medharya-ai.firebaseapp.com",
+  projectId: "medharya-ai",
+  storageBucket: "medharya-ai.firebasestorage.app",
+  messagingSenderId: "320039887153",
+  appId: "1:320039887153:web:48da000430faaaa6b8d010",
+  measurementId: "G-VRQF446VG4"
+};
+
+let firebaseApp, firebaseAuth, firestoreDb, cloudReady = false, currentStudentProfile = null;
+try {
+  firebaseApp = firebase.initializeApp(firebaseConfig);
+  firebaseAuth = firebase.auth();
+  firestoreDb = firebase.firestore();
+  cloudReady = true;
+  firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(err => console.warn("Auth persistence:", err));
+} catch (err) {
+  console.error("Firebase initialization failed:", err);
+}
+
 // Google Apps Script backend endpoint. Keep the Gemini API key in Script Properties, never in this HTML.
 const MEDHARYA_API_URL = 'https://script.google.com/macros/s/AKfycbx93jgAN_zJO8NgTmmwU5c5geBqkeiFWPmsIiM6ryosZ9k-nmeMsfOgRKBPw-EdeYVRUA/exec';
 let pendingImage = null;
 let activeChatId = null, activeChatMessages = [];
 let mode='explain', language='en', questionCount=0, quizCount=0, noteCount=0, lastAnswer='', quizCurrent=null, focusSeconds=1500, focusInterval=null; const $=id=>document.getElementById(id);
-window.addEventListener('DOMContentLoaded',()=>{loadStudentProfile();renderChatHistory();});
+window.addEventListener('DOMContentLoaded',()=>{
+  renderChatHistory();
+  if(cloudReady){
+    firebaseAuth.onAuthStateChanged(async user=>{
+      if(user){
+        try{
+          const ref=firestoreDb.collection('users').doc(user.uid);
+          const snap=await ref.get();
+          let profile=snap.exists?snap.data():{};
+          if(!profile.name){
+            profile={name:user.displayName||'Student',class:'Other',email:user.email||'',createdAt:new Date().toISOString()};
+            await ref.set(profile,{merge:true});
+          }
+          currentStudentProfile={uid:user.uid,name:profile.name||user.displayName||'Student',class:profile.class||'Other',email:user.email||''};
+          showSignedIn(currentStudentProfile);
+          await syncLocalDataToCloud();
+          await loadCloudData();
+        }catch(err){
+          console.error('Cloud sync failed:',err);
+          $('sideLoginStatus').textContent='Signed in, but cloud sync failed: '+(err.message||err);
+        }
+      }else{
+        currentStudentProfile=null;
+        $('sideLoginStatus').textContent='Not signed in. Sign in to sync chats and notes across devices.';
+        $('logoutBtn').classList.add('hidden');
+        $('googleAuthBtn').classList.remove('hidden');
+        renderChatHistory();
+        renderNotes();
+      }
+    });
+  }else{
+    $('sideLoginStatus').textContent='Firebase could not initialize. Check the internet connection and Firebase configuration.';
+    renderChatHistory();
+  }
+});
 function toggleAccountPanel(){const panel=$('accountPanel');panel.classList.toggle('hidden');$('accountPointStatus').textContent=panel.classList.contains('hidden')?'＋':'−';}
 function previewChatImage(event){const file=event.target.files&&event.target.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Please select an image.');return;}if(file.size>8*1024*1024){alert('Please choose an image smaller than 8 MB.');event.target.value='';return;}const reader=new FileReader();reader.onload=()=>{pendingImage={mimeType:file.type||'image/jpeg',data:String(reader.result).split(',')[1]};$('chatImageStatus').textContent='Image attached ✓';};reader.onerror=()=>{$('chatImageStatus').textContent='Could not read image';};reader.readAsDataURL(file);}
 function setMode(m){mode=m;$('modeLabel').textContent=m==='learn'?'Learn with hints':m==='exam'?'Exam practice':'Step-by-step';$('question').focus()}
@@ -100,7 +161,7 @@ function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendQu
 function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function historyStoreKey(){return 'medharya_chat_history_v1'}
 function readChatHistory(){try{const value=JSON.parse(localStorage.getItem(historyStoreKey())||'[]');return Array.isArray(value)?value:[]}catch(e){return []}}
-function saveCurrentChat(){if(!activeChatMessages.length)return;const chats=readChatHistory();const first=activeChatMessages.find(m=>m.role==='user');const title=(first&&first.text?first.text:'New chat').replace(/\s+/g,' ').slice(0,58);const record={id:activeChatId||String(Date.now()),title,updatedAt:new Date().toISOString(),messages:activeChatMessages.slice(-80)};activeChatId=record.id;const index=chats.findIndex(c=>c.id===record.id);if(index>=0)chats[index]=record;else chats.unshift(record);try{localStorage.setItem(historyStoreKey(),JSON.stringify(chats.slice(0,40)))}catch(e){console.warn('Chat history could not be saved in this browser.')}renderChatHistory()}
+function saveCurrentChat(){if(!activeChatMessages.length)return;const chats=readChatHistory();const first=activeChatMessages.find(m=>m.role==='user');const title=(first&&first.text?first.text:'New chat').replace(/\s+/g,' ').slice(0,58);const record={id:activeChatId||String(Date.now()),title,updatedAt:new Date().toISOString(),messages:activeChatMessages.slice(-80)};activeChatId=record.id;const index=chats.findIndex(c=>c.id===record.id);if(index>=0)chats[index]=record;else chats.unshift(record);try{localStorage.setItem(historyStoreKey(),JSON.stringify(chats.slice(0,40)))}catch(e){console.warn('Chat history could not be saved in this browser.')}renderChatHistory();const ref=userDoc();if(ref)ref.collection('chats').doc(String(record.id)).set(record,{merge:true}).catch(err=>console.warn('Chat cloud save failed:',err));}
 function renderChatHistory(){const list=$('chatHistoryList');if(!list)return;const chats=readChatHistory();list.innerHTML=chats.length?chats.map(c=>`<button class="history-item" type="button" title="${esc(c.title||'Saved chat')}" onclick="openSavedChat('${String(c.id).replace(/[^0-9]/g,'')}')">${esc(c.title||'Saved chat')}</button>`).join(''):'<div class="smallmuted">No saved chats yet.</div>'}
 function openSavedChat(id){const chat=readChatHistory().find(c=>c.id===id);if(!chat)return;activeChatId=chat.id;activeChatMessages=Array.isArray(chat.messages)?chat.messages.slice():[];$('messages').innerHTML='';activeChatMessages.forEach(m=>{let d=document.createElement('div');d.className='msg '+(m.role==='assistant'?'assistant':'user');d.innerHTML=`<div class="avatar">${m.role==='user'?'🙂':'✦'}</div><div class="bubble">${m.role==='assistant'?'<div class="assistantname">Medharya · Student Thinking</div>':''}<div class="answertext">${esc(m.text||'').replace(/\n/g,'<br>')}</div></div>`;$('messages').appendChild(d)});openChatPage();$('toplabel').textContent=chat.title||'Saved chat';toggleMenu(false)}
 function addMsg(role,html){let d=document.createElement('div');d.className='msg '+role;d.innerHTML=`<div class="avatar">${role==='user'?'🙂':'✦'}</div><div class="bubble">${role==='assistant'?'<div class="assistantname">Medharya · Student Thinking</div>':''}<div class="answertext">${html}</div></div>`;$('messages').appendChild(d);const tmp=document.createElement('div');tmp.innerHTML=html;activeChatMessages.push({role,text:tmp.textContent||tmp.innerText||''});saveCurrentChat();return d}
@@ -164,9 +225,9 @@ function answerQuiz(i){if(!quizCurrent)return;quizCount++;$('quizFeedback').text
 function createPlan(){let sub=$('planSubject').value.trim()||'your subject',m=Math.max(5,Math.min(240,Number($('planMins').value)||25));focusSeconds=m*60;$('focusClock').textContent=clockFmt(focusSeconds);$('planOut').textContent=`1. ${Math.ceil(m*.15)} min — revise yesterday’s notes\n2. ${Math.ceil(m*.65)} min — study ${sub} with examples\n3. ${Math.max(1,m-Math.ceil(m*.15)-Math.ceil(m*.65))} min — recall without notes and check mistakes\n\nTip: keep your phone notifications off.`}
 function clockFmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
 function startFocus(){if(focusInterval)return;focusInterval=setInterval(()=>{if(focusSeconds>0){focusSeconds--;$('focusClock').textContent=clockFmt(focusSeconds)}else{pauseFocus();$('focusClock').textContent='Done!';}},1000)}function pauseFocus(){if(focusInterval){clearInterval(focusInterval);focusInterval=null}}function resetFocus(){pauseFocus();focusSeconds=Math.max(5,Math.min(240,Number($('planMins').value)||25))*60;$('focusClock').textContent=clockFmt(focusSeconds)}
-function saveNote(){let title=$('noteTitle').value.trim(),body=$('noteBody').value.trim();if(!title&&!body)return;let notes=[];try{notes=JSON.parse(localStorage.getItem('medharya_notes')||'[]')}catch(e){}notes.unshift({title:title||'Untitled note',body,at:new Date().toLocaleDateString()});try{localStorage.setItem('medharya_notes',JSON.stringify(notes.slice(0,50)))}catch(e){}$('noteTitle').value='';$('noteBody').value='';renderNotes();saveProgress()}
+function saveNote(){let title=$('noteTitle').value.trim(),body=$('noteBody').value.trim();if(!title&&!body)return;let notes=[];try{notes=JSON.parse(localStorage.getItem('medharya_notes')||'[]')}catch(e){}const note={id:'note_'+Date.now(),title:title||'Untitled note',body,at:new Date().toLocaleDateString(),updatedAt:new Date().toISOString()};notes.unshift(note);try{localStorage.setItem('medharya_notes',JSON.stringify(notes.slice(0,50)))}catch(e){}const ref=userDoc();if(ref)ref.collection('notes').doc(note.id).set(note).catch(err=>console.warn('Note cloud save failed:',err));$('noteTitle').value='';$('noteBody').value='';renderNotes();saveProgress()}
 function renderNotes(){let notes=[];try{notes=JSON.parse(localStorage.getItem('medharya_notes')||'[]')}catch(e){}noteCount=notes.length;$('notesOut').innerHTML=notes.length?notes.map(n=>`<div style="padding:8px 0;border-bottom:1px solid var(--line)"><b>${esc(n.title)}</b> <span class="smallmuted">${esc(n.at||'')}</span><div>${esc(n.body||'')}</div></div>`).join(''):'No saved notes yet.';saveProgress()}
-function saveProgress(){let n=0;try{n=JSON.parse(localStorage.getItem('medharya_notes')||'[]').length}catch(e){}$('progressOut').innerHTML=`Questions asked: ${questionCount}<br>Quiz answers: ${quizCount}<br>Notes saved on this device: ${n}`}
+function saveProgress(){let n=0;try{n=JSON.parse(localStorage.getItem('medharya_notes')||'[]').length}catch(e){}noteCount=n;$('progressOut').innerHTML=`Questions asked: ${questionCount}<br>Quiz answers: ${quizCount}<br>Notes saved: ${n}`;saveProgressToCloud();}
 function speakLast(){if(!lastAnswer){$('voiceStatus').textContent='Ask a question first to create an answer.';return}if(!('speechSynthesis'in window)){$('voiceStatus').textContent='Text-to-speech is not supported in this browser.';return}let u=new SpeechSynthesisUtterance(lastAnswer);u.lang=language==='hi'?'hi-IN':'en-IN';speechSynthesis.cancel();speechSynthesis.speak(u);$('voiceStatus').textContent='Reading the latest AI response aloud.'}
 function startSpeech(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){$('voiceStatus').textContent='Voice input is not supported in this browser. You can type your question.';return}let r=new SR();r.lang=language==='hi'?'hi-IN':'en-IN';r.onresult=e=>{$('question').value=e.results[0][0].transcript;resizeBox($('question'));$('question').focus();$('voiceStatus').textContent='Voice captured. Press Send to continue.'};r.onerror=()=>{$('voiceStatus').textContent='Could not capture voice; please type instead.'};r.start();$('voiceStatus').textContent='Listening…'}
 
@@ -178,13 +239,137 @@ function previewQuestionImage(e){const f=e.target.files&&e.target.files[0];if(!f
 async function usePhotoQuestion(){const f=$('questionImage').files&&$('questionImage').files[0];if(!f){$('imagePreview').textContent='Please select a question photo first.';return}if(f.size>5*1024*1024){$('imagePreview').textContent='Please choose an image smaller than 5 MB.';return}try{const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});pendingImage={mimeType:f.type||'image/jpeg',data:String(dataUrl).split(',')[1]};backHome();preset('Read this question image and solve it step by step. Explain in simple '+(language==='hi'?'Hindi':'English')+' and show the final answer.');$('question').focus();$('voiceStatus').textContent='Image attached. Sending it to Medharya AI now…';sendQuestion();}catch(e){$('imagePreview').textContent='Could not read this image. Try another photo.'}}
 function showFormulas(){const m=$('formulaSubject').value;$('formulaOut').innerHTML=m==='math'?'<b>Maths quick revision</b><br>• Quadratic equation: x = (−b ± √(b² − 4ac)) / 2a<br>• AP nth term: aₙ = a + (n − 1)d<br>• AP sum: Sₙ = n/2 [2a + (n − 1)d]<br>• Distance: √[(x₂−x₁)² + (y₂−y₁)²]<br>• Probability = favourable outcomes / total equally likely outcomes':'<b>Science quick revision</b><br>• Ohm’s law: V = IR<br>• Electric power: P = VI = I²R = V²/R<br>• Speed of light relation: n = c/v<br>• Photosynthesis: CO₂ + H₂O → glucose + O₂ (in presence of light and chlorophyll)<br>• Mirror formula: 1/f = 1/v + 1/u';}
 function revisionPrompt(){preset('Start revision mode. Ask me one question at a time, give a hint if I am stuck, then explain the answer. Clearly distinguish verified PYQs from newly created practice questions.');}
+
 let authMode='signup';
-function setAuthMode(mode){authMode=mode;$('signupFields').classList.toggle('hidden',mode==='login');$('authSubmit').textContent=mode==='signup'?'Create account':'Log in';$('signupTab').style.opacity=mode==='signup'?'1':'.55';$('loginTab').style.opacity=mode==='login'?'1':'.55';$('sidePassword').autocomplete=mode==='signup'?'new-password':'current-password';$('sideLoginStatus').textContent=mode==='signup'?'Create an account with mobile number and password. No OTP.':'Enter your registered mobile number and password.'}
-async function passwordDigest(value){const bytes=new TextEncoder().encode(value);const hash=await crypto.subtle.digest('SHA-256',bytes);return Array.from(new Uint8Array(hash)).map(x=>x.toString(16).padStart(2,'0')).join('')}
-async function submitAuth(){const mobile=$('sideMobile').value.trim(),password=$('sidePassword').value,name=$('sideName').value.trim(),cls=$('sideClass').value;const status=$('sideLoginStatus');if(!/^\d{10}$/.test(mobile)){status.textContent='Please enter a valid 10-digit mobile number.';return}if(password.length<8){status.textContent='Password must contain at least 8 characters.';return}try{const key='medharya_local_accounts',accounts=JSON.parse(localStorage.getItem(key)||'{}');if(authMode==='signup'){if(!name){status.textContent='Please enter your name.';return}if(accounts[mobile]){status.textContent='This mobile number is already registered. Please log in.';return}accounts[mobile]={mobile,name,class:cls,passwordHash:await passwordDigest(password)};localStorage.setItem(key,JSON.stringify(accounts));}else{const acc=accounts[mobile];if(!acc||acc.passwordHash!==await passwordDigest(password)){status.textContent='Mobile number or password is incorrect.';return}}
-const acc=accounts[mobile];localStorage.setItem('medharya_active_user',JSON.stringify({mobile:acc.mobile,name:acc.name,class:acc.class}));showSignedIn(acc);$('sidePassword').value='';status.textContent=`${authMode==='signup'?'Account created':'Welcome back'}, ${acc.name}!`; }catch(e){status.textContent='Could not save account in this browser.'}}
-function showSignedIn(p){$('sideLoginStatus').textContent=`Signed in: ${p.name} · Class ${p.class}`;$('logoutBtn').classList.remove('hidden');if($('accountOut'))$('accountOut').textContent=`Signed in as ${p.name} · ${p.mobile} · Class ${p.class}. Signed in on this browser. This is device-only storage, not cloud authentication.`}
-function logoutStudent(){localStorage.removeItem('medharya_active_user');$('sideLoginStatus').textContent='You are logged out.';$('logoutBtn').classList.add('hidden');if($('accountOut'))$('accountOut').textContent='Not signed in.';setAuthMode('login')}
-function loadStudentProfile(){try{const p=JSON.parse(localStorage.getItem('medharya_active_user')||'null');if(p)showSignedIn(p)}catch(e){}}
+function setAuthMode(mode){
+  authMode=mode;
+  $('signupFields').classList.toggle('hidden',mode==='login');
+  $('authSubmit').textContent=mode==='signup'?'Create account':'Log in';
+  $('signupTab').style.opacity=mode==='signup'?'1':'.55';
+  $('loginTab').style.opacity=mode==='login'?'1':'.55';
+  $('sidePassword').autocomplete=mode==='signup'?'new-password':'current-password';
+  $('sideLoginStatus').textContent=mode==='signup'?'Create your secure Firebase account with email and password.':'Enter your registered email and password.';
+}
+function userDoc(){const u=firebaseAuth&&firebaseAuth.currentUser;return u?firestoreDb.collection('users').doc(u.uid):null;}
+async function saveProfileToCloud(profile){
+  const ref=userDoc(); if(!ref)return;
+  await ref.set({name:profile.name||'Student',class:String(profile.class||'Other'),email:firebaseAuth.currentUser.email||'',updatedAt:new Date().toISOString()},{merge:true});
+}
+async function submitAuth(){
+  const email=$('sideEmail').value.trim().toLowerCase();
+  const password=$('sidePassword').value;
+  const name=$('sideName').value.trim();
+  const cls=$('sideClass').value;
+  const status=$('sideLoginStatus');
+  if(!cloudReady){status.textContent='Firebase is not ready. Refresh the page and try again.';return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){status.textContent='Please enter a valid email address.';return;}
+  if(password.length<8){status.textContent='Password must contain at least 8 characters.';return;}
+  const btn=$('authSubmit');btn.disabled=true;btn.textContent='Please wait…';
+  try{
+    let credential;
+    if(authMode==='signup'){
+      if(!name){status.textContent='Please enter your name.';return;}
+      credential=await firebaseAuth.createUserWithEmailAndPassword(email,password);
+      await credential.user.updateProfile({displayName:name});
+      const profile={name,class:cls,email};
+      await saveProfileToCloud(profile);
+      currentStudentProfile={uid:credential.user.uid,...profile};
+      showSignedIn(currentStudentProfile);
+      status.textContent='Account created successfully. Syncing your data…';
+    }else{
+      credential=await firebaseAuth.signInWithEmailAndPassword(email,password);
+      status.textContent='Login successful. Syncing your data…';
+    }
+    $('sidePassword').value='';
+    toggleAccountPanel();
+  }catch(err){
+    console.error(err);
+    const messages={
+      'auth/email-already-in-use':'This email is already registered. Please log in.',
+      'auth/invalid-email':'Please check your email address.',
+      'auth/weak-password':'Choose a stronger password (at least 8 characters).',
+      'auth/user-not-found':'No account found with this email. Please sign up.',
+      'auth/wrong-password':'Incorrect email or password.',
+      'auth/invalid-credential':'Incorrect email or password.',
+      'auth/operation-not-allowed':'Email/Password sign-in is not enabled in Firebase Authentication.',
+      'auth/unauthorized-domain':'This website domain is not authorized in Firebase Authentication.'
+    };
+    status.textContent=messages[err.code]||('Could not sign in: '+(err.message||err));
+  }finally{btn.disabled=false;btn.textContent=authMode==='signup'?'Create account':'Log in';}
+}
+async function signInWithGoogle(){
+  const status=$('sideLoginStatus');
+  if(!cloudReady){status.textContent='Firebase is not ready. Refresh the page and try again.';return;}
+  try{
+    const provider=new firebase.auth.GoogleAuthProvider();
+    const result=await firebaseAuth.signInWithPopup(provider);
+    const snap=await firestoreDb.collection('users').doc(result.user.uid).get();
+    const name=$('sideName').value.trim()||result.user.displayName||'Student';
+    const cls=$('sideClass').value||'Other';
+    if(!snap.exists || $('sideName').value.trim() || $('sideClass').value){
+      await saveProfileToCloud({name,class:cls,email:result.user.email||''});
+    }
+    status.textContent='Google login successful. Syncing your data…';
+    toggleAccountPanel();
+  }catch(err){
+    console.error(err);
+    status.textContent=err.code==='auth/popup-closed-by-user'?'Google sign-in was cancelled.':err.code==='auth/unauthorized-domain'?'This website domain is not authorized in Firebase Authentication.':('Google sign-in failed: '+(err.message||err));
+  }
+}
+function showSignedIn(p){
+  $('sideLoginStatus').textContent=`Signed in: ${p.name} · Class ${p.class} · Cloud sync enabled`;
+  $('logoutBtn').classList.remove('hidden');
+  $('googleAuthBtn').classList.add('hidden');
+  if($('accountOut'))$('accountOut').textContent=`Signed in as ${p.name} · ${p.email||''} · Class ${p.class}. Your data syncs to your private Firebase account.`;
+}
+async function logoutStudent(){
+  if(!cloudReady)return;
+  try{await firebaseAuth.signOut();localStorage.removeItem('medharya_active_user');$('sideLoginStatus').textContent='You are logged out.';setAuthMode('login');}
+  catch(err){$('sideLoginStatus').textContent='Could not log out: '+(err.message||err);}
+}
+function loadStudentProfile(){if(firebaseAuth&&firebaseAuth.currentUser){const u=firebaseAuth.currentUser;showSignedIn({name:u.displayName||'Student',class:currentStudentProfile?.class||'Other',email:u.email||''});}}
+
+async function syncLocalDataToCloud(){
+  const ref=userDoc();if(!ref)return;
+  const chats=readChatHistory();
+  for(const chat of chats){
+    if(!chat||!chat.id)continue;
+    await ref.collection('chats').doc(String(chat.id)).set({
+      title:String(chat.title||'Saved chat').slice(0,100),
+      messages:Array.isArray(chat.messages)?chat.messages.slice(-80):[],
+      updatedAt:chat.updatedAt||new Date().toISOString()
+    },{merge:true});
+  }
+  let notes=[];try{notes=JSON.parse(localStorage.getItem('medharya_notes')||'[]')}catch(e){}
+  for(const note of notes){
+    if(!note)continue;
+    const id=note.id||('note_'+btoa(unescape(encodeURIComponent((note.title||'')+(note.at||'')+(note.body||'')))).replace(/[^a-zA-Z0-9_-]/g,'').slice(0,80));
+    await ref.collection('notes').doc(id).set({title:note.title||'Untitled note',body:note.body||'',at:note.at||'',updatedAt:note.updatedAt||new Date().toISOString()},{merge:true});
+  }
+}
+async function loadCloudData(){
+  const ref=userDoc();if(!ref)return;
+  const [chatSnap,noteSnap,progressSnap]=await Promise.all([
+    ref.collection('chats').get(),
+    ref.collection('notes').get(),
+    ref.collection('progress').doc('summary').get()
+  ]);
+  const cloudChats=chatSnap.docs.map(d=>({id:d.id,...d.data()}));
+  const localChats=readChatHistory();
+  const merged=new Map();[...cloudChats,...localChats].forEach(c=>{if(c&&c.id){const old=merged.get(c.id);if(!old||String(c.updatedAt||'')>=String(old.updatedAt||''))merged.set(c.id,c);}});
+  const allChats=Array.from(merged.values()).sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,40);
+  try{localStorage.setItem(historyStoreKey(),JSON.stringify(allChats));}catch(e){}
+  const cloudNotes=noteSnap.docs.map(d=>({id:d.id,...d.data()}));
+  const localNotes=[];try{localNotes.push(...JSON.parse(localStorage.getItem('medharya_notes')||'[]'));}catch(e){}
+  const noteMap=new Map();[...cloudNotes,...localNotes].forEach(n=>{if(n){const id=n.id||('local_'+(n.title||'')+'_'+(n.at||''));noteMap.set(id,{...n,id});}});
+  try{localStorage.setItem('medharya_notes',JSON.stringify(Array.from(noteMap.values()).slice(0,50)));}catch(e){}
+  if(progressSnap.exists){const p=progressSnap.data();questionCount=Math.max(questionCount,Number(p.questionCount)||0);quizCount=Math.max(quizCount,Number(p.quizCount)||0);}
+  renderChatHistory();renderNotes();saveProgress();
+}
+async function saveProgressToCloud(){
+  const ref=userDoc();if(!ref)return;
+  try{await ref.collection('progress').doc('summary').set({questionCount,quizCount,notesCount:noteCount,updatedAt:new Date().toISOString()},{merge:true});}
+  catch(err){console.warn('Progress cloud save failed:',err);}
+}
 
 </script></body></html>
