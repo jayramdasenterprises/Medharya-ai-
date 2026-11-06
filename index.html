@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en-IN">
 <head>
@@ -12,7 +11,7 @@
 <meta name="description" content="Medharya AI helps school students across classes study with step-by-step explanations, study planning and subject-wise question practice in Hindi and English.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Medharya AI">
-<meta name="keywords" content="all classes study app, school study assistant, AI doubt solver, Maths, Science, CBSE study, previous year questions, revision, Hindi English study help, quiz, mock test">
+<meta name="keywords" content="all classes study app, school study assistant, AI doubt solver, Maths, Science, CBSE study, previous year questions, revision, Hindi English study help">
 <meta property="og:locale" content="en_IN">
 <meta property="og:locale:alternate" content="hi_IN">
 <meta name="twitter:creator" content="@MedharyaAI">
@@ -59,15 +58,73 @@ body.chat-page .composer-wrap{z-index:5;}
 .student-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end;margin:10px 0;}
 .student-fields>div{min-width:0}.student-fields label{display:block}.student-fields .field{margin-top:5px;}
 @media(max-width:760px){#studytools.page-mode{padding:0 14px 28px}.student-fields{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.student-fields .field{padding:9px 6px;font-size:12px}.student-fields label{font-size:10px}}
-.side-login-point{width:100%;border:1px solid var(--line);background:#1a1b22;color:var(--text);border-radius:14px;padding:12px;text-align:left;font-weight:750;display:flex;justify-content:space-between;cursor:pointer;margin:10px 0}.auth-switch{display:flex;gap:6px}.auth-switch .toolaction{flex:1;margin:0;padding:7px 5px;font-size:11px}.side-login{border:1px solid var(--line);background:#1a1b22;border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:3px}.side-login-title{font-weight:750;font-size:14px;margin:0 0 5px}.side-login .field{margin:2px 0 5px;padding:8px 9px;font-size:12px}.side-login label{font-size:11px}.side-login .side-save{width:100%;margin:5px 0 2px}.side-login .smallmuted{font-size:10px;line-height:1.35}</style></head><body><div class="layout"><aside class="sidebar"><div class="brand"><div class="logo">✦</div> Medharya AI</div><button type="button" class="side-login-point" onclick="toggleAccountPanel()">👤 Student Account <span id="accountPointStatus">＋</span></button><section class="side-login hidden" id="accountPanel" aria-label="Student sign up and login"><div class="side-login-title">Student Account</div><div class="auth-switch"><button type="button" id="signupTab" class="toolaction" onclick="setAuthMode('signup')">Sign up</button><button type="button" id="loginTab" class="toolaction" onclick="setAuthMode('login')">Log in</button></div><div id="signupFields"><label for="sideName" class="smallmuted">Student Name</label><input id="sideName" class="field" placeholder="Your full name" autocomplete="name"><label for="sideClass" class="smallmuted">Class</label><select id="sideClass" class="field"><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="other">Other</option></select></div><label for="sideEmail" class="smallmuted">Email Address</label><input id="sideEmail" class="field" type="email" placeholder="you@example.com" autocomplete="email"><label for="sidePassword" class="smallmuted">Password</label><input id="sidePassword" class="field" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="current-password"><button class="toolaction side-save" id="authSubmit" onclick="submitAuth()">Create account</button><button class="toolaction side-save" id="googleAuthBtn" onclick="signInWithGoogle()">Continue with Google</button><button class="tooltoggle hidden" id="logoutBtn" onclick="logoutStudent()">Log out</button><div id="sideLoginStatus" class="smallmuted" aria-live="polite">Firebase account · Email/password or Google</div><div class="smallmuted">Your account uses Firebase Authentication. Chats and notes sync to your private Firestore account after sign-in.</div></section><button class="newchat" onclick="newChat()">＋ &nbsp; New chat</button><div><div class="label">Chat History</div><div id="chatHistoryList" class="history-list"><div class="smallmuted">Your saved chats will appear here.</div></div><div class="smallmuted">Sign in to sync your chats across devices.</div></div><div><div class="label">Study subjects</div><div class="subjects"><button class="subject" onclick="preset('Explain this Maths question step by step for my class level.')">∑ &nbsp; Mathematics</button><button class="subject" onclick="preset('Explain this Science concept step by step for my class level.')">⚗ &nbsp; Science</button><button class="subject" onclick="preset('Help me revise this Social Science chapter.')">◈ &nbsp; Social Science</button><button class="subject" onclick="preset('Help me practise English grammar with examples.')">A &nbsp; English</button><button class="subject" onclick="preset('Explain this Computer Applications topic with examples.')">⌘ &nbsp; Computer</button></div></div><div><div class="label">Learning modes</div><div class="subjects"><button class="subject" onclick="setMode('explain')">🧠 &nbsp; Step-by-step</button><button class="subject" onclick="setMode('learn')">🎯 &nbsp; Learn with hints</button><button class="subject" onclick="setMode('exam')">📝 &nbsp; Exam practice</button></div></div><div class="sidefoot">Made for curious students<br>Hindi + English · All classes</div></aside><div class="menu-scrim" id="menuScrim" onclick="toggleMenu(false)"></div><main class="main"><header class="topbar"><button class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button><div class="mobilebrand"><div class="logo" style="width:30px;height:30px;font-size:16px">✦</div> Medharya AI</div><div class="toplabel" id="toplabel">Student Thinking Space</div><button id="backHome" class="tooltoggle hidden" onclick="backHome()">← Home</button><div style="display:flex;align-items:center;gap:8px"><button class="tooltoggle" onclick="toggleTools()">📚 Study tools</button><span class="pill">ALL CLASSES · ALL SUBJECTS</span></div></header><section class="scroll"><div id="welcome" class="welcome"><div class="orb">✦</div><h1>Medharya AI</h1><p>Your AI study companion for school students across classes. Get step-by-step help, practise subjects, revise chapters, explore questions, and plan exam preparation in Hindi or English.</p><div class="cards"><button class="prompt" onclick="preset('Explain photosynthesis in simple language with an example for my class level.')"><b>🌱 Explain a concept</b><span>Make a tough topic simple</span></button><button class="prompt" onclick="preset('Solve a sample maths problem for my class level and show every step.')"><b>∑ Solve step by step</b><span>Understand how to reach the answer</span></button><button class="prompt" onclick="preset('Quiz me with 5 Science MCQs for my class level, one at a time.')"><b>🎯 Practise questions</b><span>Test your understanding</span></button><button class="prompt" onclick="preset('Help me make a 7-day revision plan for my exams.')"><b>📚 Plan my revision</b><span>Study smarter for exams</span></button></div><section class="cards" aria-label="Medharya AI study resources"><div class="prompt"><b>School revision for all classes</b><span>Revise Maths, Science, Social Science, English and Computer topics with clear explanations and practice.</span></div><div class="prompt"><b>CBSE previous-year question practice</b><span>Explore the CBSE paper archive and practise exam-style questions. Always verify official papers and marking schemes from CBSE.</span></div><div class="prompt"><b>AI doubt solving</b><span>Ask a study question and learn the reasoning step by step, when the secure AI backend is configured.</span></div><div class="prompt"><b>Study planner</b><span>Organise revision sessions, test your understanding and keep notes on your device.</span></div></section></div><div class="launchers" aria-label="Study feature shortcuts">
-<button class="launchcard" onclick="openTool('pyqCard')"><span class="launchicon">📚</span><strong>CBSE PYQ Library</strong><span>Year · subject · chapter · papers</span></button>
+.side-login-point{width:100%;border:1px solid var(--line);background:#1a1b22;color:var(--text);border-radius:14px;padding:12px;text-align:left;font-weight:750;display:flex;justify-content:space-between;cursor:pointer;margin:10px 0}.auth-switch{display:flex;gap:6px}.auth-switch .toolaction{flex:1;margin:0;padding:7px 5px;font-size:11px}.side-login{border:1px solid var(--line);background:#1a1b22;border-radius:14px;padding:11px;display:flex;flex-direction:column;gap:3px}.side-login-title{font-weight:750;font-size:14px;margin:0 0 5px}.side-login .field{margin:2px 0 5px;padding:8px 9px;font-size:12px}.side-login label{font-size:11px}.side-login .side-save{width:100%;margin:5px 0 2px}.side-login .smallmuted{font-size:10px;line-height:1.35}
+/* ===== ChatGPT-style answers ===== */
+.msg.assistant .bubble{background:transparent!important;border:0!important;padding:2px 0!important;margin-left:0!important;white-space:normal!important;max-width:100%;font-size:16px;line-height:1.75;color:#ececf1}
+.msg.assistant .avatar{background:linear-gradient(140deg,#a99aff,#6251d8);color:#fff}
+.md{word-wrap:break-word}.md>*:first-child{margin-top:0}
+.md p{margin:.7em 0}
+.md h2,.md h3,.md h4{line-height:1.3;margin:1.4em 0 .5em;color:#fff;font-weight:750}
+.md h2{font-size:1.3em;padding-left:11px;border-left:4px solid var(--accent)}
+.md h3{font-size:1.12em;color:#cfc8ff}
+.md h4{font-size:1em;color:var(--green)}
+.md strong{color:#fff;font-weight:700}
+.md em{color:#d8d4ff}
+.md ul,.md ol{margin:.6em 0;padding-left:1.5em}
+.md li{margin:.4em 0;padding-left:.2em}
+.md li::marker{color:var(--accent);font-weight:700}
+.md code{background:#262833;color:#ddd6ff;padding:2px 6px;border-radius:6px;font-size:.88em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.md pre{background:#0c0d12;border:1px solid var(--line);border-radius:12px;padding:14px;overflow:auto;margin:.9em 0}
+.md pre code{background:none;padding:0;color:#e6e6f0}
+.md blockquote{margin:.9em 0;padding:10px 14px;border-left:3px solid var(--green);background:#1a1d26;border-radius:0 10px 10px 0;color:#d9dbe3}
+.md hr{border:0;border-top:1px solid var(--line);margin:1.4em 0}
+.md a{color:#b9afff}
+.md .tablewrap{overflow-x:auto;margin:.9em 0}
+.md table{border-collapse:collapse;min-width:60%;font-size:.93em}
+.md th,.md td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+.md th{background:#22252f;color:#fff}
+.typing{display:inline-flex;gap:5px;padding:10px 0}
+.typing span{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:blink 1.2s infinite ease-in-out}
+.typing span:nth-child(2){animation-delay:.18s}.typing span:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,80%,100%{opacity:.25;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+.caret::after{content:'▍';color:var(--accent);margin-left:2px;animation:blink 1s infinite}
+.actions{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.actions button{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:8px;padding:5px 11px;font-size:12px}
+.actions button:hover{color:#fff;border-color:var(--accent)}
+.actions .pdf-cta{background:linear-gradient(135deg,#7d6cf5,#5a49d6);color:#fff;border:0;font-weight:700;padding:7px 14px}
+.nudge{margin-top:12px;padding:10px 12px;border:1px dashed #5b4fc2;border-radius:12px;background:#1d1a31;font-size:13px;color:#d8d3ff}
+.pdfcard{border:1px solid var(--line);background:#1a1c24;border-radius:14px;padding:14px;margin-top:6px}
+.pdfcard iframe{width:100%;height:480px;border:0;border-radius:10px;margin-top:10px;background:#fff}
+/* ===== login gate ===== */
+.overlay{position:fixed;inset:0;z-index:60;background:rgba(8,9,12,.86);backdrop-filter:blur(6px);display:grid;place-items:center;padding:18px}
+.gate-box{width:min(420px,100%);background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px 24px;text-align:center;box-shadow:0 24px 80px #000a}
+.gate-box .orb{margin:0 auto 12px}
+.gate-box h2{margin:6px 0 8px;font-size:22px}
+.gate-box p{color:var(--muted);font-size:14px;margin:0 0 16px}
+.g-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:#1f1f1f;border:0;border-radius:12px;padding:13px;font-weight:700;font-size:15px;margin-bottom:10px}
+.gate-box .toolaction{width:100%;padding:12px;margin:0}
+.gate-perks{display:grid;gap:6px;text-align:left;font-size:13px;color:#cfd2dc;margin:0 0 16px}
+.guestbadge{text-align:center;font-size:12px;color:#d8d3ff;margin:6px 0 0}
+.guestbadge b{color:var(--green)}
+/* ===== subjects page ===== */
+.chapters{display:grid;gap:8px;margin-top:14px}
+.chap{display:flex;align-items:center;gap:12px;text-align:left;background:#111319;border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--text);font-size:14px}
+.chap:hover{border-color:var(--accent);background:#161922}
+.chap .n{flex:0 0 28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#29253d;color:#cfc8ff;font-weight:700;font-size:12px}
+.chap .go{margin-left:auto;color:var(--accent)}
+/* ===== tips ===== */
+.greet{font-size:14px;color:var(--green);font-weight:700;margin-bottom:6px;text-align:center}
+.tipsbox{margin-top:22px}
+.tipsbox .label{margin-bottom:8px}
+.tipbanner{margin:0 0 14px;padding:11px 14px;border-radius:14px;background:linear-gradient(135deg,#231f3f,#1a2230);border:1px solid #3a3566;font-size:13px;color:#e4e0ff;text-align:center}
+</style></head><body><div class="layout"><aside class="sidebar"><div class="brand"><div class="logo">✦</div> Medharya AI</div><button type="button" class="side-login-point" onclick="toggleAccountPanel()">👤 Student Account <span id="accountPointStatus">＋</span></button><section class="side-login hidden" id="accountPanel" aria-label="Student sign up and login"><div class="side-login-title">Student Account</div><div class="auth-switch"><button type="button" id="signupTab" class="toolaction" onclick="setAuthMode('signup')">Sign up</button><button type="button" id="loginTab" class="toolaction" onclick="setAuthMode('login')">Log in</button></div><div id="signupFields"><label for="sideName" class="smallmuted">Student Name</label><input id="sideName" class="field" placeholder="Your full name" autocomplete="name"><label for="sideClass" class="smallmuted">Class</label><select id="sideClass" class="field"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="other">Other</option></select></div><label for="sideEmail" class="smallmuted">Email Address</label><input id="sideEmail" class="field" type="email" placeholder="you@example.com" autocomplete="email"><label for="sidePassword" class="smallmuted">Password</label><input id="sidePassword" class="field" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="current-password"><button class="toolaction side-save" id="authSubmit" onclick="submitAuth()">Create account</button><button class="toolaction side-save" id="googleAuthBtn" onclick="signInWithGoogle()">Continue with Google</button><button class="tooltoggle hidden" id="logoutBtn" onclick="logoutStudent()">Log out</button><div id="sideLoginStatus" class="smallmuted" aria-live="polite">Firebase account · Email/password or Google</div><div class="smallmuted">Your account uses Firebase Authentication. Your chats sync to your private Firestore account after sign-in.</div></section><button class="newchat" onclick="newChat()">＋ &nbsp; New chat</button><div><div class="label">Chat History</div><div id="chatHistoryList" class="history-list"><div class="smallmuted">Your saved chats will appear here.</div></div><div class="smallmuted">Sign in to sync your chats across devices.</div></div><div><div class="label">Study subjects</div><div class="subjects"><button class="subject" onclick="openSubject('Mathematics')">∑ &nbsp; Mathematics</button><button class="subject" onclick="openSubject('Science')">⚗ &nbsp; Science</button><button class="subject" onclick="openSubject('Social Science')">◈ &nbsp; Social Science</button><button class="subject" onclick="openSubject('English')">A &nbsp; English</button><button class="subject" onclick="openSubject('Computer')">⌘ &nbsp; Computer</button></div></div><div><div class="label">Learning modes</div><div class="subjects"><button class="subject" onclick="setMode('explain')">🧠 &nbsp; Step-by-step</button><button class="subject" onclick="setMode('learn')">🎯 &nbsp; Learn with hints</button><button class="subject" onclick="setMode('exam')">📝 &nbsp; Exam practice</button></div></div><div class="sidefoot">Made for curious students<br>Hindi + English · All classes</div></aside><div class="menu-scrim" id="menuScrim" onclick="toggleMenu(false)"></div><main class="main"><header class="topbar"><button class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button><div class="mobilebrand"><div class="logo" style="width:30px;height:30px;font-size:16px">✦</div> Medharya AI</div><div class="toplabel" id="toplabel">Student Thinking Space</div><button id="backHome" class="tooltoggle hidden" onclick="backHome()">← Home</button><div style="display:flex;align-items:center;gap:8px"><button class="tooltoggle" onclick="toggleTools()">📚 Study tools</button><span class="pill">ALL CLASSES · ALL SUBJECTS</span></div></header><section class="scroll"><div id="welcome" class="welcome"><div class="orb">✦</div><div id="greet" class="greet"></div><h1>Medharya AI</h1><p>Your AI study companion for school students across classes. Get step-by-step help, practise subjects, revise chapters, explore questions, and plan exam preparation in Hindi or English.</p><div class="cards"><button class="prompt" onclick="preset('Explain photosynthesis in simple language with an example for my class level.')"><b>🌱 Explain a concept</b><span>Make a tough topic simple</span></button><button class="prompt" onclick="preset('Solve a sample maths problem for my class level and show every step.')"><b>∑ Solve step by step</b><span>Understand how to reach the answer</span></button><button class="prompt" onclick="preset('Quiz me with 5 Science MCQs for my class level, one at a time.')"><b>🎯 Practise questions</b><span>Test your understanding</span></button><button class="prompt" onclick="preset('Help me make a 7-day revision plan for my exams.')"><b>📚 Plan my revision</b><span>Study smarter for exams</span></button></div><section class="cards" aria-label="Medharya AI study resources"><div class="prompt"><b>School revision for all classes</b><span>Revise Maths, Science, Social Science, English and Computer topics with clear explanations and practice.</span></div><div class="prompt"><b>CBSE previous-year question practice</b><span>Get CBSE-pattern papers and marking schemes right inside the chat and download them as PDF.</span></div><div class="prompt"><b>AI doubt solving</b><span>Ask a study question and learn the reasoning step by step, when the secure AI backend is configured.</span></div><div class="prompt"><b>Study planner</b><span>Organise revision sessions, test your understanding and keep notes on your device.</span></div></section><div class="tipsbox"><div class="label">💡 Study tips jo marks badhate hain</div><div id="tipBanner" class="tipbanner"></div><div class="cards"><button class="prompt" onclick="preset('Quiz me on the topic I just studied. Ask one question at a time without showing the answer first (active recall).')"><b>🧠 Active Recall</b><span>Padhne ke baad book band — khud se test karo</span></button><button class="prompt" onclick="openTool('planCard')"><b>⏱️ Pomodoro 25 + 5</b><span>25 min focus, 5 min break. Phone door rakho</span></button><button class="prompt" onclick="preset('Explain a topic to me like I am 10 years old, then ask me to explain it back in my own words and correct me (Feynman technique).')"><b>🗣️ Feynman Technique</b><span>Simple bhasha me samjhao, tabhi samjha</span></button><button class="prompt" onclick="preset('Make a spaced revision plan for my exam using Day 1, Day 3, Day 7 and Day 21 revisions.')"><b>🔁 1-3-7-21 Revision</b><span>Bhoolne se pehle dobara revise karo</span></button><button class="prompt" onclick="openTool('pyqCard')"><b>📚 PYQ first</b><span>Exam pattern samajhne ka sabse tez tareeka</span></button><button class="prompt" onclick="preset('Help me build a mistake notebook: ask me my last 5 mistakes in a subject and explain how to never repeat them.')"><b>📓 Mistake Notebook</b><span>Galti likho, wahi sabse bada teacher hai</span></button></div></div></div><div class="launchers" aria-label="Study feature shortcuts">
+<button class="launchcard" onclick="openTool('pyqCard')"><span class="launchicon">📚</span><strong>CBSE PYQ Library</strong><span>CBSE-style practice in chat</span></button>
 
 
 <button class="launchcard" onclick="openTool('imageCard')"><span class="launchicon">📷</span><strong>Photo Solver</strong><span>Upload a question image</span></button>
 
 
 <button class="launchcard" onclick="openTool('planCard')"><span class="launchicon">⏱️</span><strong>Study Planner</strong><span>Plan sessions and focus time</span></button>
-<button class="launchcard" onclick="openTool('progressCard')"><span class="launchicon">📈</span><strong>My Progress</strong><span>Track activity on this device</span></button>
 
 
 </div><div id="messages" class="messages"></div><div id="studytools" class="studytools hidden">
@@ -77,13 +134,15 @@ body.chat-page .composer-wrap{z-index:5;}
 
 <article class="toolcard" id="planCard"><h3>📅 Study Planner + Focus Timer</h3><p>Create a simple study plan and run a focus session.</p><input id="planSubject" class="field" placeholder="Subject / chapter"><input id="planMins" class="field" type="number" min="5" max="240" value="25" aria-label="Minutes"><button class="toolaction" onclick="createPlan()">Create plan</button><div id="planOut" class="toolout">Your plan will appear here.</div><div style="font-size:26px;font-weight:750;margin-top:10px" id="focusClock">25:00</div><button class="toolaction" onclick="startFocus()">▶ Start</button><button class="toolaction" onclick="pauseFocus()">Ⅱ Pause</button><button class="toolaction" onclick="resetFocus()">↺ Reset</button></article>
 
-<article class="toolcard" id="progressCard"><h3>📈 Learning Progress</h3><p>Your learning activity is saved locally and synced to your Firebase account when signed in.</p><div id="progressOut" class="toolout">Questions asked: 0<br>Quiz answers: 0<br>Notes saved: 0</div><button class="toolaction" onclick="speakLast()">🔊 Read last answer</button><button class="toolaction" onclick="startSpeech()">🎙️ Speak a question</button><div class="smallmuted" id="voiceStatus">Voice features depend on browser support.</div></article>
-<article class="toolcard" id="pyqCard" style="grid-column:1/-1"><h3>📚 CBSE PYQ Library</h3><p>Find previous-year papers by year and subject. This version links to the official CBSE question-paper portal; individual paper PDFs and answer keys are not bundled or marked verified unless checked separately.</p><div class="toolgrid"><div><label for="pyqYear" class="smallmuted">Year</label><select id="pyqYear" class="field"><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option></select></div><div><label for="pyqSubject" class="smallmuted">Subject</label><select id="pyqSubject" class="field"><option>Science</option><option>Mathematics Standard</option><option>Mathematics Basic</option><option>Social Science</option><option>English Language and Literature</option><option>Hindi</option><option>Computer Applications / IT</option></select></div><div><label for="pyqChapter" class="smallmuted">Chapter (practice filter)</label><select id="pyqChapter" class="field"><option value="all">All chapters</option><option>Real Numbers</option><option>Polynomials</option><option>Pair of Linear Equations</option><option>Light – Reflection and Refraction</option><option>Electricity</option><option>Life Processes</option><option>Nationalism in India</option><option>Power Sharing</option><option>Networking</option><option>HTML</option></select></div><div><label for="pyqType" class="smallmuted">Resource type</label><select id="pyqType" class="field"><option value="paper">Question paper</option><option value="answer">Answer key / marking scheme</option><option value="practice">Chapter practice (demo)</option></select></div></div><button class="toolaction" onclick="findPYQ()">Search library</button><div id="pyqOut" class="toolout">Choose filters and search. Official CBSE archive will open in a new tab.</div><a class="toolaction" style="display:inline-block;text-decoration:none" href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank" rel="noopener">Open official CBSE question-paper archive ↗</a><div class="notice">Verification note: the archive is an official starting point, but availability varies by year and subject. This app does not claim every 2016–2026 paper or answer key is already verified.</div></article>
+<article class="toolcard" id="subjectCard"><h3 id="subjTitle">Subject</h3><p>Pehle apni class chuno. Phir kisi bhi chapter par click karo — us class ke level ke questions chat me aa jayenge.</p><label for="subjClass" class="smallmuted">Class</label><select id="subjClass" class="field" onchange="subjClassChanged()"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option></select><div id="chapterList" class="chapters"></div></article>
+<article class="toolcard" id="pyqCard" style="grid-column:1/-1"><h3>📚 CBSE PYQ Library</h3><p>Year, class, subject aur chapter chuno. Abhi verified official PDF collection configured nahi hai, isliye library AI-generated CBSE-pattern practice paper ya answer key banati hai. Chat se PDF export kar sakte ho.</p><div class="toolgrid"><div><label for="pyqYear" class="smallmuted">Year</label><select id="pyqYear" class="field"><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option></select></div><div><label for="pyqClass" class="smallmuted">Class</label><select id="pyqClass" class="field" onchange="pyqClassChanged()"><option value="10">Class 10</option><option value="12">Class 12</option></select></div><div><label for="pyqSubject" class="smallmuted">Subject</label><select id="pyqSubject" class="field" onchange="pyqSubjectChanged()"><option>Science</option><option>Mathematics Standard</option><option>Mathematics Basic</option><option>Social Science</option><option>English Language and Literature</option><option>Hindi</option><option>Computer Applications / IT</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Mathematics (Class 12)</option></select></div><div><label for="pyqChapter" class="smallmuted">Chapter (optional)</label><select id="pyqChapter" class="field"><option value="all">All chapters</option><option>Real Numbers</option><option>Polynomials</option><option>Pair of Linear Equations</option><option>Light – Reflection and Refraction</option><option>Electricity</option><option>Life Processes</option><option>Nationalism in India</option><option>Power Sharing</option><option>Networking</option><option>HTML</option></select></div><div><label for="pyqType" class="smallmuted">Resource type</label><select id="pyqType" class="field"><option value="paper">Question paper</option><option value="answer">Answer key / marking scheme</option><option value="practice">Chapter practice</option></select></div></div><button class="toolaction" onclick="findPYQ()">Search library</button><div id="pyqOut" class="toolout">Filters chuno. Official PDFs tabhi khulenge jab verified links configured hon; warna AI-generated practice chat me aayegi.</div></article>
 
 
 
 
-</div></div></section><div class="composer-wrap"><div class="composer"><textarea id="question" rows="1" placeholder="Ask anything about your studies…" onkeydown="handleKey(event)" oninput="resizeBox(this)"></textarea><div class="composer-bottom"><div class="tools"><button class="toolbtn" type="button" onclick="document.getElementById('chatImageInput').click()" title="Attach an image">🖼️ Image</button><input id="chatImageInput" type="file" accept="image/*" hidden onchange="previewChatImage(event)"><span id="chatImageStatus" class="smallmuted"></span><button class="toolbtn" onclick="setMode('explain')">🧠 <span id="modeLabel">Step-by-step</span></button><button class="toolbtn" onclick="toggleLanguage()" id="langBtn">🌐 English</button><button class="toolbtn" onclick="startSpeech()" title="Voice input">🎙️</button></div><button class="send" id="sendBtn" onclick="sendQuestion()">Send ↑</button></div></div><div class="hint">Medharya can make mistakes. Verify important answers with your textbook or teacher.</div></div></main></div>
+</div></div></section><div id="gate" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="gateTitle"><div class="gate-box"><div class="orb">✦</div><h2 id="gateTitle">Aage badhne ke liye login karein</h2><p>Aapke 3 free chats poore ho gaye. Free account banao — bas ek click me.</p><div class="gate-perks"><div>✅ AI doubt solving after sign-in</div><div>✅ Class-wise chapter help</div><div>✅ AI-generated practice papers and PDF export</div><div>✅ Chats synced to your account</div></div><button class="g-btn" onclick="signInWithGoogle()"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.5-.8-3-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C.9 16.4 0 20.100 0 24s.9 7.600 2.600 10.800l7.900-6.100z"/><path fill="#34A853" d="M24 48c6.5 0 11.900-2.100 15.900-5.800l-7.500-5.800c-2.100 1.400-4.800 2.300-8.400 2.300-6.300 0-11.600-4.100-13.500-9.800l-7.900 6.100C6.500 42.600 14.600 48 24 48z"/></svg>Continue with Google</button><button class="toolaction" onclick="openEmailAuth()">Email se Sign up / Log in</button><div id="gateStatus" class="smallmuted" style="margin-top:10px" aria-live="polite"></div></div></div>
+<div id="classModal" class="overlay hidden" role="dialog" aria-modal="true"><div class="gate-box"><div class="orb">🎓</div><h2>Aap kaun si class me ho?</h2><p>Isse hum chapters aur questions aapki class ke hisaab se dikhayenge.</p><select id="classPick" class="field"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option></select><button class="toolaction" style="margin-top:10px" onclick="saveClassChoice()">Save &amp; continue</button><div id="classStatus" class="smallmuted" style="margin-top:8px"></div></div></div>
+<div class="composer-wrap"><div class="composer"><textarea id="question" rows="1" placeholder="Ask anything about your studies…" onkeydown="handleKey(event)" oninput="resizeBox(this)"></textarea><div class="composer-bottom"><div class="tools"><button class="toolbtn" type="button" onclick="document.getElementById('chatImageInput').click()" title="Attach an image">🖼️ Image</button><input id="chatImageInput" type="file" accept="image/*" hidden onchange="previewChatImage(event)"><span id="chatImageStatus" class="smallmuted"></span><span id="voiceStatus" class="smallmuted"></span><button class="toolbtn" onclick="setMode('explain')">🧠 <span id="modeLabel">Step-by-step</span></button><button class="toolbtn" onclick="toggleLanguage()" id="langBtn">🌐 English</button><button class="toolbtn" onclick="startSpeech()" title="Voice input">🎙️</button></div><button class="send" id="sendBtn" onclick="sendQuestion()">Send ↑</button></div></div><div id="guestBadge" class="guestbadge hidden"></div><div class="hint">Medharya can make mistakes. Verify important answers with your textbook or teacher.</div></div></main></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
@@ -114,10 +173,11 @@ try {
 // Google Apps Script backend endpoint. Keep the Gemini API key in Script Properties, never in this HTML.
 const MEDHARYA_API_URL = 'https://script.google.com/macros/s/AKfycbx93jgAN_zJO8NgTmmwU5c5geBqkeiFWPmsIiM6ryosZ9k-nmeMsfOgRKBPw-EdeYVRUA/exec';
 let pendingImage = null;
+let isSending = false;
 let activeChatId = null, activeChatMessages = [];
 let mode='explain', language='en', questionCount=0, quizCount=0, noteCount=0, lastAnswer='', quizCurrent=null, focusSeconds=1500, focusInterval=null; const $=id=>document.getElementById(id);
 window.addEventListener('DOMContentLoaded',()=>{
-  renderChatHistory();
+  renderChatHistory();updateGuestBadge();refreshGreeting();startTips();pyqClassChanged();
   if(cloudReady){
     firebaseAuth.onAuthStateChanged(async user=>{
       if(user){
@@ -126,11 +186,12 @@ window.addEventListener('DOMContentLoaded',()=>{
           const snap=await ref.get();
           let profile=snap.exists?snap.data():{};
           if(!profile.name){
-            profile={name:user.displayName||'Student',class:'Other',email:user.email||'',createdAt:new Date().toISOString()};
-            await ref.set(profile,{merge:true});
+            profile={name:user.displayName||'Student',class:'',email:user.email||'',createdAt:new Date().toISOString()};
+            await ref.set({name:profile.name,email:profile.email,createdAt:profile.createdAt},{merge:true});
           }
-          currentStudentProfile={uid:user.uid,name:profile.name||user.displayName||'Student',class:profile.class||'Other',email:user.email||''};
-          showSignedIn(currentStudentProfile);
+          currentStudentProfile={uid:user.uid,name:profile.name||user.displayName||'Student',class:profile.class||'',email:user.email||''};
+          showSignedIn(currentStudentProfile);hideGate();updateGuestBadge();refreshGreeting();if(needsClass(currentStudentProfile))showClassModal();
+          migrateGuestData();
           await syncLocalDataToCloud();
           await loadCloudData();
         }catch(err){
@@ -138,12 +199,12 @@ window.addEventListener('DOMContentLoaded',()=>{
           $('sideLoginStatus').textContent='Signed in, but cloud sync failed: '+(err.message||err);
         }
       }else{
-        currentStudentProfile=null;
+        currentStudentProfile=null;activeChatId=null;activeChatMessages=[];answerStore.length=0;if($('messages'))$('messages').innerHTML='';
         $('sideLoginStatus').textContent='Not signed in. Sign in to sync chats and notes across devices.';
         $('logoutBtn').classList.add('hidden');
         $('googleAuthBtn').classList.remove('hidden');
         renderChatHistory();
-        renderNotes();
+        renderNotes();updateGuestBadge();refreshGreeting();
       }
     });
   }else{
@@ -152,93 +213,274 @@ window.addEventListener('DOMContentLoaded',()=>{
   }
 });
 function toggleAccountPanel(){const panel=$('accountPanel');panel.classList.toggle('hidden');$('accountPointStatus').textContent=panel.classList.contains('hidden')?'＋':'−';}
-function previewChatImage(event){const file=event.target.files&&event.target.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Please select an image.');return;}if(file.size>8*1024*1024){alert('Please choose an image smaller than 8 MB.');event.target.value='';return;}const reader=new FileReader();reader.onload=()=>{pendingImage={mimeType:file.type||'image/jpeg',data:String(reader.result).split(',')[1]};$('chatImageStatus').textContent='Image attached ✓';};reader.onerror=()=>{$('chatImageStatus').textContent='Could not read image';};reader.readAsDataURL(file);}
+function previewChatImage(event){const file=event.target.files&&event.target.files[0];if(!file)return;if(!file.type.startsWith('image/')){alert('Please select an image.');return;}if(file.size>5*1024*1024){alert('Please choose an image smaller than 5 MB.');event.target.value='';return;}const reader=new FileReader();reader.onload=()=>{pendingImage={mimeType:file.type||'image/jpeg',data:String(reader.result).split(',')[1]};$('chatImageStatus').textContent='Image attached ✓';};reader.onerror=()=>{$('chatImageStatus').textContent='Could not read image';};reader.readAsDataURL(file);}
 function setMode(m){mode=m;$('modeLabel').textContent=m==='learn'?'Learn with hints':m==='exam'?'Exam practice':'Step-by-step';$('question').focus()}
 function toggleLanguage(){language=language==='en'?'hi':'en';$('langBtn').textContent=language==='en'?'🌐 English':'🌐 हिन्दी';$('question').placeholder=language==='en'?'Ask anything about your studies…':'अपना पढ़ाई का सवाल पूछें…'}
 function preset(t){$('question').value=t;$('question').focus();resizeBox($('question'))}
 function resizeBox(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,180)+'px'}
 function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendQuestion()}}
 function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function historyStoreKey(){return 'medharya_chat_history_v1'}
-function readChatHistory(){try{const value=JSON.parse(localStorage.getItem(historyStoreKey())||'[]');return Array.isArray(value)?value:[]}catch(e){return []}}
+function dataScope(){const u=firebaseAuth&&firebaseAuth.currentUser;return u?'user_'+u.uid:'guest'}
+function historyStoreKey(){return 'medharya_chat_history_v1_'+dataScope()}
+function notesStoreKey(){return 'medharya_notes_v1_'+dataScope()}
+function readChatHistory(){try{let raw=localStorage.getItem(historyStoreKey());if(raw===null&&!isLoggedIn())raw=localStorage.getItem('medharya_chat_history_v1');const value=JSON.parse(raw||'[]');return Array.isArray(value)?value:[]}catch(e){return []}}
+function readNotes(){try{let raw=localStorage.getItem(notesStoreKey());if(raw===null&&!isLoggedIn())raw=localStorage.getItem('medharya_notes');const value=JSON.parse(raw||'[]');return Array.isArray(value)?value:[]}catch(e){return []}}
+function writeNotes(notes){try{localStorage.setItem(notesStoreKey(),JSON.stringify(notes))}catch(e){console.warn('Notes could not be saved in this browser.')}}
 function saveCurrentChat(){if(!activeChatMessages.length)return;const chats=readChatHistory();const first=activeChatMessages.find(m=>m.role==='user');const title=(first&&first.text?first.text:'New chat').replace(/\s+/g,' ').slice(0,58);const record={id:activeChatId||String(Date.now()),title,updatedAt:new Date().toISOString(),messages:activeChatMessages.slice(-80)};activeChatId=record.id;const index=chats.findIndex(c=>c.id===record.id);if(index>=0)chats[index]=record;else chats.unshift(record);try{localStorage.setItem(historyStoreKey(),JSON.stringify(chats.slice(0,40)))}catch(e){console.warn('Chat history could not be saved in this browser.')}renderChatHistory();const ref=userDoc();if(ref)ref.collection('chats').doc(String(record.id)).set(record,{merge:true}).catch(err=>console.warn('Chat cloud save failed:',err));}
-function renderChatHistory(){const list=$('chatHistoryList');if(!list)return;const chats=readChatHistory();list.innerHTML=chats.length?chats.map(c=>`<button class="history-item" type="button" title="${esc(c.title||'Saved chat')}" onclick="openSavedChat('${String(c.id).replace(/[^0-9]/g,'')}')">${esc(c.title||'Saved chat')}</button>`).join(''):'<div class="smallmuted">No saved chats yet.</div>'}
-function openSavedChat(id){const chat=readChatHistory().find(c=>c.id===id);if(!chat)return;activeChatId=chat.id;activeChatMessages=Array.isArray(chat.messages)?chat.messages.slice():[];$('messages').innerHTML='';activeChatMessages.forEach(m=>{let d=document.createElement('div');d.className='msg '+(m.role==='assistant'?'assistant':'user');d.innerHTML=`<div class="avatar">${m.role==='user'?'🙂':'✦'}</div><div class="bubble">${m.role==='assistant'?'<div class="assistantname">Medharya · Student Thinking</div>':''}<div class="answertext">${esc(m.text||'').replace(/\n/g,'<br>')}</div></div>`;$('messages').appendChild(d)});openChatPage();$('toplabel').textContent=chat.title||'Saved chat';toggleMenu(false)}
+function renderChatHistory(){const list=$('chatHistoryList');if(!list)return;const chats=readChatHistory();list.innerHTML=chats.length?chats.map(c=>`<button class="history-item" type="button" title="${esc(c.title||'Saved chat')}" onclick="openSavedChat('${esc(String(c.id))}')">${esc(c.title||'Saved chat')}</button>`).join(''):'<div class="smallmuted">No saved chats yet.</div>'}
+function openSavedChat(id){const chat=readChatHistory().find(c=>c.id===id);if(!chat)return;activeChatId=chat.id;activeChatMessages=Array.isArray(chat.messages)?chat.messages.slice():[];$('messages').innerHTML='';activeChatMessages.forEach(m=>{let d=document.createElement('div');d.className='msg '+(m.role==='assistant'?'assistant':'user');d.innerHTML=`<div class="avatar">${m.role==='user'?'🙂':'✦'}</div><div class="bubble">${m.role==='assistant'?'<div class="assistantname">Medharya · Student Thinking</div>':''}<div class="answertext">${m.role==='assistant'?'<div class="md">'+mdToHtml(m.text||'')+'</div>':esc(m.text||'').replace(/\n/g,'<br>')}</div></div>`;$('messages').appendChild(d)});openChatPage();$('toplabel').textContent=chat.title||'Saved chat';toggleMenu(false)}
 function addMsg(role,html){let d=document.createElement('div');d.className='msg '+role;d.innerHTML=`<div class="avatar">${role==='user'?'🙂':'✦'}</div><div class="bubble">${role==='assistant'?'<div class="assistantname">Medharya · Student Thinking</div>':''}<div class="answertext">${html}</div></div>`;$('messages').appendChild(d);const tmp=document.createElement('div');tmp.innerHTML=html;activeChatMessages.push({role,text:tmp.textContent||tmp.innerText||''});saveCurrentChat();return d}
 function updateLastChatMessage(text){if(activeChatMessages.length){activeChatMessages[activeChatMessages.length-1].text=String(text||'');saveCurrentChat()}}
-function openChatPage(){document.body.classList.add('chat-page');$('welcome').classList.add('hidden');document.querySelector('.launchers').classList.add('hidden');$('studytools').classList.add('hidden');$('messages').classList.remove('hidden');$('backHome').classList.remove('hidden');$('toplabel').textContent='Medharya · Chat';toggleMenu(false);window.scrollTo({top:0,behavior:'instant'});}
-async function sendQuestion(){
- let q=$('question').value.trim(); if(!q && !pendingImage)return;
- openChatPage();
- 
- if(q)addMsg('user',esc(q)); else addMsg('user','📷 Question image attached');
- $('question').value='';resizeBox($('question')); const d=addMsg('assistant','<p>Thinking…</p>'); const content=d.querySelector('.answertext');
- const send=$('sendBtn'); if(send){send.disabled=true;send.textContent='Thinking…';}
- try{
-  const payload={message:q||'Read the attached image and solve the question step by step.',language,mode,student:(()=>{try{return JSON.parse(localStorage.getItem('medharya_demo_profile')||'null')}catch(e){return null}})()};
-  if(pendingImage)payload.image=pendingImage;
-  // Apps Script ContentService redirects its response to script.googleusercontent.com.
-  // Keep this as a simple text/plain POST (no custom headers / no CORS preflight)
-  // and explicitly follow Google's response redirect.
-  const response=await fetch(MEDHARYA_API_URL,{
-   method:'POST',
-   mode:'cors',
-   redirect:'follow',
-   credentials:'omit',
-   cache:'no-store',
-   headers:{'Content-Type':'text/plain;charset=utf-8'},
-   body:JSON.stringify(payload)
-  });
-  const raw=await response.text();
-  let data;
-  try{data=JSON.parse(raw);}catch(parseErr){
-   const preview=String(raw||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').slice(0,220);
-   throw new Error('Backend ne JSON response nahi diya. HTTP '+response.status+'. '+(preview||'Empty response'));
-  }
-  if(!response.ok||data.ok===false)throw new Error(data.error||('Request failed ('+response.status+').'));
-  const answer=String(data.answer||'No answer returned.');
-  content.innerHTML='<div class="ai-answer">'+esc(answer).replace(/\n/g,'<br>')+'</div>';
-  updateLastChatMessage(answer);
-  lastAnswer=answer; pendingImage=null;
-  if($('chatImageInput'))$('chatImageInput').value='';
-  if($('questionImage'))$('questionImage').value='';
-  if($('chatImageStatus'))$('chatImageStatus').textContent='';
-  questionCount++;saveProgress();
- }catch(err){
-  const detail=String(err&&err.message||err||'Unknown network error');
-  content.innerHTML='<div class="notice"><b>Medharya AI connection error</b><br>'+esc(detail)+'<br><br>If this says “Failed to fetch” or a CORS error, the browser is blocking the Apps Script response; the frontend alone cannot override that. Check the Apps Script deployment access and browser Console for the exact error.</div>';
-  updateLastChatMessage('Connection error: '+detail);
- }
- finally{if(send){send.disabled=false;send.textContent='Send ↑';} const last=$('messages').lastElementChild;if(last)last.scrollIntoView({behavior:'smooth',block:'end'});}
+function openChatPage(){document.body.classList.add('chat-page');$('welcome').classList.add('hidden');document.querySelector('.launchers').classList.add('hidden');$('studytools').classList.add('hidden');$('messages').classList.remove('hidden');document.querySelector('.composer-wrap').classList.remove('hidden');$('backHome').classList.remove('hidden');$('toplabel').textContent='Medharya · Chat';toggleMenu(false);window.scrollTo({top:0,behavior:'instant'});}
+
+/* ================= Guest limit / login gate ================= */
+const GUEST_LIMIT=3;
+function guestCount(){return Number(localStorage.getItem('medharya_guest_chats')||0)}
+function isLoggedIn(){return !!(firebaseAuth&&firebaseAuth.currentUser)}
+function needsClass(p){return !p||!p.class||String(p.class).toLowerCase()==='other'}
+function userClass(){if(currentStudentProfile&&currentStudentProfile.class&&String(currentStudentProfile.class).toLowerCase()!=='other')return String(currentStudentProfile.class);return localStorage.getItem('medharya_guest_class')||''}
+function showGate(){$('gate').classList.remove('hidden')}
+function hideGate(){const g=$('gate');if(g)g.classList.add('hidden')}
+function openEmailAuth(){hideGate();const p=$('accountPanel');if(p.classList.contains('hidden'))toggleAccountPanel();setAuthMode('signup');toggleMenu(true)}
+function setAuthStatus(m){$('sideLoginStatus').textContent=m;if($('gateStatus'))$('gateStatus').textContent=m}
+function updateGuestBadge(){const b=$('guestBadge');if(!b)return;if(isLoggedIn()){b.classList.add('hidden');return}const left=Math.max(0,GUEST_LIMIT-guestCount());b.innerHTML=left>0?`Guest mode · <b>${left}</b> free chat${left>1?'s':''} left — <a href="#" style="color:#b9afff" onclick="showGate();return false">login karein</a>`:`Free chats khatam · <a href="#" style="color:#b9afff" onclick="showGate();return false">login karein</a>`;b.classList.remove('hidden')}
+function refreshGreeting(){const g=$('greet');if(!g)return;const n=currentStudentProfile&&currentStudentProfile.name;const c=userClass();g.textContent=n?`Namaste ${n.split(' ')[0]} 👋${c?' · Class '+c:''}`:'Namaste 👋 Aaj kya seekhna hai?'}
+function showClassModal(){$('classModal').classList.remove('hidden')}
+async function saveClassChoice(){const v=$('classPick').value;if(!v){$('classStatus').textContent='Please select your class.';return}localStorage.setItem('medharya_guest_class',v);try{const ref=userDoc();if(ref)await ref.set({class:v,updatedAt:new Date().toISOString()},{merge:true});if(currentStudentProfile)currentStudentProfile.class=v;showSignedIn(currentStudentProfile||{name:'Student',class:v,email:''});$('classModal').classList.add('hidden');refreshGreeting()}catch(e){$('classStatus').textContent='Could not save: '+(e.message||e)}}
+
+/* ================= Tips ================= */
+const TIPS=['Tip: Ek chapter padhne ke baad 5 minute book band karke yaad karo — marks 2x tak badh sakte hain.','Tip: Raat ko sone se pehle 10 minute revise karo — neend me yaad pakka hota hai.','Tip: Doubt aaye to turant poochho. Doubt jama hone par hi marks katte hain.','Tip: PYQ sabse pehle solve karo — examiner ka pattern wahin se samajh aata hai.','Tip: Formula ko rattne se behtar hai, ek example khud solve karna.','Tip: Har 25 minute padhai ke baad 5 minute ka break lo — dimaag fresh rehta hai.'];
+let tipIdx=0;
+function startTips(){const el=$('tipBanner');if(!el)return;const show=()=>{el.textContent=TIPS[tipIdx++%TIPS.length]};tipIdx=new Date().getDate()%TIPS.length;show();setInterval(show,9000)}
+
+/* ================= Markdown renderer (ChatGPT-like) ================= */
+function mdInline(s){
+  s=s.replace(/`([^`]+)`/g,'<code>$1</code>');
+  s=s.replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');
+  s=s.replace(/(^|[^*\w])\*([^*\s][^*]*?)\*(?!\*)/g,'$1<em>$2</em>');
+  s=s.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return s;
 }
-function buildDemo(q){return '<p>Live AI is enabled through the secure backend when configured.</p>'}
+function mdBlocks(t){
+  const L=t.split('\n');let h='',list=null,para=[],i=0;
+  const flushP=()=>{if(para.length){h+='<p>'+mdInline(para.join('<br>'))+'</p>';para=[]}};
+  const flushL=()=>{if(list){h+='<'+list.t+'>'+list.items.map(x=>'<li>'+mdInline(x)+'</li>').join('')+'</'+list.t+'>';list=null}};
+  while(i<L.length){
+    const ln=L[i];let m;
+    if(!ln.trim()){flushP();flushL();i++;continue}
+    if((m=ln.match(/^(#{1,6})\s+(.*)$/))){flushP();flushL();const n=Math.min(m[1].length+1,4);h+=`<h${n}>${mdInline(m[2])}</h${n}>`;i++;continue}
+    if(/^\s*([-*_])(\s*\1){2,}\s*$/.test(ln)){flushP();flushL();h+='<hr>';i++;continue}
+    if(/^\s*\|.*\|\s*$/.test(ln)&&i+1<L.length&&/^\s*\|?\s*:?-{2,}/.test(L[i+1])){
+      flushP();flushL();const cells=r=>r.trim().replace(/^\||\|$/g,'').split('|').map(c=>mdInline(c.trim()));
+      const head=cells(ln);i+=2;const rows=[];
+      while(i<L.length&&/^\s*\|.*\|\s*$/.test(L[i])){rows.push(cells(L[i]));i++}
+      h+='<div class="tablewrap"><table><thead><tr>'+head.map(c=>'<th>'+c+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';continue}
+    if((m=ln.match(/^\s*[-*•]\s+(.*)$/))){flushP();if(!list||list.t!=='ul'){flushL();list={t:'ul',items:[]}}list.items.push(m[1]);i++;continue}
+    if((m=ln.match(/^\s*\d+[.)]\s+(.*)$/))){flushP();if(!list||list.t!=='ol'){flushL();list={t:'ol',items:[]}}list.items.push(m[1]);i++;continue}
+    if((m=ln.match(/^&gt;\s?(.*)$/))){flushP();flushL();const q=[m[1]];i++;while(i<L.length&&(m=L[i].match(/^&gt;\s?(.*)$/))){q.push(m[1]);i++}h+='<blockquote>'+mdInline(q.join('<br>'))+'</blockquote>';continue}
+    if(list&&/^\s{2,}\S/.test(ln)){list.items[list.items.length-1]+='<br>'+ln.trim();i++;continue}
+    flushL();para.push(ln.trim());i++;
+  }
+  flushP();flushL();return h;
+}
+function mdToHtml(src){
+  const parts=esc(String(src||'')).replace(/\r/g,'').split('```');let out='';
+  parts.forEach((p,i)=>{
+    if(i%2===1){const nl=p.indexOf('\n');const code=nl>=0?p.slice(nl+1):p;out+='<pre><code>'+code.replace(/\n$/,'')+'</code></pre>'}
+    else out+=mdBlocks(p);
+  });
+  return out;
+}
 
-function newChat(){activeChatId=null;activeChatMessages=[];$('messages').innerHTML='';document.body.classList.remove('chat-page');$('welcome').classList.remove('hidden');document.querySelector('.launchers').classList.remove('hidden');$('backHome').classList.add('hidden');$('toplabel').textContent='Student Thinking Space';$('question').value='';$('question').focus();window.scrollTo({top:0,behavior:'instant'});}
+/* ================= Message actions: copy / listen / PDF ================= */
+const answerStore=[];
+function copyMsg(i,btn){const m=answerStore[i];if(!m)return;(navigator.clipboard?navigator.clipboard.writeText(m.text):Promise.reject()).then(()=>{btn.textContent='✓ Copied';setTimeout(()=>btn.textContent='📋 Copy',1500)}).catch(()=>{btn.textContent='Copy failed'})}
+function listenMsg(i){const m=answerStore[i];if(!m)return;if(!('speechSynthesis' in window)){$('voiceStatus').textContent='Text-to-speech not supported.';return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(m.text.replace(/[#*`>|_-]/g,' '));u.lang=language==='hi'?'hi-IN':'en-IN';speechSynthesis.speak(u)}
+function exportPDF(i){
+  const m=answerStore[i];if(!m)return;
+  const f=document.createElement('iframe');f.style.cssText='position:fixed;right:0;bottom:0;width:0;height:0;border:0';document.body.appendChild(f);
+  const d=f.contentWindow.document;d.open();
+  d.write(`<!doctype html><html><head><meta charset="utf-8"><title>${esc(m.title)}</title><style>
+  body{font:14px/1.65 Arial,Helvetica,sans-serif;color:#111;margin:0;padding:28px 34px}
+  .top{display:flex;justify-content:space-between;border-bottom:2px solid #6251d8;padding-bottom:8px;margin-bottom:16px}.top b{color:#6251d8;font-size:18px}
+  h2{font-size:18px;border-left:4px solid #6251d8;padding-left:8px;margin:20px 0 6px}h3{font-size:15px;color:#4a3fb5;margin:16px 0 4px}h4{font-size:14px;margin:12px 0 4px}
+  p{margin:6px 0}ul,ol{padding-left:22px}li{margin:3px 0}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:5px 8px;text-align:left}th{background:#eee}
+  pre{background:#f3f3f6;padding:10px;border-radius:6px;white-space:pre-wrap}code{background:#f3f3f6;padding:1px 4px;border-radius:4px}blockquote{border-left:3px solid #2aa876;margin:8px 0;padding:4px 12px;background:#f4faf7}
+  hr{border:0;border-top:1px solid #ccc;margin:18px 0}.foot{margin-top:26px;font-size:11px;color:#777;text-align:center}
+  @media print{h2,h3{break-after:avoid}li,tr{break-inside:avoid}}</style></head><body>
+  <div class="top"><b>✦ Medharya AI</b><span>${esc(m.title)}</span></div>${mdToHtml(m.text)}<div class="foot">Generated by Medharya AI · ${new Date().toLocaleDateString()} · AI-generated practice content — verify with your textbook/teacher.</div></body></html>`);
+  d.close();
+  setTimeout(()=>{try{f.contentWindow.focus();f.contentWindow.print()}catch(e){alert('Print window could not open.')}},350);
+  setTimeout(()=>f.remove(),90000);
+}
 
-function toggleTools(){openTool('pyqCard')}
+/* ================= Backend call ================= */
+async function callBackend(message,extra){
+  extra=extra||{};
+  const cls=userClass();
+  const ctx=cls?`[Student is in Class ${cls}. Keep difficulty and examples suitable for this class.] `:'';
+  const fmt=extra.plain?'':'\n\n(Formatting: reply in clean, well-structured Markdown like a great tutor — a short friendly intro, ## headings, bullet points or numbered steps, **bold** for key terms/formulas, and a short "Quick recap" at the end. No giant paragraphs.)';
+  const payload={message:ctx+message+fmt,language,mode,student:currentStudentProfile?{name:currentStudentProfile.name,class:currentStudentProfile.class}:null};
+  if(extra.image)payload.image=extra.image;
+  try{if(isLoggedIn())payload.idToken=await firebaseAuth.currentUser.getIdToken()}catch(e){}
+  const response=await fetch(MEDHARYA_API_URL,{method:'POST',mode:'cors',redirect:'follow',credentials:'omit',cache:'no-store',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload)});
+  const raw=await response.text();let data;
+  try{data=JSON.parse(raw)}catch(parseErr){const preview=String(raw||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').slice(0,220);throw new Error('Backend ne JSON response nahi diya. HTTP '+response.status+'. '+(preview||'Empty response'))}
+  if(!response.ok||data.ok===false)throw new Error(data.error||('Request failed ('+response.status+').'));
+  return String(data.answer||'No answer returned.');
+}
+
+/* ================= Send question ================= */
+async function sendQuestion(override,opts){
+  opts=opts||{};const isOverride=typeof override==='string';
+  let q=(isOverride?override:$('question').value).trim();
+  if(!q&&!pendingImage)return false;
+  if(isSending)return false;
+  if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return false}
+  isSending=true;
+  openChatPage();
+  if(opts.display)addMsg('user',esc(opts.display));else if(q)addMsg('user',esc(q));else addMsg('user','📷 Question image attached');
+  if(!isOverride){$('question').value='';resizeBox($('question'))}
+  const d=addMsg('assistant','<div class="typing"><span></span><span></span><span></span></div>');const content=d.querySelector('.answertext');
+  const send=$('sendBtn');if(send){send.disabled=true;send.textContent='Thinking…'}
+  try{
+    const answer=await callBackend(q||'Read the attached image and solve the question step by step.',{image:pendingImage});
+    if(!isLoggedIn()){localStorage.setItem('medharya_guest_chats',String(guestCount()+1));updateGuestBadge()}
+    const idx=answerStore.push({text:answer,title:opts.pdfTitle||(q||'Medharya AI answer').slice(0,70)})-1;
+    content.innerHTML='<div class="md ai-answer caret"></div>';
+    const target=content.firstChild;
+    await streamMarkdown(target,answer,()=>{const last=$('messages').lastElementChild;if(last)last.scrollIntoView({block:'end'})});
+    target.classList.remove('caret');
+    const act=document.createElement('div');act.className='actions';
+    act.innerHTML=(opts.pdfTitle?`<button class="pdf-cta" onclick="exportPDF(${idx})">📄 Download PDF</button>`:'')+`<button onclick="copyMsg(${idx},this)">📋 Copy</button><button onclick="listenMsg(${idx})">🔊 Listen</button>`+(opts.pdfTitle?'':`<button onclick="exportPDF(${idx})">📄 Save as PDF</button>`);
+    content.appendChild(act);
+    if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){const n=document.createElement('div');n.className='nudge';n.innerHTML='🎉 Aapke 3 free chats poore hue. Aage ke liye <b>free login</b> karein — <a href="#" style="color:#b9afff" onclick="showGate();return false">Login / Sign up</a>';content.appendChild(n)}
+    updateLastChatMessage(answer);lastAnswer=answer;pendingImage=null;
+    if($('chatImageInput'))$('chatImageInput').value='';if($('questionImage'))$('questionImage').value='';if($('chatImageStatus'))$('chatImageStatus').textContent='';
+    questionCount++;
+    return true;
+  }catch(err){
+    const detail=String(err&&err.message||err||'Unknown network error');
+    content.innerHTML='<div class="notice"><b>Medharya AI connection error</b><br>'+esc(detail)+'<br><br>Agar “Failed to fetch” ya CORS error dikhe, to Apps Script deployment access check karein.</div>';
+    updateLastChatMessage('Connection error: '+detail);
+    return false;
+  }finally{isSending=false;if(send){send.disabled=false;send.textContent='Send ↑'}const last=$('messages').lastElementChild;if(last)last.scrollIntoView({behavior:'smooth',block:'end'})}
+}
+function streamMarkdown(el,text,onTick){
+  return new Promise(res=>{let i=0;const step=Math.max(4,Math.ceil(text.length/140));
+    const t=setInterval(()=>{i=Math.min(text.length,i+step);el.innerHTML=mdToHtml(text.slice(0,i));if(onTick)onTick();if(i>=text.length){clearInterval(t);el.innerHTML=mdToHtml(text);res()}},24)});
+}
+
+function newChat(){backHome();activeChatId=null;activeChatMessages=[];$('messages').innerHTML='';$('question').value='';resizeBox($('question'));$('question').focus();}
+
+function toggleTools(){const el=$('studytools');if(!el.classList.contains('hidden')){backHome();return}document.body.classList.remove('chat-page');el.classList.remove('hidden','page-mode');document.querySelectorAll('#studytools .toolcard').forEach(c=>c.classList.remove('active-tool'));$('welcome').classList.add('hidden');document.querySelector('.launchers').classList.add('hidden');$('messages').classList.add('hidden');document.querySelector('.composer-wrap').classList.add('hidden');$('backHome').classList.remove('hidden');$('toplabel').textContent='Study Tools';toggleMenu(false);window.scrollTo({top:0,behavior:'auto'});}
 function toggleMenu(force){const sb=document.querySelector('.sidebar'),scrim=$('menuScrim');const open=typeof force==='boolean'?force:!sb.classList.contains('menu-open');sb.classList.toggle('menu-open',open);scrim.classList.toggle('show',open)}
-function openTool(id){const el=$('studytools'),card=$(id);if(!card)return;el.classList.remove('hidden');el.classList.add('page-mode');document.querySelectorAll('#studytools .toolcard').forEach(c=>{c.classList.toggle('active-tool',c.id===id)});$('welcome').classList.add('hidden');document.querySelector('.launchers').classList.add('hidden');$('messages').classList.add('hidden');document.querySelector('.composer-wrap').classList.add('hidden');$('backHome').classList.remove('hidden');$('toplabel').textContent=card.querySelector('h3')?.innerText||'Study Tool';renderNotes();saveProgress();toggleMenu(false);window.scrollTo({top:0,behavior:'auto'});setTimeout(()=>{const h=card.querySelector('h3');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}},0);}
-function backHome(){document.body.classList.remove('chat-page');const el=$('studytools');el.classList.add('hidden');el.classList.remove('page-mode');document.querySelectorAll('#studytools .toolcard').forEach(c=>c.classList.remove('active-tool'));$('welcome').classList.remove('hidden');document.querySelector('.launchers').classList.remove('hidden');$('messages').classList.remove('hidden');document.querySelector('.composer-wrap').classList.remove('hidden');$('backHome').classList.add('hidden');$('toplabel').textContent='Student Thinking Space';window.scrollTo({top:0,behavior:'instant'});}
-const quizBank={Science:[{q:'Which process do green plants use to make food?',a:['Respiration','Photosynthesis','Transpiration','Digestion'],c:1,why:'Photosynthesis uses light energy to make food from carbon dioxide and water.'},{q:'What is the SI unit of electric current?',a:['Volt','Ohm','Ampere','Watt'],c:2,why:'Electric current is measured in amperes (A).'}],Mathematics:[{q:'If 2x + 3 = 11, what is x?',a:['3','4','5','7'],c:1,why:'Subtract 3: 2x = 8. Divide by 2: x = 4.'},{q:'The sum of angles in a triangle is…',a:['90°','180°','270°','360°'],c:1,why:'The interior angles of a triangle sum to 180°.'}],Computer:[{q:'Which HTML tag creates a hyperlink?',a:['<img>','<a>','<p>','<link>'],c:1,why:'The anchor tag <a> creates a hyperlink using href.'},{q:'What does LAN stand for?',a:['Large Area Network','Local Area Network','Linked Access Node','Long Access Network'],c:1,why:'LAN means Local Area Network.'}],English:[{q:'Choose the correct passive voice: “She writes a letter.”',a:['A letter wrote her.','A letter is written by her.','A letter was written by her.','A letter has wrote.'],c:1,why:'Present simple passive uses is/am/are + past participle.'}], 'Social Science':[{q:'Which is a key feature of democracy?',a:['One-person rule','People elect representatives','No elections','Hereditary rule only'],c:1,why:'Democracy allows people to choose their representatives through elections.'}]};
-function makeQuiz(){let sub=$('quizSubject').value,arr=quizBank[sub]||quizBank.Science;quizCurrent=arr[Math.floor(Math.random()*arr.length)];$('quizOut').textContent=quizCurrent.q;$('quizChoices').innerHTML=quizCurrent.a.map((a,i)=>`<button class="toolaction" style="display:block;width:100%;text-align:left" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${esc(a)}</button>`).join('');$('quizFeedback').textContent='';}
-function answerQuiz(i){if(!quizCurrent)return;quizCount++;$('quizFeedback').textContent=(i===quizCurrent.c?'✅ Correct! ':'Not quite. ')+quizCurrent.why;saveProgress();}
-function createPlan(){let sub=$('planSubject').value.trim()||'your subject',m=Math.max(5,Math.min(240,Number($('planMins').value)||25));focusSeconds=m*60;$('focusClock').textContent=clockFmt(focusSeconds);$('planOut').textContent=`1. ${Math.ceil(m*.15)} min — revise yesterday’s notes\n2. ${Math.ceil(m*.65)} min — study ${sub} with examples\n3. ${Math.max(1,m-Math.ceil(m*.15)-Math.ceil(m*.65))} min — recall without notes and check mistakes\n\nTip: keep your phone notifications off.`}
+function openTool(id){const el=$('studytools'),card=$(id);if(!card)return;document.body.classList.remove('chat-page');el.classList.remove('hidden');el.classList.add('page-mode');document.querySelectorAll('#studytools .toolcard').forEach(c=>{c.classList.toggle('active-tool',c.id===id)});$('welcome').classList.add('hidden');document.querySelector('.launchers').classList.add('hidden');$('messages').classList.add('hidden');document.querySelector('.composer-wrap').classList.add('hidden');$('backHome').classList.remove('hidden');$('toplabel').textContent=card.querySelector('h3')?.innerText||'Study Tool';toggleMenu(false);window.scrollTo({top:0,behavior:'auto'});setTimeout(()=>{const h=card.querySelector('h3');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}},0);}
+function backHome(){document.body.classList.remove('chat-page');const el=$('studytools');el.classList.add('hidden');el.classList.remove('page-mode');document.querySelectorAll('#studytools .toolcard').forEach(c=>c.classList.remove('active-tool'));$('welcome').classList.remove('hidden');document.querySelector('.launchers').classList.remove('hidden');$('messages').classList.add('hidden');document.querySelector('.composer-wrap').classList.remove('hidden');$('backHome').classList.add('hidden');$('toplabel').textContent='Student Thinking Space';window.scrollTo({top:0,behavior:'instant'});}
+function createPlan(){let sub=$('planSubject').value.trim()||'your subject',m=Math.max(5,Math.min(240,Number($('planMins').value)||25));$('planMins').value=m;const a=Math.max(1,Math.floor(m*.15)),b=Math.max(1,Math.floor(m*.65)),c=m-a-b;focusSeconds=m*60;pauseFocus();$('focusClock').textContent=clockFmt(focusSeconds);$('planOut').textContent=`1. ${a} min — revise yesterday’s notes\n2. ${b} min — study ${sub} with examples\n3. ${c} min — recall without notes and check mistakes\n\nTip: keep your phone notifications off.`}
 function clockFmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
 function startFocus(){if(focusInterval)return;focusInterval=setInterval(()=>{if(focusSeconds>0){focusSeconds--;$('focusClock').textContent=clockFmt(focusSeconds)}else{pauseFocus();$('focusClock').textContent='Done!';}},1000)}function pauseFocus(){if(focusInterval){clearInterval(focusInterval);focusInterval=null}}function resetFocus(){pauseFocus();focusSeconds=Math.max(5,Math.min(240,Number($('planMins').value)||25))*60;$('focusClock').textContent=clockFmt(focusSeconds)}
-function saveNote(){let title=$('noteTitle').value.trim(),body=$('noteBody').value.trim();if(!title&&!body)return;let notes=[];try{notes=JSON.parse(localStorage.getItem('medharya_notes')||'[]')}catch(e){}const note={id:'note_'+Date.now(),title:title||'Untitled note',body,at:new Date().toLocaleDateString(),updatedAt:new Date().toISOString()};notes.unshift(note);try{localStorage.setItem('medharya_notes',JSON.stringify(notes.slice(0,50)))}catch(e){}const ref=userDoc();if(ref)ref.collection('notes').doc(note.id).set(note).catch(err=>console.warn('Note cloud save failed:',err));$('noteTitle').value='';$('noteBody').value='';renderNotes();saveProgress()}
-function renderNotes(){let notes=[];try{notes=JSON.parse(localStorage.getItem('medharya_notes')||'[]')}catch(e){}noteCount=notes.length;$('notesOut').innerHTML=notes.length?notes.map(n=>`<div style="padding:8px 0;border-bottom:1px solid var(--line)"><b>${esc(n.title)}</b> <span class="smallmuted">${esc(n.at||'')}</span><div>${esc(n.body||'')}</div></div>`).join(''):'No saved notes yet.';saveProgress()}
-function saveProgress(){let n=0;try{n=JSON.parse(localStorage.getItem('medharya_notes')||'[]').length}catch(e){}noteCount=n;$('progressOut').innerHTML=`Questions asked: ${questionCount}<br>Quiz answers: ${quizCount}<br>Notes saved: ${n}`;saveProgressToCloud();}
-function speakLast(){if(!lastAnswer){$('voiceStatus').textContent='Ask a question first to create an answer.';return}if(!('speechSynthesis'in window)){$('voiceStatus').textContent='Text-to-speech is not supported in this browser.';return}let u=new SpeechSynthesisUtterance(lastAnswer);u.lang=language==='hi'?'hi-IN':'en-IN';speechSynthesis.cancel();speechSynthesis.speak(u);$('voiceStatus').textContent='Reading the latest AI response aloud.'}
-function startSpeech(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){$('voiceStatus').textContent='Voice input is not supported in this browser. You can type your question.';return}let r=new SR();r.lang=language==='hi'?'hi-IN':'en-IN';r.onresult=e=>{$('question').value=e.results[0][0].transcript;resizeBox($('question'));$('question').focus();$('voiceStatus').textContent='Voice captured. Press Send to continue.'};r.onerror=()=>{$('voiceStatus').textContent='Could not capture voice; please type instead.'};r.start();$('voiceStatus').textContent='Listening…'}
+function saveNote(){const title=$('noteTitle')?.value.trim()||'',body=$('noteBody')?.value.trim()||'';if(!title&&!body)return;const notes=readNotes();const note={id:'note_'+Date.now(),title:title||'Untitled note',body,at:new Date().toLocaleDateString(),updatedAt:new Date().toISOString()};notes.unshift(note);writeNotes(notes.slice(0,50));const ref=userDoc();if(ref)ref.collection('notes').doc(note.id).set(note).catch(err=>console.warn('Note cloud save failed:',err));if($('noteTitle'))$('noteTitle').value='';if($('noteBody'))$('noteBody').value='';renderNotes()}
+function renderNotes(){const out=$('notesOut');if(!out)return;const notes=readNotes();noteCount=notes.length;out.innerHTML=notes.length?notes.map(n=>`<div style="padding:8px 0;border-bottom:1px solid var(--line)"><b>${esc(n.title||'Untitled note')}</b> <span class="smallmuted">${esc(n.at||'')}</span><div>${esc(n.body||'')}</div></div>`).join(''):'No saved notes yet.'}
+function saveProgress(){}
+function startSpeech(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){$('voiceStatus').textContent='Voice input is not supported in this browser. You can type your question.';return}let r=new SR();r.lang=language==='hi'?'hi-IN':'en-IN';r.onresult=e=>{$('question').value=e.results[0][0].transcript;resizeBox($('question'));$('question').focus();$('voiceStatus').textContent='Voice captured. Press Send to continue.'};r.onerror=()=>{$('voiceStatus').textContent='Could not capture voice; please type instead.'};try{r.start();$('voiceStatus').textContent='Listening…'}catch(e){$('voiceStatus').textContent='Voice input could not start. Please type your question.'}}
 
 
-function findPYQ(){const y=$('pyqYear').value,s=$('pyqSubject').value,c=$('pyqChapter').value,t=$('pyqType').value;const out=$('pyqOut');if(t==='practice'&&c!=='all'){out.innerHTML=`<b>Practice filter (demo)</b><br>Year selected: ${esc(y)}<br>Subject: ${esc(s)}<br>Chapter: ${esc(c)}<br><br>This is a practice filter only. No verified year-specific official question is bundled. Ask Medharya to create practice questions for this chapter.`;out.scrollIntoView({behavior:'smooth',block:'nearest'});preset(`Create 5 CBSE-style practice questions for ${s}, chapter ${c}. Clearly label them as practice, not official PYQs, and include answers.`);return}out.innerHTML=`<b>Library search</b><br>Year: ${esc(y)}<br>Subject: ${esc(s)}<br>Resource: ${t==='answer'?'Answer key / marking scheme':'Question paper'}<br><br>Open the official CBSE archive below and check whether this exact year and subject file is listed. This app has not verified a direct PDF for this selection.`;out.scrollIntoView({behavior:'smooth',block:'nearest'});window.open('https://www.cbse.gov.in/cbsenew/question-paper.html','_blank','noopener');}
-function startMock(){const sub=$('mockSubject').value;const arr=quizBank[sub]||quizBank.Science;let q=arr[Math.floor(Math.random()*arr.length)];$('mockOut').innerHTML=`<b>Mini test · ${esc(sub)}</b><br>${esc(q.q)}<br>`+q.a.map((a,i)=>`<button class="toolaction" onclick="mockAnswer(${i},${q.c},${JSON.stringify(q.why).replace(/</g,'\u003c')})">${String.fromCharCode(65+i)}. ${esc(a)}</button>`).join('')+'<div id="mockFeedback"></div><small>Sample demo question; not an official PYQ.</small>';}
-function mockAnswer(i,c,why){$('mockFeedback').textContent=(i===c?'Correct! ':'Not quite. ')+why;quizCount++;saveProgress();}
+
+/* Optional: add REAL official PDFs here (verified links only). Key: year|class|subject|type  (type = paper | answer)
+   Example: '2024|10|Science|paper':'https://your-storage-url/CBSE_2024_Class10_Science.pdf'  */
+const PYQ_SUBJ={10:['Science','Mathematics Standard','Mathematics Basic','Social Science','English Language and Literature','Hindi','Computer Applications / IT'],12:['Physics','Chemistry','Biology','Mathematics','English Core','Hindi Core','Computer Science','Economics','Accountancy','Business Studies']};
+function pyqClassChanged(){const cls=$('pyqClass').value;$('pyqSubject').innerHTML=(PYQ_SUBJ[cls]||[]).map(x=>`<option>${esc(x)}</option>`).join('');pyqSubjectChanged()}
+function pyqSubjectChanged(){const cls=$('pyqClass').value,sub=$('pyqSubject').value;let list=[];if(sub==='Science')list=(CH.Science||{})[10]||[];else if(/^Mathematics/.test(sub))list=(CH.Mathematics||{})[cls]||[];$('pyqChapter').innerHTML='<option value="all">All chapters</option>'+list.map(x=>`<option>${esc(x)}</option>`).join('')}
+const PYQ_PDFS={};
+async function findPYQ(){
+  const y=$('pyqYear').value,s=$('pyqSubject').value,c=$('pyqChapter').value,t=$('pyqType').value,cls=$('pyqClass').value;
+  if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return}
+  const tl=t==='answer'?'Marking scheme':t==='practice'?'Chapter practice':'Question paper';
+  const disp=`📚 ${tl} · Class ${cls} · ${s} · ${y}${c!=='all'?' · '+c:''}`;
+  const url=PYQ_PDFS[[y,cls,s,t].join('|')];
+  $('pyqOut').textContent=url?'Opening the configured PDF…':'Verified official PDF not configured for this filter. Generating clearly labelled AI practice content…';
+  backHome();
+  if(url){
+    openChatPage();addMsg('user',esc(disp));
+    const d=addMsg('assistant','');const safe=encodeURI(url);
+    d.querySelector('.answertext').innerHTML=`<div class="pdfcard"><b>📄 CBSE ${esc(y)} · Class ${esc(cls)} · ${esc(s)}</b><div class="actions"><a class="toolaction" style="text-decoration:none" href="${safe}" target="_blank" rel="noopener" download>⬇ Download PDF</a></div><iframe src="${safe}" title="PDF viewer"></iframe></div>`;
+    updateLastChatMessage('PDF: '+url);return;
+  }
+  const chap=c==='all'?'':`, focusing only on the chapter "${c}"`;
+  let prompt;
+  if(t==='answer')prompt=`Write a detailed Answer Key / Marking Scheme for a CBSE Class ${cls} ${s} board paper in the ${y} exam pattern${chap}. Start with the note "CBSE-pattern practice marking scheme (AI-generated, not the official ${y} scheme)". Give question-wise answers with step-wise marks.`;
+  else if(t==='practice')prompt=`Create a chapter practice set for CBSE Class ${cls} ${s}${chap||' (all important chapters)'} in the ${y} board-exam style: 6 MCQs, 2 assertion-reason, 3 short answer, 2 long answer and 1 case-based question, followed by a full answer key. Label it clearly as practice, not official PYQ.`;
+  else prompt=`Prepare a complete CBSE Class ${cls} ${s} board question paper in the ${y} exam pattern${chap}. First line: "CBSE-pattern practice paper (AI-generated, not the official ${y} paper)". Then: title, Time & Maximum Marks, General Instructions, and all sections (A to E as per the latest CBSE pattern) with marks per question — MCQs with 4 options, assertion-reason, short/long answer and case-based questions. Do NOT put answers in this part. At the end add a divider (---) and then the full Answer Key / Marking Scheme.`;
+  const sent=await sendQuestion(prompt,{display:disp,pdfTitle:`CBSE ${y} · Class ${cls} · ${s}${c!=='all'?' · '+c:''} (${tl})`});
+  $('pyqOut').textContent=sent?'AI-generated practice content is ready in chat. It is not an official previous-year paper or official marking scheme.':'Could not generate the practice content. Check the connection/error shown in chat and try again.';
+}
+
+/* ================= Subjects → class → chapters → questions in chat ================= */
+const CH={
+Mathematics:{
+6:['Patterns in Mathematics','Lines and Angles','Number Play','Data Handling and Presentation','Prime Time','Perimeter and Area','Fractions','Playing with Constructions','Symmetry','The Other Side of Zero'],
+7:['Integers','Fractions and Decimals','Data Handling','Simple Equations','Lines and Angles','The Triangle and its Properties','Congruence of Triangles','Comparing Quantities','Rational Numbers','Practical Geometry','Perimeter and Area','Algebraic Expressions','Exponents and Powers','Symmetry','Visualising Solid Shapes'],
+8:['Rational Numbers','Linear Equations in One Variable','Understanding Quadrilaterals','Data Handling','Squares and Square Roots','Cubes and Cube Roots','Comparing Quantities','Algebraic Expressions and Identities','Mensuration','Exponents and Powers','Direct and Inverse Proportions','Factorisation','Introduction to Graphs','Playing with Numbers'],
+9:['Number Systems','Polynomials','Coordinate Geometry','Linear Equations in Two Variables','Introduction to Euclid’s Geometry','Lines and Angles','Triangles','Quadrilaterals','Circles','Heron’s Formula','Surface Areas and Volumes','Statistics'],
+10:['Real Numbers','Polynomials','Pair of Linear Equations in Two Variables','Quadratic Equations','Arithmetic Progressions','Triangles','Coordinate Geometry','Introduction to Trigonometry','Applications of Trigonometry','Circles','Areas Related to Circles','Surface Areas and Volumes','Statistics','Probability'],
+11:['Sets','Relations and Functions','Trigonometric Functions','Complex Numbers and Quadratic Equations','Linear Inequalities','Permutations and Combinations','Binomial Theorem','Sequences and Series','Straight Lines','Conic Sections','Introduction to Three Dimensional Geometry','Limits and Derivatives','Statistics','Probability'],
+12:['Relations and Functions','Inverse Trigonometric Functions','Matrices','Determinants','Continuity and Differentiability','Application of Derivatives','Integrals','Application of Integrals','Differential Equations','Vector Algebra','Three Dimensional Geometry','Linear Programming','Probability']},
+Science:{
+6:['Food: Where Does It Come From?','Components of Food','Fibre to Fabric','Sorting Materials into Groups','Separation of Substances','Changes Around Us','Getting to Know Plants','Body Movements','The Living Organisms and Their Surroundings','Motion and Measurement of Distances','Light, Shadows and Reflections','Electricity and Circuits','Fun with Magnets','Water','Air Around Us','Garbage In, Garbage Out'],
+7:['Nutrition in Plants','Nutrition in Animals','Fibre to Fabric','Heat','Acids, Bases and Salts','Physical and Chemical Changes','Weather, Climate and Adaptations','Winds, Storms and Cyclones','Soil','Respiration in Organisms','Transportation in Animals and Plants','Reproduction in Plants','Motion and Time','Electric Current and its Effects','Light','Water: A Precious Resource','Forests: Our Lifeline','Wastewater Story'],
+8:['Crop Production and Management','Microorganisms: Friend and Foe','Synthetic Fibres and Plastics','Materials: Metals and Non-Metals','Coal and Petroleum','Combustion and Flame','Conservation of Plants and Animals','Cell — Structure and Functions','Reproduction in Animals','Reaching the Age of Adolescence','Force and Pressure','Friction','Sound','Chemical Effects of Electric Current','Some Natural Phenomena','Light','Stars and the Solar System','Pollution of Air and Water'],
+9:['Matter in Our Surroundings','Is Matter Around Us Pure?','Atoms and Molecules','Structure of the Atom','The Fundamental Unit of Life','Tissues','Motion','Force and Laws of Motion','Gravitation','Work and Energy','Sound','Improvement in Food Resources'],
+10:['Chemical Reactions and Equations','Acids, Bases and Salts','Metals and Non-metals','Carbon and its Compounds','Life Processes','Control and Coordination','How do Organisms Reproduce?','Heredity','Light – Reflection and Refraction','The Human Eye and the Colourful World','Electricity','Magnetic Effects of Electric Current','Our Environment']}
+};
+let subjState={sub:'',cls:''},chToken=0;
+function openSubject(sub){
+  subjState={sub,cls:userClass()};
+  $('subjTitle').textContent='📘 '+sub;
+  $('subjClass').value=subjState.cls;
+  openTool('subjectCard');
+  $('toplabel').textContent=sub;
+  loadChapters();
+}
+function subjClassChanged(){
+  const v=$('subjClass').value;subjState.cls=v;
+  if(v)localStorage.setItem('medharya_guest_class',v);
+  loadChapters();
+}
+async function loadChapters(){
+  const {sub,cls}=subjState,box=$('chapterList');
+  if(!cls){box.innerHTML='<div class="smallmuted">⬆️ Pehle apni class chuniye — phir chapters yahin dikhenge.</div>';return}
+  let list=(CH[sub]&&CH[sub][cls])||null;
+  const ck='medharya_ch_'+sub+'_'+cls;
+  if(!list){try{list=JSON.parse(localStorage.getItem(ck)||'null')}catch(e){list=null}}
+  if(!list){
+    if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){box.innerHTML='<div class="notice">Free guest requests khatam ho gaye. Chapter list generate karne ke liye login karein.</div>';showGate();return}
+    box.innerHTML='<div class="smallmuted">Class '+esc(cls)+' ke '+esc(sub)+' chapters load ho rahe hain…</div>';
+    const token=++chToken;
+    try{
+      const ans=await callBackend(`List the chapter names of the NCERT / CBSE ${sub} textbook for Class ${cls}. Output ONLY the chapter names, one per line, numbered. No introduction, no extra text.`,{plain:true});
+      if(token!==chToken)return;
+      list=ans.split('\n').map(s=>s.replace(/^[\s>*#\-\d.)]+/,'').replace(/\*\*/g,'').trim()).filter(s=>s.length>2&&s.length<100).slice(0,30);
+      if(list.length<3)throw new Error('Chapters not found');
+      try{localStorage.setItem(ck,JSON.stringify(list))}catch(e){}
+    }catch(e){
+      if(token!==chToken)return;
+      box.innerHTML='<div class="notice">Chapters load nahi ho paye ('+esc(e.message||e)+').</div><button class="toolaction" onclick="loadChapters()">↻ Retry</button>';return;
+    }
+  }
+  box.innerHTML=list.map((c,i)=>`<button class="chap" onclick="askChapter(${i})"><span class="n">${i+1}</span><span>${esc(c)}</span><span class="go">→</span></button>`).join('');
+  box.dataset.list=JSON.stringify(list);
+}
+function askChapter(i){
+  const {sub,cls}=subjState;let list=[];try{list=JSON.parse($('chapterList').dataset.list||'[]')}catch(e){}
+  const ch=list[i];if(!ch)return;
+  if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return}
+  backHome();
+  const prompt=`Class ${cls} · ${sub} · Chapter: "${ch}".\n1) Give a quick 5-line summary of the key concepts/formulas of this chapter as per NCERT/CBSE for Class ${cls}.\n2) Then give 10 questions strictly at Class ${cls} level in the latest CBSE pattern: 4 MCQs, 2 assertion-reason, 2 short-answer, 1 long-answer and 1 competency-based / real-life case question.\n3) Put the complete answers with short explanations at the end under "Answer Key".`;
+  sendQuestion(prompt,{display:`📘 Class ${cls} · ${sub} · ${ch}`,pdfTitle:`Class ${cls} ${sub} — ${ch}`});
+}
 function previewQuestionImage(e){const f=e.target.files&&e.target.files[0];if(!f)return;const u=URL.createObjectURL(f);$('imagePreview').innerHTML='';const img=document.createElement('img');img.src=u;img.alt='Selected question preview';img.style.maxWidth='100%';img.style.maxHeight='240px';img.style.borderRadius='10px';$('imagePreview').appendChild(img);const p=document.createElement('div');p.className='smallmuted';p.textContent='Image ready. Press “Solve this photo with Medharya AI” to send it to the connected Gemini backend.';$('imagePreview').appendChild(p);}
-async function usePhotoQuestion(){const f=$('questionImage').files&&$('questionImage').files[0];if(!f){$('imagePreview').textContent='Please select a question photo first.';return}if(f.size>5*1024*1024){$('imagePreview').textContent='Please choose an image smaller than 5 MB.';return}try{const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});pendingImage={mimeType:f.type||'image/jpeg',data:String(dataUrl).split(',')[1]};backHome();preset('Read this question image and solve it step by step. Explain in simple '+(language==='hi'?'Hindi':'English')+' and show the final answer.');$('question').focus();$('voiceStatus').textContent='Image attached. Sending it to Medharya AI now…';sendQuestion();}catch(e){$('imagePreview').textContent='Could not read this image. Try another photo.'}}
-function showFormulas(){const m=$('formulaSubject').value;$('formulaOut').innerHTML=m==='math'?'<b>Maths quick revision</b><br>• Quadratic equation: x = (−b ± √(b² − 4ac)) / 2a<br>• AP nth term: aₙ = a + (n − 1)d<br>• AP sum: Sₙ = n/2 [2a + (n − 1)d]<br>• Distance: √[(x₂−x₁)² + (y₂−y₁)²]<br>• Probability = favourable outcomes / total equally likely outcomes':'<b>Science quick revision</b><br>• Ohm’s law: V = IR<br>• Electric power: P = VI = I²R = V²/R<br>• Speed of light relation: n = c/v<br>• Photosynthesis: CO₂ + H₂O → glucose + O₂ (in presence of light and chlorophyll)<br>• Mirror formula: 1/f = 1/v + 1/u';}
-function revisionPrompt(){preset('Start revision mode. Ask me one question at a time, give a hint if I am stuck, then explain the answer. Clearly distinguish verified PYQs from newly created practice questions.');}
+async function usePhotoQuestion(){const f=$('questionImage').files&&$('questionImage').files[0];if(!f){$('imagePreview').textContent='Please select a question photo first.';return}if(!f.type.startsWith('image/')){$('imagePreview').textContent='Please select a valid image file.';return}if(f.size>5*1024*1024){$('imagePreview').textContent='Please choose an image smaller than 5 MB.';return}try{const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});pendingImage={mimeType:f.type||'image/jpeg',data:String(dataUrl).split(',')[1]};backHome();preset('Read this question image and solve it step by step. Explain in simple '+(language==='hi'?'Hindi':'English')+' and show the final answer.');$('question').focus();$('voiceStatus').textContent='Image attached. Sending it to Medharya AI now…';sendQuestion();}catch(e){$('imagePreview').textContent='Could not read this image. Try another photo.'}}
 
 let authMode='signup';
 function setAuthMode(mode){
@@ -250,10 +492,11 @@ function setAuthMode(mode){
   $('sidePassword').autocomplete=mode==='signup'?'new-password':'current-password';
   $('sideLoginStatus').textContent=mode==='signup'?'Create your secure Firebase account with email and password.':'Enter your registered email and password.';
 }
+function migrateGuestData(){try{const gk='medharya_chat_history_v1_guest',uk=historyStoreKey();const g=JSON.parse(localStorage.getItem(gk)||'[]');if(Array.isArray(g)&&g.length){const u=readChatHistory();const ids=new Set(u.map(c=>c.id));g.forEach(c=>{if(c&&c.id&&!ids.has(c.id))u.push(c)});localStorage.setItem(uk,JSON.stringify(u.slice(0,40)));localStorage.removeItem(gk)}}catch(e){}}
 function userDoc(){const u=firebaseAuth&&firebaseAuth.currentUser;return u?firestoreDb.collection('users').doc(u.uid):null;}
 async function saveProfileToCloud(profile){
   const ref=userDoc(); if(!ref)return;
-  await ref.set({name:profile.name||'Student',class:String(profile.class||'Other'),email:firebaseAuth.currentUser.email||'',updatedAt:new Date().toISOString()},{merge:true});
+  await ref.set({name:profile.name||'Student',class:String(profile.class||''),email:firebaseAuth.currentUser.email||'',updatedAt:new Date().toISOString()},{merge:true});
 }
 async function submitAuth(){
   const email=$('sideEmail').value.trim().toLowerCase();
@@ -269,6 +512,7 @@ async function submitAuth(){
     let credential;
     if(authMode==='signup'){
       if(!name){status.textContent='Please enter your name.';return;}
+      if(!cls){status.textContent='Please select your class.';return;}
       credential=await firebaseAuth.createUserWithEmailAndPassword(email,password);
       await credential.user.updateProfile({displayName:name});
       const profile={name,class:cls,email};
@@ -298,26 +542,25 @@ async function submitAuth(){
   }finally{btn.disabled=false;btn.textContent=authMode==='signup'?'Create account':'Log in';}
 }
 async function signInWithGoogle(){
-  const status=$('sideLoginStatus');
-  if(!cloudReady){status.textContent='Firebase is not ready. Refresh the page and try again.';return;}
+  if(!cloudReady){setAuthStatus('Firebase is not ready. Refresh the page and try again.');return;}
   try{
+    setAuthStatus('Opening Google sign-in…');
     const provider=new firebase.auth.GoogleAuthProvider();
     const result=await firebaseAuth.signInWithPopup(provider);
     const snap=await firestoreDb.collection('users').doc(result.user.uid).get();
-    const name=$('sideName').value.trim()||result.user.displayName||'Student';
-    const cls=$('sideClass').value||'Other';
-    if(!snap.exists || $('sideName').value.trim() || $('sideClass').value){
-      await saveProfileToCloud({name,class:cls,email:result.user.email||''});
+    if(!snap.exists){
+      await saveProfileToCloud({name:result.user.displayName||'Student',class:localStorage.getItem('medharya_guest_class')||'',email:result.user.email||''});
     }
-    status.textContent='Google login successful. Syncing your data…';
-    toggleAccountPanel();
+    setAuthStatus('Google login successful. Syncing your data…');
+    hideGate();
+    const p=$('accountPanel');if(!p.classList.contains('hidden'))toggleAccountPanel();
   }catch(err){
     console.error(err);
-    status.textContent=err.code==='auth/popup-closed-by-user'?'Google sign-in was cancelled.':err.code==='auth/unauthorized-domain'?'This website domain is not authorized in Firebase Authentication.':('Google sign-in failed: '+(err.message||err));
+    setAuthStatus(err.code==='auth/popup-closed-by-user'?'Google sign-in was cancelled.':err.code==='auth/unauthorized-domain'?'This website domain is not authorized in Firebase Authentication.':('Google sign-in failed: '+(err.message||err)));
   }
 }
 function showSignedIn(p){
-  $('sideLoginStatus').textContent=`Signed in: ${p.name} · Class ${p.class} · Cloud sync enabled`;
+  $('sideLoginStatus').textContent=`Signed in: ${p.name} · Class ${p.class||'—'} · Cloud sync enabled`;
   $('logoutBtn').classList.remove('hidden');
   $('googleAuthBtn').classList.add('hidden');
   if($('accountOut'))$('accountOut').textContent=`Signed in as ${p.name} · ${p.email||''} · Class ${p.class}. Your data syncs to your private Firebase account.`;
@@ -327,7 +570,6 @@ async function logoutStudent(){
   try{await firebaseAuth.signOut();localStorage.removeItem('medharya_active_user');$('sideLoginStatus').textContent='You are logged out.';setAuthMode('login');}
   catch(err){$('sideLoginStatus').textContent='Could not log out: '+(err.message||err);}
 }
-function loadStudentProfile(){if(firebaseAuth&&firebaseAuth.currentUser){const u=firebaseAuth.currentUser;showSignedIn({name:u.displayName||'Student',class:currentStudentProfile?.class||'Other',email:u.email||''});}}
 
 async function syncLocalDataToCloud(){
   const ref=userDoc();if(!ref)return;
@@ -340,7 +582,7 @@ async function syncLocalDataToCloud(){
       updatedAt:chat.updatedAt||new Date().toISOString()
     },{merge:true});
   }
-  let notes=[];try{notes=JSON.parse(localStorage.getItem('medharya_notes')||'[]')}catch(e){}
+  const notes=readNotes();
   for(const note of notes){
     if(!note)continue;
     const id=note.id||('note_'+btoa(unescape(encodeURIComponent((note.title||'')+(note.at||'')+(note.body||'')))).replace(/[^a-zA-Z0-9_-]/g,'').slice(0,80));
@@ -349,10 +591,9 @@ async function syncLocalDataToCloud(){
 }
 async function loadCloudData(){
   const ref=userDoc();if(!ref)return;
-  const [chatSnap,noteSnap,progressSnap]=await Promise.all([
+  const [chatSnap,noteSnap]=await Promise.all([
     ref.collection('chats').get(),
-    ref.collection('notes').get(),
-    ref.collection('progress').doc('summary').get()
+    ref.collection('notes').get()
   ]);
   const cloudChats=chatSnap.docs.map(d=>({id:d.id,...d.data()}));
   const localChats=readChatHistory();
@@ -360,16 +601,10 @@ async function loadCloudData(){
   const allChats=Array.from(merged.values()).sort((a,b)=>String(b.updatedAt||'').localeCompare(String(a.updatedAt||''))).slice(0,40);
   try{localStorage.setItem(historyStoreKey(),JSON.stringify(allChats));}catch(e){}
   const cloudNotes=noteSnap.docs.map(d=>({id:d.id,...d.data()}));
-  const localNotes=[];try{localNotes.push(...JSON.parse(localStorage.getItem('medharya_notes')||'[]'));}catch(e){}
+  const localNotes=readNotes();
   const noteMap=new Map();[...cloudNotes,...localNotes].forEach(n=>{if(n){const id=n.id||('local_'+(n.title||'')+'_'+(n.at||''));noteMap.set(id,{...n,id});}});
-  try{localStorage.setItem('medharya_notes',JSON.stringify(Array.from(noteMap.values()).slice(0,50)));}catch(e){}
-  if(progressSnap.exists){const p=progressSnap.data();questionCount=Math.max(questionCount,Number(p.questionCount)||0);quizCount=Math.max(quizCount,Number(p.quizCount)||0);}
+  writeNotes(Array.from(noteMap.values()).slice(0,50));
   renderChatHistory();renderNotes();saveProgress();
-}
-async function saveProgressToCloud(){
-  const ref=userDoc();if(!ref)return;
-  try{await ref.collection('progress').doc('summary').set({questionCount,quizCount,notesCount:noteCount,updatedAt:new Date().toISOString()},{merge:true});}
-  catch(err){console.warn('Progress cloud save failed:',err);}
 }
 
 </script></body></html>
