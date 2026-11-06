@@ -382,8 +382,10 @@ async function sendQuestion(override,opts){
   }finally{isSending=false;if(send){send.disabled=false;send.textContent='Send ↑'}const last=$('messages').lastElementChild;if(last)last.scrollIntoView({behavior:'smooth',block:'end'})}
 }
 function streamMarkdown(el,text,onTick){
-  return new Promise(res=>{let i=0;const step=Math.max(4,Math.ceil(text.length/140));
-    const t=setInterval(()=>{i=Math.min(text.length,i+step);el.innerHTML=mdToHtml(text.slice(0,i));if(onTick)onTick();if(i>=text.length){clearInterval(t);el.innerHTML=mdToHtml(text);res()}},24)});
+  // Render the complete answer immediately; avoid artificial character-by-character delay.
+  el.innerHTML=mdToHtml(text);
+  if(onTick)onTick();
+  return Promise.resolve();
 }
 
 function newChat(){backHome();activeChatId=null;activeChatMessages=[];$('messages').innerHTML='';$('question').value='';resizeBox($('question'));$('question').focus();}
