@@ -3,31 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101116">
-<meta name="application-name" content="Medharya AI">
+<meta name="theme-color" content="#212121">
+<meta name="application-name" content="Medharya">
 <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Medharya AI</title>
-<meta name="description" content="Medharya AI helps school students across classes study with step-by-step explanations, study planning and subject-wise question practice in Hindi and English.">
+<title>Medharya</title>
+<meta name="description" content="Medharya helps school students across classes study with step-by-step explanations, study planning and subject-wise question practice in Hindi and English.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="author" content="Medharya AI">
+<meta name="author" content="Medharya">
 <meta name="keywords" content="all classes study app, school study assistant, AI doubt solver, Maths, Science, CBSE study, previous year questions, revision, Hindi English study help">
 <meta property="og:locale" content="en_IN">
 <meta property="og:locale:alternate" content="hi_IN">
 <meta name="twitter:creator" content="@MedharyaAI">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Medharya AI">
+<meta property="og:title" content="Medharya">
 <meta property="og:description" content="Step-by-step study help, AI doubt solving, study tools and CBSE-style practice for students.">
-<meta property="og:site_name" content="Medharya AI">
+<meta property="og:site_name" content="Medharya">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Medharya AI">
+<meta name="twitter:title" content="Medharya">
 <meta name="twitter:description" content="AI study help, quizzes, revision and CBSE-style practice for students in Hindi and English.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Medharya AI",
-  "alternateName": "Medharya AI All Classes Study Assistant",
+  "name": "Medharya",
+  "alternateName": "Medharya All Classes Study Assistant",
   "description": "An AI-assisted study platform offering step-by-step explanations, revision tools, quizzes, study planning and subject-wise practice for school students across classes.",
   "inLanguage": ["en-IN", "hi-IN"],
   "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
@@ -374,7 +374,142 @@ button{transition:background .18s ease,border-color .18s ease,color .18s ease,tr
 .visual-note img{display:block;width:100%;height:auto;max-height:620px;object-fit:contain;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:#0d1020}
 .visual-note-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.visual-note-actions button{border:1px solid rgba(167,139,250,.32);background:rgba(124,92,255,.14);color:#e7e0ff;border-radius:10px;padding:9px 12px;font-size:12px;font-weight:650}.visual-note-actions button:hover{background:rgba(124,92,255,.25);border-color:#a78bfa}.visual-note-caption{font-size:10px;color:#8e99ae;margin-top:8px;line-height:1.5}
 
-</style></head><body><div class="layout"><aside class="sidebar"><div class="brand"><div class="logo">✦</div> Medharya AI</div><button type="button" class="side-login-point" onclick="toggleAccountPanel()">👤 Student Account <span id="accountPointStatus">＋</span></button><section class="side-login hidden" id="accountPanel" aria-label="Student sign up and login"><div class="side-login-title">Student Account</div><div class="auth-switch"><button type="button" id="signupTab" class="toolaction" onclick="setAuthMode('signup')">Sign up</button><button type="button" id="loginTab" class="toolaction" onclick="setAuthMode('login')">Log in</button></div><div id="signupFields"><label for="sideName" class="smallmuted">Student Name</label><input id="sideName" class="field" placeholder="Your full name" autocomplete="name"><label for="sideClass" class="smallmuted">Class</label><select id="sideClass" class="field"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="other">Other</option></select></div><label for="sideEmail" class="smallmuted">Email Address</label><input id="sideEmail" class="field" type="email" placeholder="you@example.com" autocomplete="email"><label for="sidePassword" class="smallmuted">Password</label><input id="sidePassword" class="field" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="current-password"><button class="toolaction side-save" id="authSubmit" onclick="submitAuth()">Create account</button><button class="toolaction side-save" id="googleAuthBtn" onclick="signInWithGoogle()">Continue with Google</button><button class="tooltoggle hidden" id="logoutBtn" onclick="logoutStudent()">Log out</button><div id="sideLoginStatus" class="smallmuted" aria-live="polite">Firebase account · Email/password or Google</div><div class="smallmuted">Your account uses Firebase Authentication. Your chats sync to your private Firestore account after sign-in.</div></section><button class="newchat" onclick="newChat()">＋ &nbsp; New chat</button><div><div class="label">Chat History</div><div id="chatHistoryList" class="history-list"><div class="smallmuted">Your saved chats will appear here.</div></div><div class="smallmuted">Sign in to sync your chats across devices.</div></div><div><div class="label">Study subjects</div><div class="subjects"><button class="subject" onclick="openSubject('Mathematics')">∑ &nbsp; Mathematics</button><button class="subject" onclick="openSubject('Science')">⚗ &nbsp; Science</button><button class="subject" onclick="openSubject('Social Science')">◈ &nbsp; Social Science</button><button class="subject" onclick="openSubject('English')">A &nbsp; English</button><button class="subject" onclick="openSubject('Computer')">⌘ &nbsp; Computer</button></div></div><div><div class="label">Learning modes</div><div class="subjects"><button class="subject" onclick="setMode('explain')">🧠 &nbsp; Step-by-step</button><button class="subject" onclick="setMode('learn')">🎯 &nbsp; Learn with hints</button><button class="subject" onclick="setMode('exam')">📝 &nbsp; Exam practice</button></div></div><div class="sidefoot">Made for curious students<br>Hindi + English · All classes</div></aside><div class="menu-scrim" id="menuScrim" onclick="toggleMenu(false)"></div><main class="main"><header class="topbar"><button class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button><div class="mobilebrand"><div class="logo" style="width:30px;height:30px;font-size:16px">✦</div> Medharya AI</div><div class="toplabel" id="toplabel">Student Thinking Space</div><button id="backHome" class="tooltoggle hidden" onclick="backHome()">← Home</button><div style="display:flex;align-items:center;gap:8px"><button class="tooltoggle" onclick="toggleTools()">📚 Study tools</button><span class="pill">ALL CLASSES · ALL SUBJECTS</span></div></header><section class="scroll"><div id="welcome" class="welcome"><div class="orb">✦</div><div id="greet" class="greet"></div><h1>Medharya AI</h1><p>Your AI study companion for school students across classes. Get step-by-step help, practise subjects, revise chapters, explore questions, and plan exam preparation in Hindi or English.</p><div class="cards"><button class="prompt" onclick="preset('Explain photosynthesis in simple language with an example for my class level.')"><b>🌱 Explain a concept</b><span>Make a tough topic simple</span></button><button class="prompt" onclick="preset('Solve a sample maths problem for my class level and show every step.')"><b>∑ Solve step by step</b><span>Understand how to reach the answer</span></button><button class="prompt" onclick="preset('Quiz me with 5 Science MCQs for my class level, one at a time.')"><b>🎯 Practise questions</b><span>Test your understanding</span></button><button class="prompt" onclick="preset('Help me make a 7-day revision plan for my exams.')"><b>📚 Plan my revision</b><span>Study smarter for exams</span></button></div><section class="cards" aria-label="Medharya AI study resources"><div class="prompt"><b>School revision for all classes</b><span>Revise Maths, Science, Social Science, English and Computer topics with clear explanations and practice.</span></div><div class="prompt"><b>CBSE previous-year question practice</b><span>Get CBSE-pattern papers and marking schemes right inside the chat and download them as PDF.</span></div><div class="prompt"><b>AI doubt solving</b><span>Ask a study question and learn the reasoning step by step, when the secure AI backend is configured.</span></div><div class="prompt"><b>Study planner</b><span>Organise revision sessions, test your understanding and keep notes on your device.</span></div></section><div class="tipsbox"><div class="label">💡 Study tips jo marks badhate hain</div><div id="tipBanner" class="tipbanner"></div><div class="cards"><button class="prompt" onclick="preset('Quiz me on the topic I just studied. Ask one question at a time without showing the answer first (active recall).')"><b>🧠 Active Recall</b><span>Padhne ke baad book band — khud se test karo</span></button><button class="prompt" onclick="openTool('planCard')"><b>⏱️ Pomodoro 25 + 5</b><span>25 min focus, 5 min break. Phone door rakho</span></button><button class="prompt" onclick="preset('Explain a topic to me like I am 10 years old, then ask me to explain it back in my own words and correct me (Feynman technique).')"><b>🗣️ Feynman Technique</b><span>Simple bhasha me samjhao, tabhi samjha</span></button><button class="prompt" onclick="preset('Make a spaced revision plan for my exam using Day 1, Day 3, Day 7 and Day 21 revisions.')"><b>🔁 1-3-7-21 Revision</b><span>Bhoolne se pehle dobara revise karo</span></button><button class="prompt" onclick="openTool('pyqCard')"><b>📚 PYQ first</b><span>Exam pattern samajhne ka sabse tez tareeka</span></button><button class="prompt" onclick="preset('Help me build a mistake notebook: ask me my last 5 mistakes in a subject and explain how to never repeat them.')"><b>📓 Mistake Notebook</b><span>Galti likho, wahi sabse bada teacher hai</span></button></div></div></div><div class="launchers" aria-label="Study feature shortcuts">
+
+/* ================= ChatGPT-style interface (override layer) ================= */
+.menu-scrim{display:none}
+.menu-scrim.show{display:block}
+
+:root{color-scheme:dark;--bg:#212121;--panel:#2f2f2f;--panel2:#2a2a2a;--line:#3a3a3a;--text:#ececec;--muted:#9b9b9b;--accent:#ececec;--accent2:#ffffff;--green:#10a37f}
+html,body{background:#212121!important}
+body{background:#212121!important;color:#ececec;letter-spacing:0;font:16px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif}
+button{transition:background .15s ease,color .15s ease,opacity .15s ease}
+button:focus-visible,textarea:focus-visible,.field:focus-visible{outline:2px solid #6b6b6b;outline-offset:2px}
+
+/* Sidebar */
+.layout{grid-template-columns:260px 1fr}
+.sidebar{background:#171717;border-right:0;padding:10px 8px;gap:14px;backdrop-filter:none}
+.brand{font-size:17px;font-weight:650;letter-spacing:0;padding:6px 10px;gap:10px}
+.logo{width:30px;height:30px;border-radius:50%;background:#fff;color:#171717;font-size:16px;box-shadow:none}
+.newchat,.sideitem,.subject,.side-login-point{border:0!important;background:transparent!important;border-radius:10px;color:#ececec;padding:10px 12px;font-weight:500;transform:none}
+.newchat:hover,.sideitem:hover,.subject:hover,.side-login-point:hover,.history-item:hover{background:#212121!important;color:#fff;transform:none;border-color:transparent}
+.newchat{font-weight:600}
+.side-login-point{margin:0}
+.side-login{background:#212121;border:0;border-radius:12px}
+.label{color:#8e8e8e;font-size:12px;font-weight:600;letter-spacing:0;text-transform:none;padding:6px 12px 2px}
+.subjects{gap:2px}
+.subject{font-size:14px;color:#d4d4d4}
+.history-list{gap:2px}
+.history-item{background:transparent!important;border:0;border-radius:10px;color:#d4d4d4;padding:9px 12px;font-size:14px}
+.sidefoot{color:#8e8e8e;font-size:12px;padding:8px 12px}
+.sidebar .smallmuted{padding:0 12px}
+
+/* Top bar */
+.topbar{height:56px;padding:0 14px;background:#212121;border-bottom:0;backdrop-filter:none}
+.toplabel{font-size:17px;font-weight:600;color:#ececec;letter-spacing:0}
+.pill{display:none}
+.tooltoggle,.hamburger{border:0;background:transparent;color:#d4d4d4;border-radius:10px;padding:8px 12px;font-size:14px}
+.tooltoggle:hover,.hamburger:hover{background:#2f2f2f;color:#fff;border-color:transparent}
+
+/* Home / welcome */
+.scroll{max-width:780px;padding:28px 20px 190px}
+.welcome{padding:12vh 0 10px}
+.orb{display:none}
+.greet{color:#9b9b9b;font-weight:500;font-size:15px}
+.welcome h1{font-size:clamp(26px,3.6vw,32px);font-weight:600;letter-spacing:0;margin:0 0 10px;color:#ececec}
+.welcome p{color:#9b9b9b;font-size:15px;line-height:1.6;max-width:560px}
+.cards{max-width:720px;gap:10px;margin:24px auto}
+.prompt{background:transparent;border:1px solid #3a3a3a;border-radius:16px;padding:12px 16px;box-shadow:none;transform:none}
+.prompt:hover{background:#2a2a2a;border-color:#4a4a4a;transform:none}
+.prompt b{font-size:14px;font-weight:600;color:#ececec}
+.prompt span{font-size:13px;color:#9b9b9b}
+.launchers{max-width:720px;gap:10px;margin:14px auto 22px}
+.launchcard{background:transparent;border:1px solid #3a3a3a;border-radius:16px;padding:12px 16px;box-shadow:none;transform:none}
+.launchcard:hover{background:#2a2a2a;border-color:#4a4a4a;transform:none;box-shadow:none}
+.launchcard strong{font-size:14px;font-weight:600}
+.launchcard span{font-size:12.5px}
+.tipbanner{background:#2a2a2a;border:0;color:#d4d4d4;border-radius:14px}
+.guestbadge{color:#9b9b9b}
+
+/* Messages: no avatars, ChatGPT layout */
+.messages{gap:26px}
+.avatar{display:none!important}
+.msg{gap:0}
+.msg.user{justify-content:flex-end}
+.msg.user .bubble{background:#303030;border:0;border-radius:22px;padding:10px 18px;margin-left:auto;max-width:78%;line-height:1.6;color:#ececec}
+.msg.assistant .bubble{padding:0!important;font-size:16px;line-height:1.75;color:#ececec;width:100%}
+.assistantname{display:none}
+.answertext{font-size:16px;line-height:1.75;color:#ececec}
+.md h2{border-left:0;padding-left:0;font-size:1.3em;color:#fff}
+.md h3{color:#fff}
+.md h4{color:#fff}
+.md em{color:inherit}
+.md li::marker{color:#9b9b9b}
+.md code,.answertext code{background:#303030;border:0;color:#ececec;border-radius:6px}
+.md pre{background:#171717;border:0;border-radius:12px}
+.md blockquote,.answertext blockquote{background:transparent;border-left:3px solid #4a4a4a;border-radius:0;color:#c9c9c9}
+.md th,.answertext th{background:#2a2a2a;color:#fff}
+.md th,.md td,.answertext th,.answertext td{border-color:#3a3a3a}
+.md a,.answertext a{color:#8ab4f8}
+.typing span,.caret::after{background:#ececec;color:#ececec}
+.actions{gap:2px;margin-top:8px}
+.actions button{border:0;background:transparent;color:#9b9b9b;border-radius:8px;padding:6px 10px;font-size:13px}
+.actions button:hover{background:#2f2f2f;color:#fff;border-color:transparent}
+.actions .pdf-cta{background:#fff;color:#171717;font-weight:600;border-radius:999px}
+.nudge{border:1px dashed #4a4a4a;background:#2a2a2a;color:#d4d4d4}
+.pdfcard,.visual-note{background:#2a2a2a;border:1px solid #3a3a3a;box-shadow:none}
+.visual-note-tag{background:transparent;border-color:#4a4a4a;color:#b4b4b4}
+.visual-note-actions button{background:#303030;border:0;color:#ececec}
+.visual-note-actions button:hover{background:#3a3a3a}
+
+/* Composer: rounded pill like ChatGPT */
+.composer-wrap{left:260px;padding:12px 20px 10px;background:linear-gradient(180deg,rgba(33,33,33,0),#212121 38%);backdrop-filter:none}
+.composer{max-width:780px;background:#303030;border:0;border-radius:28px;padding:10px 12px 8px 16px;box-shadow:none}
+.composer:focus-within{border:0;box-shadow:none}
+.composer textarea{min-height:46px;font-size:16px;color:#ececec;padding:8px 4px;resize:none}
+.composer textarea::placeholder{color:#9b9b9b}
+.composer-bottom{padding:2px 0 0}
+.tools{gap:4px}
+.toolbtn{border:0;background:transparent;color:#b4b4b4;border-radius:999px;padding:7px 11px;font-size:13px}
+.toolbtn:hover{background:#3a3a3a;color:#fff;border-color:transparent}
+.toolbtn.teacher-on{background:#3a3a3a;color:#fff;border:0;box-shadow:none}
+.teacher-mode-note{color:#9b9b9b;margin:4px 6px 2px}
+.send{width:36px;height:36px;padding:0;border-radius:50%;background:#fff;color:#171717;border:0;font-size:19px;font-weight:700;line-height:1;display:grid;place-items:center;box-shadow:none;flex:0 0 36px}
+.send:hover:not(:disabled){background:#e5e5e5;transform:none;box-shadow:none}
+.send:disabled{opacity:.4;background:#6b6b6b;color:#212121}
+.hint{color:#8e8e8e;font-size:12px;margin-top:8px}
+
+/* Tool pages, forms, popups */
+.toolcard{background:#2a2a2a;border:1px solid #3a3a3a;border-radius:18px;box-shadow:none}
+.field{background:#212121;border:1px solid #3a3a3a;border-radius:12px;color:#ececec}
+.field:focus{border-color:#6b6b6b;box-shadow:none}
+.toolaction{background:#fff;color:#171717;border:0;border-radius:999px;font-weight:600;padding:9px 16px;transform:none}
+.toolaction:hover{background:#e5e5e5;border-color:transparent;transform:none}
+.auth-switch .toolaction{background:#303030;color:#ececec}
+.toolout{background:#212121;border:1px solid #3a3a3a;border-radius:12px}
+.chap{background:transparent;border:1px solid #3a3a3a}
+.chap:hover{background:#2f2f2f;border-color:#4a4a4a}
+.chap .n{background:#303030;color:#ececec}
+.chap .go{color:#9b9b9b}
+.notice{background:#2a2a2a;border:1px solid #4a4a4a;color:#e0e0e0}
+.overlay{background:rgba(0,0,0,.6);backdrop-filter:none}
+.gate-box{background:#2f2f2f;border:0;border-radius:24px}
+.g-btn{border-radius:999px}
+.gate-perks{color:#d4d4d4}
+
+@media(max-width:760px){
+  .layout{grid-template-columns:1fr}
+  .sidebar.menu-open{background:#171717;border:0;border-radius:0 16px 16px 0;top:0;bottom:0;left:0;width:min(300px,86vw)}
+  .topbar{height:52px;padding:0 10px}
+  .mobilebrand{font-weight:600}
+  .scroll{padding:14px 14px 175px}
+  .welcome{padding:8vh 0 10px}
+  .composer-wrap{left:0;padding:8px 10px 8px}
+  .composer{border-radius:24px}
+  .msg.user .bubble{max-width:88%}
+  .answertext,.msg.assistant .bubble{font-size:15.5px}
+  .toolbtn{padding:6px 8px;font-size:12px}
+}
+</style></head><body><div class="layout"><aside class="sidebar"><div class="brand"><div class="logo">✦</div> Medharya</div><button type="button" class="side-login-point" onclick="toggleAccountPanel()">👤 Student Account <span id="accountPointStatus">＋</span></button><section class="side-login hidden" id="accountPanel" aria-label="Student sign up and login"><div class="side-login-title">Student Account</div><div class="auth-switch"><button type="button" id="signupTab" class="toolaction" onclick="setAuthMode('signup')">Sign up</button><button type="button" id="loginTab" class="toolaction" onclick="setAuthMode('login')">Log in</button></div><div id="signupFields"><label for="sideName" class="smallmuted">Student Name</label><input id="sideName" class="field" placeholder="Your full name" autocomplete="name"><label for="sideClass" class="smallmuted">Class</label><select id="sideClass" class="field"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="other">Other</option></select></div><label for="sideEmail" class="smallmuted">Email Address</label><input id="sideEmail" class="field" type="email" placeholder="you@example.com" autocomplete="email"><label for="sidePassword" class="smallmuted">Password</label><input id="sidePassword" class="field" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="current-password"><button class="toolaction side-save" id="authSubmit" onclick="submitAuth()">Create account</button><button class="toolaction side-save" id="googleAuthBtn" onclick="signInWithGoogle()">Continue with Google</button><button class="tooltoggle hidden" id="logoutBtn" onclick="logoutStudent()">Log out</button><div id="sideLoginStatus" class="smallmuted" aria-live="polite">Firebase account · Email/password or Google</div><div class="smallmuted">Your account uses Firebase Authentication. Your chats sync to your private Firestore account after sign-in.</div></section><button class="newchat" onclick="newChat()">＋ &nbsp; New chat</button><div><div class="label">Chat History</div><div id="chatHistoryList" class="history-list"><div class="smallmuted">Your saved chats will appear here.</div></div><div class="smallmuted">Sign in to sync your chats across devices.</div></div><div><div class="label">Study subjects</div><div class="subjects"><button class="subject" onclick="openSubject('Mathematics')">∑ &nbsp; Mathematics</button><button class="subject" onclick="openSubject('Science')">⚗ &nbsp; Science</button><button class="subject" onclick="openSubject('Social Science')">◈ &nbsp; Social Science</button><button class="subject" onclick="openSubject('English')">A &nbsp; English</button><button class="subject" onclick="openSubject('Computer')">⌘ &nbsp; Computer</button></div></div><div><div class="label">Learning modes</div><div class="subjects"><button class="subject" onclick="setMode('explain')">🧠 &nbsp; Step-by-step</button><button class="subject" onclick="setMode('learn')">🎯 &nbsp; Learn with hints</button><button class="subject" onclick="setMode('exam')">📝 &nbsp; Exam practice</button></div></div><div class="sidefoot">Made for curious students<br>Hindi + English · All classes</div></aside><div class="menu-scrim" id="menuScrim" onclick="toggleMenu(false)"></div><main class="main"><header class="topbar"><button class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button><div class="mobilebrand"><div class="logo" style="width:30px;height:30px;font-size:16px">✦</div> Medharya</div><div class="toplabel" id="toplabel">Student Thinking Space</div><button id="backHome" class="tooltoggle hidden" onclick="backHome()">← Home</button><div style="display:flex;align-items:center;gap:8px"><button class="tooltoggle" onclick="toggleTools()">📚 Study tools</button><span class="pill">ALL CLASSES · ALL SUBJECTS</span></div></header><section class="scroll"><div id="welcome" class="welcome"><div class="orb">✦</div><div id="greet" class="greet"></div><h1>Medharya</h1><p>Your AI study companion for school students across classes. Get step-by-step help, practise subjects, revise chapters, explore questions, and plan exam preparation in Hindi or English.</p><div class="cards"><button class="prompt" onclick="preset('Explain photosynthesis in simple language with an example for my class level.')"><b>🌱 Explain a concept</b><span>Make a tough topic simple</span></button><button class="prompt" onclick="preset('Solve a sample maths problem for my class level and show every step.')"><b>∑ Solve step by step</b><span>Understand how to reach the answer</span></button><button class="prompt" onclick="preset('Quiz me with 5 Science MCQs for my class level, one at a time.')"><b>🎯 Practise questions</b><span>Test your understanding</span></button><button class="prompt" onclick="preset('Help me make a 7-day revision plan for my exams.')"><b>📚 Plan my revision</b><span>Study smarter for exams</span></button></div><section class="cards" aria-label="Medharya study resources"><div class="prompt"><b>School revision for all classes</b><span>Revise Maths, Science, Social Science, English and Computer topics with clear explanations and practice.</span></div><div class="prompt"><b>CBSE previous-year question practice</b><span>Get CBSE-pattern papers and marking schemes right inside the chat and download them as PDF.</span></div><div class="prompt"><b>AI doubt solving</b><span>Ask a study question and learn the reasoning step by step, when the secure AI backend is configured.</span></div><div class="prompt"><b>Study planner</b><span>Organise revision sessions, test your understanding and keep notes on your device.</span></div></section><div class="tipsbox"><div class="label">💡 Study tips jo marks badhate hain</div><div id="tipBanner" class="tipbanner"></div><div class="cards"><button class="prompt" onclick="preset('Quiz me on the topic I just studied. Ask one question at a time without showing the answer first (active recall).')"><b>🧠 Active Recall</b><span>Padhne ke baad book band — khud se test karo</span></button><button class="prompt" onclick="openTool('planCard')"><b>⏱️ Pomodoro 25 + 5</b><span>25 min focus, 5 min break. Phone door rakho</span></button><button class="prompt" onclick="preset('Explain a topic to me like I am 10 years old, then ask me to explain it back in my own words and correct me (Feynman technique).')"><b>🗣️ Feynman Technique</b><span>Simple bhasha me samjhao, tabhi samjha</span></button><button class="prompt" onclick="preset('Make a spaced revision plan for my exam using Day 1, Day 3, Day 7 and Day 21 revisions.')"><b>🔁 1-3-7-21 Revision</b><span>Bhoolne se pehle dobara revise karo</span></button><button class="prompt" onclick="openTool('pyqCard')"><b>📚 PYQ first</b><span>Exam pattern samajhne ka sabse tez tareeka</span></button><button class="prompt" onclick="preset('Help me build a mistake notebook: ask me my last 5 mistakes in a subject and explain how to never repeat them.')"><b>📓 Mistake Notebook</b><span>Galti likho, wahi sabse bada teacher hai</span></button></div></div></div><div class="launchers" aria-label="Study feature shortcuts">
 <button class="launchcard" onclick="openTool('pyqCard')"><span class="launchicon">📚</span><strong>CBSE PYQ Library</strong><span>CBSE-style practice in chat</span></button>
 
 
@@ -387,7 +522,7 @@ button{transition:background .18s ease,border-color .18s ease,color .18s ease,tr
 </div><div id="messages" class="messages"></div><div id="studytools" class="studytools hidden">
 <div class="toolgrid">
 
-<article class="toolcard" id="imageCard"><h3>📷 Image Solver</h3><p>Upload a clear photo of a textbook exercise, worksheet or handwritten question. Medharya sends it to the connected Gemini model for explanation.</p><label for="questionImage" class="smallmuted">Choose question image</label><input id="questionImage" class="field" type="file" accept="image/*" capture="environment" onchange="previewQuestionImage(event)"><div id="imagePreview" class="toolout">No image selected yet.</div><button class="toolaction" onclick="usePhotoQuestion()">Solve this photo with Medharya AI</button><div class="smallmuted">Use JPG, PNG or WebP up to 5 MB. Image is sent for this question and is not saved in chat history.</div></article>
+<article class="toolcard" id="imageCard"><h3>📷 Image Solver</h3><p>Upload a clear photo of a textbook exercise, worksheet or handwritten question. Medharya sends it to the connected Gemini model for explanation.</p><label for="questionImage" class="smallmuted">Choose question image</label><input id="questionImage" class="field" type="file" accept="image/*" capture="environment" onchange="previewQuestionImage(event)"><div id="imagePreview" class="toolout">No image selected yet.</div><button class="toolaction" onclick="usePhotoQuestion()">Solve this photo with Medharya</button><div class="smallmuted">Use JPG, PNG or WebP up to 5 MB. Image is sent for this question and is not saved in chat history.</div></article>
 
 <article class="toolcard" id="planCard"><h3>📅 Study Planner + Focus Timer</h3><p>Create a simple study plan and run a focus session.</p><input id="planSubject" class="field" placeholder="Subject / chapter"><input id="planMins" class="field" type="number" min="5" max="240" value="25" aria-label="Minutes"><button class="toolaction" onclick="createPlan()">Create plan</button><div id="planOut" class="toolout">Your plan will appear here.</div><div style="font-size:26px;font-weight:750;margin-top:10px" id="focusClock">25:00</div><button class="toolaction" onclick="startFocus()">▶ Start</button><button class="toolaction" onclick="pauseFocus()">Ⅱ Pause</button><button class="toolaction" onclick="resetFocus()">↺ Reset</button></article>
 
@@ -399,7 +534,7 @@ button{transition:background .18s ease,border-color .18s ease,color .18s ease,tr
 
 </div></div></section><div id="gate" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="gateTitle"><div class="gate-box"><div class="orb">✦</div><h2 id="gateTitle">Aage badhne ke liye login karein</h2><p>Aapke 3 free chats poore ho gaye. Free account banao — bas ek click me.</p><div class="gate-perks"><div>✅ AI doubt solving after sign-in</div><div>✅ Class-wise chapter help</div><div>✅ AI-generated practice papers and PDF export</div><div>✅ Chats synced to your account</div></div><button class="g-btn" onclick="signInWithGoogle()"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.5-.8-3-.8-4.7s.3-3.2.8-4.7l-7.9-6.1C.9 16.4 0 20.100 0 24s.9 7.600 2.600 10.800l7.900-6.100z"/><path fill="#34A853" d="M24 48c6.5 0 11.900-2.100 15.900-5.800l-7.500-5.800c-2.100 1.400-4.800 2.300-8.400 2.300-6.300 0-11.600-4.100-13.500-9.800l-7.900 6.100C6.500 42.600 14.600 48 24 48z"/></svg>Continue with Google</button><button class="toolaction" onclick="openEmailAuth()">Email se Sign up / Log in</button><div id="gateStatus" class="smallmuted" style="margin-top:10px" aria-live="polite"></div></div></div>
 <div id="classModal" class="overlay hidden" role="dialog" aria-modal="true"><div class="gate-box"><div class="orb">🎓</div><h2>Aap kaun si class me ho?</h2><p>Isse hum chapters aur questions aapki class ke hisaab se dikhayenge.</p><select id="classPick" class="field"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option></select><button class="toolaction" style="margin-top:10px" onclick="saveClassChoice()">Save &amp; continue</button><div id="classStatus" class="smallmuted" style="margin-top:8px"></div></div></div>
-<div class="composer-wrap"><div class="composer"><textarea id="question" rows="1" placeholder="Ask anything about your studies…" onkeydown="handleKey(event)" oninput="resizeBox(this)"></textarea><div class="composer-bottom"><div class="tools"><button class="toolbtn" type="button" onclick="document.getElementById('chatImageInput').click()" title="Attach an image">🖼️ Image</button><input id="chatImageInput" type="file" accept="image/*" hidden onchange="previewChatImage(event)"><span id="chatImageStatus" class="smallmuted"></span><span id="voiceStatus" class="smallmuted"></span><button class="toolbtn" onclick="setMode('explain')">🧠 <span id="modeLabel">Step-by-step</span></button><button class="toolbtn" id="teacherModeBtn" type="button" onclick="toggleTeacherMode()" aria-pressed="false" title="Interactive Teacher Mode">🎓 Teacher Mode</button><button class="toolbtn" onclick="toggleLanguage()" id="langBtn">🌐 English</button><button class="toolbtn" onclick="startSpeech()" title="Voice input">🎙️</button></div><button class="send" id="sendBtn" onclick="sendQuestion()">Send ↑</button></div><div id="teacherModeNote" class="teacher-mode-note">🎓 Teacher Mode is ON · Learn step by step with questions, hints and feedback.</div></div><div id="guestBadge" class="guestbadge hidden"></div><div class="hint">Medharya can make mistakes. Verify important answers with your textbook or teacher.</div></div></main></div>
+<div class="composer-wrap"><div class="composer"><textarea id="question" rows="1" placeholder="Ask anything about your studies…" onkeydown="handleKey(event)" oninput="resizeBox(this)"></textarea><div class="composer-bottom"><div class="tools"><button class="toolbtn" type="button" onclick="document.getElementById('chatImageInput').click()" title="Attach an image">🖼️ Image</button><input id="chatImageInput" type="file" accept="image/*" hidden onchange="previewChatImage(event)"><span id="chatImageStatus" class="smallmuted"></span><span id="voiceStatus" class="smallmuted"></span><button class="toolbtn" onclick="setMode('explain')">🧠 <span id="modeLabel">Step-by-step</span></button><button class="toolbtn" id="teacherModeBtn" type="button" onclick="toggleTeacherMode()" aria-pressed="false" title="Interactive Teacher Mode">🎓 Teacher Mode</button><button class="toolbtn" onclick="toggleLanguage()" id="langBtn">🌐 English</button><button class="toolbtn" onclick="startSpeech()" title="Voice input">🎙️</button></div><button class="send" id="sendBtn" onclick="sendQuestion()" aria-label="Send message" title="Send">↑</button></div><div id="teacherModeNote" class="teacher-mode-note">🎓 Teacher Mode is ON · Learn step by step with questions, hints and feedback.</div></div><div id="guestBadge" class="guestbadge hidden"></div><div class="hint">Medharya can make mistakes. Verify important answers with your textbook or teacher.</div></div></main></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
@@ -577,7 +712,7 @@ function exportPDF(i){
   pre{background:#f3f3f6;padding:10px;border-radius:6px;white-space:pre-wrap}code{background:#f3f3f6;padding:1px 4px;border-radius:4px}blockquote{border-left:3px solid #2aa876;margin:8px 0;padding:4px 12px;background:#f4faf7}
   hr{border:0;border-top:1px solid #ccc;margin:18px 0}.foot{margin-top:26px;font-size:11px;color:#777;text-align:center}
   @media print{h2,h3{break-after:avoid}li,tr{break-inside:avoid}}</style></head><body>
-  <div class="top"><b>✦ Medharya AI</b><span>${esc(m.title)}</span></div>${mdToHtml(m.text)}<div class="foot">Generated by Medharya AI · ${new Date().toLocaleDateString()} · AI-generated practice content — verify with your textbook/teacher.</div></body></html>`);
+  <div class="top"><b>✦ Medharya</b><span>${esc(m.title)}</span></div>${mdToHtml(m.text)}<div class="foot">Generated by Medharya · ${new Date().toLocaleDateString()} · AI-generated practice content — verify with your textbook/teacher.</div></body></html>`);
   d.close();
   setTimeout(()=>{try{f.contentWindow.focus();f.contentWindow.print()}catch(e){alert('Print window could not open.')}},350);
   setTimeout(()=>f.remove(),90000);
@@ -593,7 +728,7 @@ async function callBackend(message,extra){
   if(extra.teacherMode){
     const turns=Array.isArray(extra.teacherHistory)?extra.teacherHistory.slice(-6):[];
     const transcript=turns.map(t=>{
-      const who=t.role==='assistant'?'Medharya AI':'Student';
+      const who=t.role==='assistant'?'Medharya':'Student';
       const body=String(t.text||'').replace(/\s+/g,' ').slice(0,650);
       return who+': '+body;
     }).join('\n');
@@ -642,7 +777,7 @@ else if(cat==='MATHEMATICS'){heroBlock=`<rect x="72" y="300" width="936" height=
 else if(cat==='SOCIAL SCIENCE'){heroBlock=`<rect x="72" y="300" width="936" height="245" rx="26" fill="#302719" stroke="${accent}" stroke-width="2"/><text x="110" y="360" fill="${accent}" font-size="22" font-weight="700">${hindi?'सामाजिक विज्ञान':'SOCIAL SCIENCE'}</text><text x="110" y="420" fill="#fff7e9" font-size="31" font-weight="700">${esc(title.slice(0,42))}</text><path d="M145 480 H925" stroke="${accent}" stroke-width="4" stroke-linecap="round"/><circle cx="160" cy="480" r="12" fill="${accent}"/><circle cx="470" cy="480" r="12" fill="${accent}"/><circle cx="780" cy="480" r="12" fill="${accent}"/>`}
 else if(cat==='LANGUAGE'){heroBlock=`<rect x="72" y="300" width="936" height="245" rx="26" fill="#302033" stroke="${accent}" stroke-width="2"/><text x="110" y="360" fill="${accent}" font-size="22" font-weight="700">${hindi?'भाषा और साहित्य':'LANGUAGE & LITERATURE'}</text><text x="110" y="420" fill="#fff2fa" font-size="31" font-weight="700">${esc(title.slice(0,42))}</text><text x="110" y="475" fill="#f0cddd" font-size="21">${hindi?'विषय → पात्र / विचार → संदेश':'Theme → Characters / Ideas → Message'}</text>`}
 else{heroBlock=`<rect x="72" y="300" width="936" height="245" rx="26" fill="#1b2338" stroke="${accent}" stroke-width="2"/><text x="110" y="360" fill="${accent}" font-size="22" font-weight="700">${hindi?'सीखने का नक्शा':'LEARNING MAP'}</text><text x="110" y="420" fill="#f4f6ff" font-size="31" font-weight="700">${esc(title.slice(0,42))}</text><text x="110" y="475" fill="#cbd4e9" font-size="21">${hindi?'समझें • जोड़ें • दोहराएँ':'Understand • Connect • Revise'}</text>`}
-return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1020"/><stop offset="1" stop-color="#17152b"/></linearGradient><linearGradient id="glow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="${accent}"/><stop offset="1" stop-color="#8c7bff"/></linearGradient></defs><rect width="1080" height="1350" fill="url(#bg)"/><circle cx="950" cy="95" r="180" fill="${accent}" opacity=".07"/><circle cx="80" cy="1160" r="210" fill="#8c7bff" opacity=".06"/><text x="72" y="92" fill="#c5b8ff" font-size="22" font-weight="700" letter-spacing="3">✦ MEDHARYA AI</text><text x="72" y="158" fill="#f6f7ff" font-size="48" font-weight="800">${esc(title.slice(0,38))}</text><text x="72" y="208" fill="#9ca9c3" font-size="20" letter-spacing="2">${esc(cat)} · VISUAL REVISION CARD</text><rect x="72" y="242" width="936" height="5" rx="3" fill="url(#glow)"/>${heroBlock}<text x="72" y="610" fill="${accent}" font-size="21" font-weight="750" letter-spacing="2">${visualLabel}</text>${cards}<text x="72" y="1278" fill="#aeb8cc" font-size="17">${hindi?'यह चित्र AI explanation से बना revision aid है।':'Made from the AI explanation · Use as a revision aid.'}</text><text x="1008" y="1278" text-anchor="end" fill="#aeb8cc" font-size="17">MEDHARYA AI</text><text x="72" y="1315" fill="#69758d" font-size="14">Check exact definitions, formulas and diagrams with your textbook.</text></svg>`}
+return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1020"/><stop offset="1" stop-color="#17152b"/></linearGradient><linearGradient id="glow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="${accent}"/><stop offset="1" stop-color="#8c7bff"/></linearGradient></defs><rect width="1080" height="1350" fill="url(#bg)"/><circle cx="950" cy="95" r="180" fill="${accent}" opacity=".07"/><circle cx="80" cy="1160" r="210" fill="#8c7bff" opacity=".06"/><text x="72" y="92" fill="#c5b8ff" font-size="22" font-weight="700" letter-spacing="3">✦ MEDHARYA</text><text x="72" y="158" fill="#f6f7ff" font-size="48" font-weight="800">${esc(title.slice(0,38))}</text><text x="72" y="208" fill="#9ca9c3" font-size="20" letter-spacing="2">${esc(cat)} · VISUAL REVISION CARD</text><rect x="72" y="242" width="936" height="5" rx="3" fill="url(#glow)"/>${heroBlock}<text x="72" y="610" fill="${accent}" font-size="21" font-weight="750" letter-spacing="2">${visualLabel}</text>${cards}<text x="72" y="1278" fill="#aeb8cc" font-size="17">${hindi?'यह चित्र AI explanation से बना revision aid है।':'Made from the AI explanation · Use as a revision aid.'}</text><text x="1008" y="1278" text-anchor="end" fill="#aeb8cc" font-size="17">MEDHARYA</text><text x="72" y="1315" fill="#69758d" font-size="14">Check exact definitions, formulas and diagrams with your textbook.</text></svg>`}
 async function createVisualNote(button,topic,answer){try{button.disabled=true;button.textContent='Creating visual…';const svg=makeVisualSvg(topic,answer,language);const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(blob);const wrap=document.createElement('section');wrap.className='visual-note';wrap.innerHTML=`<div class="visual-note-head"><div class="visual-note-title">🎨 Visual Learning · ${esc(visualCategory(topic,answer))}</div><span class="visual-note-tag">AI STUDY INFOGRAPHIC</span></div><img alt="Visual revision card for ${esc(topic)}" src="${url}"><div class="visual-note-actions"><button type="button" class="visual-download">⬇ Download PNG</button><button type="button" class="visual-regenerate">↻ Regenerate</button></div><div class="visual-note-caption">Illustrative revision aid based on the explanation above. For exact scientific diagrams, maps and formulas, cross-check your textbook.</div>`;button.closest('.answertext').appendChild(wrap);wrap.querySelector('.visual-download').addEventListener('click',()=>downloadVisualPng(svg,topic));wrap.querySelector('.visual-regenerate').addEventListener('click',()=>{wrap.remove();createVisualNote(button,topic,answer)});wrap.scrollIntoView({behavior:'smooth',block:'nearest'});button.remove();}catch(e){button.disabled=false;button.textContent='🎨 Create Visual Notes';alert('Visual could not be created. Please try again.')}}
 function downloadVisualPng(svg,topic){const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob),img=new Image();img.onload=()=>{const c=document.createElement('canvas');c.width=1080;c.height=1350;const ctx=c.getContext('2d');ctx.drawImage(img,0,0);URL.revokeObjectURL(url);c.toBlob(png=>{if(!png){alert('PNG export failed.');return}const a=document.createElement('a');a.href=URL.createObjectURL(png);a.download='Medharya-'+String(topic||'Visual-Notes').replace(/[^a-z0-9 hindi_-]/gi,'-').slice(0,45)+'.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)},'image/png')};img.onerror=()=>{URL.revokeObjectURL(url);alert('Image export failed. Please try again.')};img.src=url}
 
@@ -660,11 +795,11 @@ async function sendQuestion(override,opts){
   if(opts.display)addMsg('user',esc(opts.display));else if(q)addMsg('user',esc(q));else addMsg('user','📷 Question image attached');
   if(!isOverride){$('question').value='';resizeBox($('question'))}
   const d=addMsg('assistant','<div class="typing"><span></span><span></span><span></span></div>');const content=d.querySelector('.answertext');
-  const send=$('sendBtn');if(send){send.disabled=true;send.textContent='Thinking…'}
+  const send=$('sendBtn');if(send){send.disabled=true;send.textContent='…'}
   try{
     const answer=await callBackend(q||'Read the attached image and solve the question step by step.',{image:pendingImage,teacherMode:teacherModeEnabled,teacherHistory});
     if(!isLoggedIn()){localStorage.setItem('medharya_guest_chats',String(guestCount()+1));updateGuestBadge()}
-    const idx=answerStore.push({text:answer,title:opts.pdfTitle||(q||'Medharya AI answer').slice(0,70)})-1;
+    const idx=answerStore.push({text:answer,title:opts.pdfTitle||(q||'Medharya answer').slice(0,70)})-1;
     content.innerHTML='<div class="md ai-answer caret"></div>';
     const target=content.firstChild;
     await streamMarkdown(target,answer,()=>{const last=$('messages').lastElementChild;if(last)last.scrollIntoView({block:'end'})});
@@ -680,10 +815,10 @@ async function sendQuestion(override,opts){
     return true;
   }catch(err){
     const detail=String(err&&err.message||err||'Unknown network error');
-    content.innerHTML='<div class="notice"><b>Medharya AI connection error</b><br>'+esc(detail)+'<br><br>Agar “Failed to fetch” ya CORS error dikhe, to Apps Script deployment access check karein.</div>';
+    content.innerHTML='<div class="notice"><b>Medharya connection error</b><br>'+esc(detail)+'<br><br>Agar “Failed to fetch” ya CORS error dikhe, to Apps Script deployment access check karein.</div>';
     updateLastChatMessage('Connection error: '+detail);
     return false;
-  }finally{isSending=false;if(send){send.disabled=false;send.textContent='Send ↑'}const last=$('messages').lastElementChild;if(last)last.scrollIntoView({behavior:'smooth',block:'end'})}
+  }finally{isSending=false;if(send){send.disabled=false;send.textContent='↑'}const last=$('messages').lastElementChild;if(last)last.scrollIntoView({behavior:'smooth',block:'end'})}
 }
 function streamMarkdown(el,text,onTick){
   return new Promise(res=>{let i=0;const step=Math.max(4,Math.ceil(text.length/140));
@@ -798,8 +933,8 @@ function askChapter(i){
   const prompt=`Class ${cls} · ${sub} · Chapter: "${ch}".\n1) Give a quick 5-line summary of the key concepts/formulas of this chapter as per NCERT/CBSE for Class ${cls}.\n2) Then give 10 questions strictly at Class ${cls} level in the latest CBSE pattern: 4 MCQs, 2 assertion-reason, 2 short-answer, 1 long-answer and 1 competency-based / real-life case question.\n3) Put the complete answers with short explanations at the end under "Answer Key".`;
   sendQuestion(prompt,{display:`📘 Class ${cls} · ${sub} · ${ch}`,pdfTitle:`Class ${cls} ${sub} — ${ch}`});
 }
-function previewQuestionImage(e){const f=e.target.files&&e.target.files[0];if(!f)return;const u=URL.createObjectURL(f);$('imagePreview').innerHTML='';const img=document.createElement('img');img.src=u;img.alt='Selected question preview';img.style.maxWidth='100%';img.style.maxHeight='240px';img.style.borderRadius='10px';$('imagePreview').appendChild(img);const p=document.createElement('div');p.className='smallmuted';p.textContent='Image ready. Press “Solve this photo with Medharya AI” to send it to the connected Gemini backend.';$('imagePreview').appendChild(p);}
-async function usePhotoQuestion(){const f=$('questionImage').files&&$('questionImage').files[0];if(!f){$('imagePreview').textContent='Please select a question photo first.';return}if(!f.type.startsWith('image/')){$('imagePreview').textContent='Please select a valid image file.';return}if(f.size>5*1024*1024){$('imagePreview').textContent='Please choose an image smaller than 5 MB.';return}try{const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});pendingImage={mimeType:f.type||'image/jpeg',data:String(dataUrl).split(',')[1]};backHome();preset('Read this question image and solve it step by step. Explain in simple '+(language==='hi'?'Hindi':'English')+' and show the final answer.');$('question').focus();$('voiceStatus').textContent='Image attached. Sending it to Medharya AI now…';sendQuestion();}catch(e){$('imagePreview').textContent='Could not read this image. Try another photo.'}}
+function previewQuestionImage(e){const f=e.target.files&&e.target.files[0];if(!f)return;const u=URL.createObjectURL(f);$('imagePreview').innerHTML='';const img=document.createElement('img');img.src=u;img.alt='Selected question preview';img.style.maxWidth='100%';img.style.maxHeight='240px';img.style.borderRadius='10px';$('imagePreview').appendChild(img);const p=document.createElement('div');p.className='smallmuted';p.textContent='Image ready. Press “Solve this photo with Medharya” to send it to the connected Gemini backend.';$('imagePreview').appendChild(p);}
+async function usePhotoQuestion(){const f=$('questionImage').files&&$('questionImage').files[0];if(!f){$('imagePreview').textContent='Please select a question photo first.';return}if(!f.type.startsWith('image/')){$('imagePreview').textContent='Please select a valid image file.';return}if(f.size>5*1024*1024){$('imagePreview').textContent='Please choose an image smaller than 5 MB.';return}try{const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});pendingImage={mimeType:f.type||'image/jpeg',data:String(dataUrl).split(',')[1]};backHome();preset('Read this question image and solve it step by step. Explain in simple '+(language==='hi'?'Hindi':'English')+' and show the final answer.');$('question').focus();$('voiceStatus').textContent='Image attached. Sending it to Medharya now…';sendQuestion();}catch(e){$('imagePreview').textContent='Could not read this image. Try another photo.'}}
 
 let authMode='signup';
 function setAuthMode(mode){
