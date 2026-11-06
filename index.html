@@ -117,6 +117,255 @@ body.chat-page .composer-wrap{z-index:5;}
 .tipsbox{margin-top:22px}
 .tipsbox .label{margin-bottom:8px}
 .tipbanner{margin:0 0 14px;padding:11px 14px;border-radius:14px;background:linear-gradient(135deg,#231f3f,#1a2230);border:1px solid #3a3566;font-size:13px;color:#e4e0ff;text-align:center}
+
+/* ================= Medharya premium visual polish =================
+   Presentation-only overrides. Existing layout, IDs, controls and JS stay intact.
+*/
+:root{
+  color-scheme:dark;
+  --bg:#0b0d14;
+  --panel:#121622;
+  --panel2:#1a2030;
+  --line:#272e40;
+  --text:#f5f6fb;
+  --muted:#9ba5b8;
+  --accent:#a78bfa;
+  --accent2:#7c5cff;
+  --green:#72e0c0;
+}
+html{background:var(--bg);scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(ellipse at 48% -18%,rgba(124,92,255,.16),transparent 48%),
+    radial-gradient(ellipse at 100% 72%,rgba(65,190,190,.055),transparent 34%),
+    var(--bg);
+  color:var(--text);
+  letter-spacing:.005em;
+  -webkit-font-smoothing:antialiased;
+}
+button,textarea,input,select{font-family:inherit}
+button{transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease}
+.sidebar{
+  background:rgba(14,17,27,.94);
+  border-right:1px solid rgba(150,160,190,.13);
+  padding:18px 15px;
+  gap:17px;
+  backdrop-filter:blur(18px);
+}
+.brand{font-size:18px;letter-spacing:-.035em}
+.logo{
+  width:39px;height:39px;border-radius:13px;
+  background:linear-gradient(145deg,#c4b5fd 0%,#8b72ff 48%,#5b49d6 100%);
+  box-shadow:0 7px 24px rgba(124,92,255,.28),inset 0 1px 0 rgba(255,255,255,.35);
+}
+.newchat{
+  border-color:rgba(167,139,250,.38);
+  background:linear-gradient(120deg,rgba(124,92,255,.17),rgba(124,92,255,.07));
+  border-radius:13px;padding:12px 13px;font-weight:650;
+}
+.newchat:hover,.sideitem:hover,.subject:hover,.history-item:hover{
+  background:#20263a;border-color:#51477d;color:#fff;transform:translateY(-1px)
+}
+.label{color:#7f8ba3;font-size:10px;letter-spacing:1.55px}
+.subjects{gap:6px}
+.subject{
+  border-color:transparent;background:transparent;border-radius:11px;
+  color:#c2c9d8;padding:10px 11px
+}
+.history-item{
+  border-color:transparent;background:rgba(255,255,255,.025);
+  border-radius:10px;color:#9ca7bb;padding:9px 10px
+}
+.sidefoot{color:#7f899d;line-height:1.65}
+.topbar{
+  height:66px;padding:0 26px;
+  background:rgba(11,13,20,.78);
+  border-bottom:1px solid rgba(150,160,190,.12);
+  backdrop-filter:blur(18px);
+}
+.toplabel{font-size:14px;letter-spacing:-.01em}
+.pill{
+  border:1px solid rgba(167,139,250,.28);
+  background:rgba(124,92,255,.12);color:#d3c8ff;
+  padding:6px 11px;font-weight:650
+}
+.scroll{max-width:900px;padding:34px 26px 190px}
+.welcome{padding:8vh 0 25px}
+.orb{
+  width:68px;height:68px;border-radius:23px;
+  background:linear-gradient(145deg,#c4b5fd,#8b72ff 55%,#5b49d6);
+  box-shadow:0 12px 42px rgba(124,92,255,.3),inset 0 1px 0 rgba(255,255,255,.35);
+}
+.welcome h1{font-weight:750;letter-spacing:-1.7px;line-height:1.12}
+.gradient{
+  background:linear-gradient(95deg,#d6caff 0%,#a78bfa 42%,#72e0c0 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.welcome p{font-size:14px;line-height:1.75;color:#a5aec0}
+.cards{max-width:690px;gap:12px;margin:27px auto}
+.prompt{
+  background:linear-gradient(145deg,rgba(24,30,45,.94),rgba(17,21,33,.94));
+  border:1px solid rgba(150,160,190,.15);
+  border-radius:17px;padding:17px;
+  box-shadow:0 8px 28px rgba(0,0,0,.12);
+  transition:transform .2s ease,border-color .2s ease,background .2s ease
+}
+.prompt:hover{
+  transform:translateY(-2px);border-color:rgba(167,139,250,.45);
+  background:linear-gradient(145deg,#20263a,#171d2c)
+}
+.prompt b{font-size:13px;letter-spacing:-.01em}
+.prompt span{font-size:12px;line-height:1.55;color:#a4aec2}
+.launchers{max-width:690px;gap:12px;margin:20px auto 28px}
+.launchcard{
+  background:linear-gradient(145deg,rgba(27,33,49,.96),rgba(17,21,32,.96));
+  border:1px solid rgba(150,160,190,.16);border-radius:16px;
+  padding:16px;box-shadow:0 8px 25px rgba(0,0,0,.1);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease
+}
+.launchcard:hover{
+  transform:translateY(-2px);border-color:rgba(167,139,250,.5);
+  box-shadow:0 12px 30px rgba(0,0,0,.2)
+}
+.launchicon{font-size:21px}
+.launchcard strong{font-size:13px;letter-spacing:-.01em}
+.launchcard span{font-size:11px;line-height:1.55}
+.messages{gap:28px}
+.msg{gap:13px}
+.avatar{
+  flex-basis:34px;width:34px;height:34px;border-radius:12px;
+  background:linear-gradient(145deg,#292443,#1b2030);
+  border:1px solid rgba(167,139,250,.16)
+}
+.msg.user .avatar{background:#202838;border-color:rgba(150,170,210,.12)}
+.msg.user .bubble{
+  background:linear-gradient(145deg,#25243b,#202336);
+  border:1px solid rgba(167,139,250,.19);
+  border-radius:19px 19px 5px 19px;
+  padding:13px 16px;line-height:1.7
+}
+.assistantname{
+  color:#c7b7ff;font-size:12px;letter-spacing:.015em;
+  margin:2px 0 9px
+}
+.answertext{font-size:14.5px;line-height:1.82;color:#e5e9f2}
+.answertext h1,.answertext h2,.answertext h3,.answertext h4{
+  color:#f7f7ff;letter-spacing:-.035em;line-height:1.35
+}
+.answertext h3{font-size:17px;margin:20px 0 8px}
+.answertext p{margin:9px 0}
+.answertext strong{color:#fff;font-weight:720}
+.answertext a{color:#b9a7ff;text-decoration:underline;text-underline-offset:3px}
+.answertext code{
+  background:#20263a;border:1px solid #303951;border-radius:6px;
+  padding:2px 5px;color:#d8ccff;font-size:.92em
+}
+.answertext blockquote{
+  margin:12px 0;padding:9px 14px;border-left:3px solid #9278ff;
+  background:rgba(124,92,255,.08);border-radius:0 10px 10px 0;color:#c4cada
+}
+.answertext table{border-collapse:collapse;width:100%;font-size:13px}
+.answertext th,.answertext td{padding:9px 10px;border:1px solid var(--line);text-align:left}
+.answertext th{background:#20263a;color:#e7e2ff}
+.composer-wrap{
+  padding:20px 26px 16px;
+  background:linear-gradient(180deg,rgba(11,13,20,0),rgba(11,13,20,.88) 20%,#0b0d14 70%);
+  backdrop-filter:blur(8px)
+}
+.composer{
+  max-width:850px;border:1px solid rgba(167,139,250,.25);
+  background:rgba(22,26,39,.96);border-radius:24px;
+  padding:11px 12px 9px;
+  box-shadow:0 15px 55px rgba(0,0,0,.42),0 0 0 1px rgba(255,255,255,.015) inset;
+  transition:border-color .2s ease,box-shadow .2s ease
+}
+.composer:focus-within{
+  border-color:rgba(167,139,250,.62);
+  box-shadow:0 15px 55px rgba(0,0,0,.42),0 0 0 3px rgba(124,92,255,.10)
+}
+.composer textarea{
+  min-height:52px;padding:10px 10px;color:#f6f7fc;
+  font-size:14px;line-height:1.6
+}
+.composer textarea::placeholder{color:#7f8aa1}
+.composer-bottom{padding:4px 3px 2px}
+.tools{gap:7px;flex-wrap:wrap}
+.toolbtn,.tooltoggle{
+  border:1px solid rgba(150,160,190,.17);
+  background:rgba(255,255,255,.025);color:#aeb8ca;
+  border-radius:11px;padding:8px 10px;font-size:11.5px
+}
+.toolbtn:hover,.tooltoggle:hover{
+  background:rgba(124,92,255,.12);border-color:rgba(167,139,250,.4);color:#eee9ff
+}
+.toolbtn.teacher-on{
+  border-color:#9d87ff;background:rgba(124,92,255,.2);color:#eee9ff;
+  box-shadow:0 0 0 2px rgba(143,128,255,.12),0 5px 18px rgba(124,92,255,.12)
+}
+.teacher-mode-note{font-size:11px;color:#c2b5ff;margin:7px 9px 1px}
+.send{
+  background:linear-gradient(135deg,#c4b5fd,#9278ff 55%,#7658ee);
+  color:#120f20;border:1px solid rgba(255,255,255,.18);
+  border-radius:13px;padding:10px 17px;font-weight:800;
+  box-shadow:0 5px 18px rgba(124,92,255,.2)
+}
+.send:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 22px rgba(124,92,255,.3)}
+.send:disabled{opacity:.48}
+.hint{color:#717d93;font-size:10.5px}
+.studytools{max-width:900px;padding:0 26px}
+.toolgrid{gap:14px}
+.toolcard{
+  background:linear-gradient(145deg,rgba(24,30,45,.96),rgba(17,21,32,.96));
+  border:1px solid rgba(150,160,190,.15);border-radius:17px;padding:18px;
+  box-shadow:0 9px 28px rgba(0,0,0,.12)
+}
+.toolcard h3{font-size:15px;letter-spacing:-.02em}
+.toolcard p,.smallmuted{color:#a4aec0;line-height:1.65}
+.field{
+  background:#0e121d;border:1px solid #30384b;border-radius:11px;
+  padding:11px 12px;color:#f4f5fb
+}
+.field:focus{outline:none;border-color:#9278ff;box-shadow:0 0 0 3px rgba(124,92,255,.12)}
+.toolaction{
+  background:rgba(124,92,255,.14);border:1px solid rgba(167,139,250,.28);
+  color:#e6dfff;padding:10px 13px;border-radius:11px;font-weight:650
+}
+.toolaction:hover{background:rgba(124,92,255,.24);border-color:#9278ff;transform:translateY(-1px)}
+.toolout{
+  background:#0e121d;border:1px solid #2b3447;border-radius:12px;
+  padding:12px;color:#dce2ef;line-height:1.65
+}
+.notice{
+  border:1px solid rgba(224,183,94,.3);background:rgba(112,82,28,.18);
+  color:#f0dcae;border-radius:12px;padding:12px 14px;line-height:1.6
+}
+@media(max-width:760px){
+  .topbar{height:58px;padding:0 14px}
+  .scroll{padding:20px 15px 175px}
+  .welcome{padding:6vh 0 17px}
+  .welcome h1{letter-spacing:-1.2px}
+  .cards{gap:9px;margin:21px auto}
+  .prompt{padding:13px;border-radius:15px}
+  .launchers{gap:9px;margin:16px auto 22px}
+  .launchcard{padding:13px;border-radius:14px}
+  .messages{gap:23px}
+  .msg{gap:9px}
+  .avatar{flex-basis:31px;width:31px;height:31px;border-radius:11px}
+  .answertext{font-size:14px;line-height:1.78}
+  .composer-wrap{padding:12px 10px 10px}
+  .composer{border-radius:20px;padding:9px 9px 8px}
+  .composer textarea{min-height:46px;font-size:14px}
+  .composer-bottom{align-items:center}
+  .tools{gap:5px}
+  .toolbtn,.tooltoggle{padding:7px 8px;font-size:10.5px}
+  .send{padding:9px 13px}
+  .studytools{padding:0 14px}
+  .toolcard{padding:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
 </style></head><body><div class="layout"><aside class="sidebar"><div class="brand"><div class="logo">✦</div> Medharya AI</div><button type="button" class="side-login-point" onclick="toggleAccountPanel()">👤 Student Account <span id="accountPointStatus">＋</span></button><section class="side-login hidden" id="accountPanel" aria-label="Student sign up and login"><div class="side-login-title">Student Account</div><div class="auth-switch"><button type="button" id="signupTab" class="toolaction" onclick="setAuthMode('signup')">Sign up</button><button type="button" id="loginTab" class="toolaction" onclick="setAuthMode('login')">Log in</button></div><div id="signupFields"><label for="sideName" class="smallmuted">Student Name</label><input id="sideName" class="field" placeholder="Your full name" autocomplete="name"><label for="sideClass" class="smallmuted">Class</label><select id="sideClass" class="field"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option><option value="other">Other</option></select></div><label for="sideEmail" class="smallmuted">Email Address</label><input id="sideEmail" class="field" type="email" placeholder="you@example.com" autocomplete="email"><label for="sidePassword" class="smallmuted">Password</label><input id="sidePassword" class="field" type="password" minlength="8" placeholder="At least 8 characters" autocomplete="current-password"><button class="toolaction side-save" id="authSubmit" onclick="submitAuth()">Create account</button><button class="toolaction side-save" id="googleAuthBtn" onclick="signInWithGoogle()">Continue with Google</button><button class="tooltoggle hidden" id="logoutBtn" onclick="logoutStudent()">Log out</button><div id="sideLoginStatus" class="smallmuted" aria-live="polite">Firebase account · Email/password or Google</div><div class="smallmuted">Your account uses Firebase Authentication. Your chats sync to your private Firestore account after sign-in.</div></section><button class="newchat" onclick="newChat()">＋ &nbsp; New chat</button><div><div class="label">Chat History</div><div id="chatHistoryList" class="history-list"><div class="smallmuted">Your saved chats will appear here.</div></div><div class="smallmuted">Sign in to sync your chats across devices.</div></div><div><div class="label">Study subjects</div><div class="subjects"><button class="subject" onclick="openSubject('Mathematics')">∑ &nbsp; Mathematics</button><button class="subject" onclick="openSubject('Science')">⚗ &nbsp; Science</button><button class="subject" onclick="openSubject('Social Science')">◈ &nbsp; Social Science</button><button class="subject" onclick="openSubject('English')">A &nbsp; English</button><button class="subject" onclick="openSubject('Computer')">⌘ &nbsp; Computer</button></div></div><div><div class="label">Learning modes</div><div class="subjects"><button class="subject" onclick="setMode('explain')">🧠 &nbsp; Step-by-step</button><button class="subject" onclick="setMode('learn')">🎯 &nbsp; Learn with hints</button><button class="subject" onclick="setMode('exam')">📝 &nbsp; Exam practice</button></div></div><div class="sidefoot">Made for curious students<br>Hindi + English · All classes</div></aside><div class="menu-scrim" id="menuScrim" onclick="toggleMenu(false)"></div><main class="main"><header class="topbar"><button class="hamburger" aria-label="Open navigation menu" onclick="toggleMenu()">☰</button><div class="mobilebrand"><div class="logo" style="width:30px;height:30px;font-size:16px">✦</div> Medharya AI</div><div class="toplabel" id="toplabel">Student Thinking Space</div><button id="backHome" class="tooltoggle hidden" onclick="backHome()">← Home</button><div style="display:flex;align-items:center;gap:8px"><button class="tooltoggle" onclick="toggleTools()">📚 Study tools</button><span class="pill">ALL CLASSES · ALL SUBJECTS</span></div></header><section class="scroll"><div id="welcome" class="welcome"><div class="orb">✦</div><div id="greet" class="greet"></div><h1>Medharya AI</h1><p>Your AI study companion for school students across classes. Get step-by-step help, practise subjects, revise chapters, explore questions, and plan exam preparation in Hindi or English.</p><div class="cards"><button class="prompt" onclick="preset('Explain photosynthesis in simple language with an example for my class level.')"><b>🌱 Explain a concept</b><span>Make a tough topic simple</span></button><button class="prompt" onclick="preset('Solve a sample maths problem for my class level and show every step.')"><b>∑ Solve step by step</b><span>Understand how to reach the answer</span></button><button class="prompt" onclick="preset('Quiz me with 5 Science MCQs for my class level, one at a time.')"><b>🎯 Practise questions</b><span>Test your understanding</span></button><button class="prompt" onclick="preset('Help me make a 7-day revision plan for my exams.')"><b>📚 Plan my revision</b><span>Study smarter for exams</span></button></div><section class="cards" aria-label="Medharya AI study resources"><div class="prompt"><b>School revision for all classes</b><span>Revise Maths, Science, Social Science, English and Computer topics with clear explanations and practice.</span></div><div class="prompt"><b>CBSE previous-year question practice</b><span>Get CBSE-pattern papers and marking schemes right inside the chat and download them as PDF.</span></div><div class="prompt"><b>AI doubt solving</b><span>Ask a study question and learn the reasoning step by step, when the secure AI backend is configured.</span></div><div class="prompt"><b>Study planner</b><span>Organise revision sessions, test your understanding and keep notes on your device.</span></div></section><div class="tipsbox"><div class="label">💡 Study tips jo marks badhate hain</div><div id="tipBanner" class="tipbanner"></div><div class="cards"><button class="prompt" onclick="preset('Quiz me on the topic I just studied. Ask one question at a time without showing the answer first (active recall).')"><b>🧠 Active Recall</b><span>Padhne ke baad book band — khud se test karo</span></button><button class="prompt" onclick="openTool('planCard')"><b>⏱️ Pomodoro 25 + 5</b><span>25 min focus, 5 min break. Phone door rakho</span></button><button class="prompt" onclick="preset('Explain a topic to me like I am 10 years old, then ask me to explain it back in my own words and correct me (Feynman technique).')"><b>🗣️ Feynman Technique</b><span>Simple bhasha me samjhao, tabhi samjha</span></button><button class="prompt" onclick="preset('Make a spaced revision plan for my exam using Day 1, Day 3, Day 7 and Day 21 revisions.')"><b>🔁 1-3-7-21 Revision</b><span>Bhoolne se pehle dobara revise karo</span></button><button class="prompt" onclick="openTool('pyqCard')"><b>📚 PYQ first</b><span>Exam pattern samajhne ka sabse tez tareeka</span></button><button class="prompt" onclick="preset('Help me build a mistake notebook: ask me my last 5 mistakes in a subject and explain how to never repeat them.')"><b>📓 Mistake Notebook</b><span>Galti likho, wahi sabse bada teacher hai</span></button></div></div></div><div class="launchers" aria-label="Study feature shortcuts">
 <button class="launchcard" onclick="openTool('pyqCard')"><span class="launchicon">📚</span><strong>CBSE PYQ Library</strong><span>CBSE-style practice in chat</span></button>
 
