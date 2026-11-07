@@ -10,7 +10,7 @@
 <title>Medharya</title>
 <meta name="description" content="Medharya helps school students across classes study with step-by-step explanations, study planning and subject-wise question practice in Hindi and English.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="author" content="Medharya">
+<meta name="author" content="Rohit Gurjar">
 <meta name="keywords" content="all classes study app, school study assistant, AI doubt solver, Maths, Science, CBSE study, previous year questions, revision, Hindi English study help">
 <meta property="og:locale" content="en_IN">
 <meta property="og:locale:alternate" content="hi_IN">
@@ -28,6 +28,7 @@
   "@type": "WebSite",
   "name": "Medharya",
   "alternateName": "Medharya All Classes Study Assistant",
+  "author": {"@type": "Person", "name": "Rohit Gurjar"},
   "description": "An AI-assisted study platform offering step-by-step explanations, revision tools, quizzes, study planning and subject-wise practice for school students across classes.",
   "inLanguage": ["en-IN", "hi-IN"],
   "audience": {"@type": "EducationalAudience", "educationalRole": "student"},
@@ -719,11 +720,25 @@ function exportPDF(i){
 }
 
 /* ================= Backend call ================= */
+/* Owner / creator questions are answered locally so the creator's name is always correct */
+const MEDHARYA_OWNER_NAME='Rohit Gurjar', MEDHARYA_OWNER_CITY='Gwalior';
+function isOwnerQuestion(text){
+  const t=String(text||'').toLowerCase().trim();
+  if(!t||t.length>180)return false;
+  const about=/(medharya|मेधार्य|मेधार्या|\byou\b|\byour\b|\btum\b|\btumhe\b|\btumhein\b|\btumhara\b|\btumhari\b|\btera\b|\bteri\b|\baap\b|\baapko\b|\baapka\b|\baapki\b|\bye (ai|app|website|site|bot)\b|\bthis (ai|app|website|site|bot|platform)\b|इस (ai|app|वेबसाइट|ऐप)|यह (ai|app|वेबसाइट|ऐप)|तुम|तुम्हें|तुम्हारा|आपको|आपका)/i;
+  const role=/(owner|founder|creator|developer|inventor|who (made|created|built|developed|owns|designed|programmed)|made by|created by|built by|developed by|designed by|owned by|malik|maalik|kisne (banaya|banai|bnaya|bnai|develop|create|design|banaye)|kisne\s+\w+\s+(banaya|banai|bnaya)|banane wala|banane wale|banaya hai|bnaya hai|मालिक|किसने|निर्माता|संस्थापक|डेवलपर|बनाने वाला|बनाने वाले|बनाया)/i;
+  return about.test(t)&&role.test(t);
+}
+function ownerAnswer(lang){
+  if(lang==='hi')return `**Medharya** को **${MEDHARYA_OWNER_NAME}** ने बनाया है और वही इसके owner हैं। वे **${MEDHARYA_OWNER_CITY}** से हैं। 🙌\n\nउनका मकसद है कि school students की पढ़ाई आसान, मज़ेदार और हर बच्चे तक पहुँचे। अब बताओ, आज क्या पढ़ना है?`;
+  return `**Medharya** was created by **${MEDHARYA_OWNER_NAME}**, who is also its owner. He is from **${MEDHARYA_OWNER_CITY}**. 🙌\n\nThe goal is to make studying easier, friendlier and available to every school student. So, what would you like to study today?`;
+}
 async function callBackend(message,extra){
   extra=extra||{};
+  if(isOwnerQuestion(message))return ownerAnswer(language);
   const cls=userClass();
   const ctx=cls?`[Student is in Class ${cls}. Keep difficulty and examples suitable for this class.] `:'';
-  const fmt=extra.plain?'':'\n\n[STYLE INSTRUCTIONS — follow strictly]\nYou are Medharya, a warm, friendly tutor who talks like a smart older sibling or a favourite teacher sitting next to the student — the way ChatGPT chats, NOT like a textbook, Wikipedia page or study-guide PDF.\n1) Reply in the same language/style the student uses (Hindi, Hinglish or English). Use simple, spoken, everyday words.\n2) Start by directly answering or hooking the student in 1-2 natural lines (no "Introduction", no "Definition:" headers). Never begin with robotic openers like "Sure! Here is...".\n3) Then explain in short, flowing paragraphs as if speaking: use a relatable real-life example or analogy (cricket, chai, mobile, kitchen, bus etc.) before technical terms. Build the idea step by step, give the reason WHY, not just what.\n4) Do NOT write ## headings, "Quick recap", "Conclusion", or long bullet-point lists for ordinary explanations. Use numbered steps only for maths/problem solving, and a tiny list only when comparing things. Bold only 1-3 truly key terms.\n5) Show feeling: be encouraging, curious and a little playful ("Dekho,", "Maan lo,", "Ye interesting hai kyunki..."). Occasionally use one fitting emoji, not many.\n6) End with ONE short natural follow-up that keeps the chat going (e.g. a quick check question or "Chaho to iska ek example aur dikhaun?"), not a summary.\n7) Keep it concise — only as long as needed. Exception: if the student asks for a question paper, practice set, marking scheme, answer key, notes or a revision plan, follow the exact requested format and ignore points 3-6.'
+  const fmt=extra.plain?'':'\n\n[STYLE INSTRUCTIONS — follow strictly]\nFact about you: Medharya was created by and is owned by Rohit Gurjar from Gwalior, India. If anyone asks who made, built, owns or founded you, always say Rohit Gurjar from Gwalior — never name Google, Gemini, OpenAI or any other company as your creator.\nYou are Medharya, a warm, friendly tutor who talks like a smart older sibling or a favourite teacher sitting next to the student — the way ChatGPT chats, NOT like a textbook, Wikipedia page or study-guide PDF.\n1) Reply in the same language/style the student uses (Hindi, Hinglish or English). Use simple, spoken, everyday words.\n2) Start by directly answering or hooking the student in 1-2 natural lines (no "Introduction", no "Definition:" headers). Never begin with robotic openers like "Sure! Here is...".\n3) Then explain in short, flowing paragraphs as if speaking: use a relatable real-life example or analogy (cricket, chai, mobile, kitchen, bus etc.) before technical terms. Build the idea step by step, give the reason WHY, not just what.\n4) Do NOT write ## headings, "Quick recap", "Conclusion", or long bullet-point lists for ordinary explanations. Use numbered steps only for maths/problem solving, and a tiny list only when comparing things. Bold only 1-3 truly key terms.\n5) Show feeling: be encouraging, curious and a little playful ("Dekho,", "Maan lo,", "Ye interesting hai kyunki..."). Occasionally use one fitting emoji, not many.\n6) End with ONE short natural follow-up that keeps the chat going (e.g. a quick check question or "Chaho to iska ek example aur dikhaun?"), not a summary.\n7) If anyone asks who owns, created, built or founded Medharya (or you), answer that Medharya was created by **Rohit Gurjar**. Never say Google, Gemini, OpenAI or any company created Medharya.\n8) Keep it concise — only as long as needed. Exception: if the student asks for a question paper, practice set, marking scheme, answer key, notes or a revision plan, follow the exact requested format and ignore points 3-7 except point 7 about the owner.'
   let teacherContext='';
   if(extra.teacherMode){
     const turns=Array.isArray(extra.teacherHistory)?extra.teacherHistory.slice(-6):[];
@@ -781,12 +796,36 @@ return `<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewB
 async function createVisualNote(button,topic,answer){try{button.disabled=true;button.textContent='Creating visual…';const svg=makeVisualSvg(topic,answer,language);const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'});const url=URL.createObjectURL(blob);const wrap=document.createElement('section');wrap.className='visual-note';wrap.innerHTML=`<div class="visual-note-head"><div class="visual-note-title">🎨 Visual Learning · ${esc(visualCategory(topic,answer))}</div><span class="visual-note-tag">AI STUDY INFOGRAPHIC</span></div><img alt="Visual revision card for ${esc(topic)}" src="${url}"><div class="visual-note-actions"><button type="button" class="visual-download">⬇ Download PNG</button><button type="button" class="visual-regenerate">↻ Regenerate</button></div><div class="visual-note-caption">Illustrative revision aid based on the explanation above. For exact scientific diagrams, maps and formulas, cross-check your textbook.</div>`;button.closest('.answertext').appendChild(wrap);wrap.querySelector('.visual-download').addEventListener('click',()=>downloadVisualPng(svg,topic));wrap.querySelector('.visual-regenerate').addEventListener('click',()=>{wrap.remove();createVisualNote(button,topic,answer)});wrap.scrollIntoView({behavior:'smooth',block:'nearest'});button.remove();}catch(e){button.disabled=false;button.textContent='🎨 Create Visual Notes';alert('Visual could not be created. Please try again.')}}
 function downloadVisualPng(svg,topic){const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob),img=new Image();img.onload=()=>{const c=document.createElement('canvas');c.width=1080;c.height=1350;const ctx=c.getContext('2d');ctx.drawImage(img,0,0);URL.revokeObjectURL(url);c.toBlob(png=>{if(!png){alert('PNG export failed.');return}const a=document.createElement('a');a.href=URL.createObjectURL(png);a.download='Medharya-'+String(topic||'Visual-Notes').replace(/[^a-z0-9 hindi_-]/gi,'-').slice(0,45)+'.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)},'image/png')};img.onerror=()=>{URL.revokeObjectURL(url);alert('Image export failed. Please try again.')};img.src=url}
 
+
+/* ===== Owner / creator question: always answer with Rohit Gurjar ===== */
+const MEDHARYA_OWNER='Rohit Gurjar';
+function isOwnerQuestion(t){
+  t=String(t||'').toLowerCase().trim();
+  if(!t||t.length>140)return false;
+  const about=/(medharya|मेधार्य|मेधार्या|tum|tumhe|tumhen|tumko|tumhara|tumhari|aapko|aapka|aapki|you|your|yourself|this app|this ai|app|website|site|\bai\b|तुम|आप)/;
+  const role=/(owner|founder|creator|developer|maalik|malik|मालिक|संस्थापक|निर्माता|डेवलपर)/;
+  const made=/(kisne|kis ne|किसने|who|kaun|कौन)[^?]{0,40}(banaya|bnaya|banai|bnai|banaye|made|created|built|developed|owns|own|बनाया|बनाई|विकसित)/;
+  return (role.test(t)&&about.test(t))||(made.test(t)&&about.test(t));
+}
+function ownerAnswerHtml(){
+  const hi=(typeof language!=='undefined'&&language==='hi');
+  return hi
+    ?'<p><b>Medharya AI</b> के owner और creator <b>'+MEDHARYA_OWNER+'</b> हैं। 🎓</p><p>उन्होंने इसे इसलिए बनाया ताकि students की पढ़ाई आसान और मज़ेदार बने।</p>'
+    :'<p><b>Medharya AI</b> was created by <b>'+MEDHARYA_OWNER+'</b>, its owner and founder. 🎓</p><p>He built it to make studying easier and more fun for students.</p>';
+}
+
 /* ================= Send question ================= */
 async function sendQuestion(override,opts){
   opts=opts||{};const isOverride=typeof override==='string';
   let q=(isOverride?override:$('question').value).trim();
   if(!q&&!pendingImage)return false;
   if(isSending)return false;
+  if(!pendingImage&&!opts.display&&isOwnerQuestion(q)){
+    openChatPage();addMsg('user',esc(q));
+    if(!isOverride){$('question').value='';resizeBox($('question'))}
+    addMsg('assistant','<div class="md ai-answer">'+ownerAnswerHtml()+'</div>');
+    return true;
+  }
   if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return false}
   const teacherHistory=teacherModeEnabled?activeChatMessages.slice(-6).map(m=>({role:m.role,text:String(m.text||'')})):[];
   const visualModeForThisReply=teacherModeEnabled;
