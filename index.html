@@ -527,8 +527,8 @@ button:focus-visible,textarea:focus-visible,.field:focus-visible{outline:2px sol
 
 <article class="toolcard" id="planCard"><h3>📅 Study Planner + Focus Timer</h3><p>Create a simple study plan and run a focus session.</p><input id="planSubject" class="field" placeholder="Subject / chapter"><input id="planMins" class="field" type="number" min="5" max="240" value="25" aria-label="Minutes"><button class="toolaction" onclick="createPlan()">Create plan</button><div id="planOut" class="toolout">Your plan will appear here.</div><div style="font-size:26px;font-weight:750;margin-top:10px" id="focusClock">25:00</div><button class="toolaction" onclick="startFocus()">▶ Start</button><button class="toolaction" onclick="pauseFocus()">Ⅱ Pause</button><button class="toolaction" onclick="resetFocus()">↺ Reset</button></article>
 
-<article class="toolcard" id="subjectCard"><h3 id="subjTitle">Subject</h3><p>Pehle apni class chuno. Phir kisi bhi chapter par click karo — us class ke level ke questions chat me aa jayenge.</p><label for="subjClass" class="smallmuted">Class</label><select id="subjClass" class="field" onchange="subjClassChanged()"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option></select><div id="chapterList" class="chapters"></div></article>
-<article class="toolcard" id="pyqCard" style="grid-column:1/-1"><h3>📚 CBSE PYQ Library</h3><p>Year, class, subject aur chapter chuno. Selected official CBSE 2025 PDFs are available for English Communicative, Computer Applications and Information Technology. Other filters generate clearly labelled AI practice content; this is not an official past paper. Choose the exact course option used by your school.</p><div class="toolgrid"><div><label for="pyqYear" class="smallmuted">Reference session (AI practice only)</label><select id="pyqYear" class="field"><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option></select></div><div><label for="pyqClass" class="smallmuted">Class</label><select id="pyqClass" class="field" onchange="pyqClassChanged()"><option value="10">Class 10</option><option value="12">Class 12</option></select></div><div><label for="pyqSubject" class="smallmuted">Subject</label><select id="pyqSubject" class="field" onchange="pyqSubjectChanged()"><option>Science</option><option>Mathematics Standard</option><option>Mathematics Basic</option><option>Social Science</option><option>English Language and Literature</option><option>Hindi</option><option>Computer Applications / IT</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Mathematics (Class 12)</option></select></div><div><label for="pyqChapter" class="smallmuted">Chapter (optional)</label><select id="pyqChapter" class="field"><option value="all">All chapters</option><option>Real Numbers</option><option>Polynomials</option><option>Pair of Linear Equations</option><option>Light – Reflection and Refraction</option><option>Electricity</option><option>Life Processes</option><option>Nationalism in India</option><option>Power Sharing</option><option>Networking</option><option>HTML</option></select></div><div><label for="pyqType" class="smallmuted">Resource type</label><select id="pyqType" class="field"><option value="paper">Question paper</option><option value="answer">Answer key / marking scheme</option><option value="practice">Chapter practice</option></select></div></div><button class="toolaction" onclick="findPYQ()">Search library</button><div id="pyqOut" class="toolout">Filters chuno. Official PDFs tabhi khulenge jab verified links configured hon; warna AI-generated practice chat me aayegi.</div></article>
+<article class="toolcard" id="subjectCard"><h3 id="subjTitle">Subject</h3><p>Pehle apni class chuno. Phir kisi bhi chapter par click karo — us class ke level ke questions chat me aa jayenge.</p><label for="subjBoard" class="smallmuted">Board</label><select id="subjBoard" class="field" onchange="subjBoardChanged()"><option value="CBSE">CBSE</option><option value="MPBSE">MP Board (MPBSE)</option></select><label for="subjClass" class="smallmuted">Class</label><select id="subjClass" class="field" onchange="subjClassChanged()"><option value="">Select class…</option><option value="1">Class 1</option><option value="2">Class 2</option><option value="3">Class 3</option><option value="4">Class 4</option><option value="5">Class 5</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="8">Class 8</option><option value="9">Class 9</option><option value="10">Class 10</option><option value="11">Class 11</option><option value="12">Class 12</option></select><div id="chapterList" class="chapters"></div></article>
+<article class="toolcard" id="pyqCard" style="grid-column:1/-1"><h3>📚 CBSE PYQ Library</h3><p>Year, class, subject aur chapter chuno. Selected official CBSE 2025 PDFs are available for English Communicative, Computer Applications and Information Technology. Other filters generate clearly labelled AI practice content; this is not an official past paper. Choose the exact course option used by your school.</p><div class="toolgrid"><div><label for="pyqBoard" class="smallmuted">Board</label><select id="pyqBoard" class="field" onchange="pyqBoardChanged()"><option value="CBSE">CBSE</option><option value="MPBSE">MP Board (MPBSE)</option></select></div><div><label for="pyqYear" class="smallmuted">Reference session (AI practice only)</label><select id="pyqYear" class="field"><option>2026</option><option>2025</option><option>2024</option><option>2023</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option></select></div><div><label for="pyqClass" class="smallmuted">Class</label><select id="pyqClass" class="field" onchange="pyqClassChanged()"><option value="10">Class 10</option><option value="12">Class 12</option></select></div><div><label for="pyqSubject" class="smallmuted">Subject</label><select id="pyqSubject" class="field" onchange="pyqSubjectChanged()"><option>Science</option><option>Mathematics Standard</option><option>Mathematics Basic</option><option>Social Science</option><option>English Language and Literature</option><option>Hindi</option><option>Computer Applications / IT</option><option>Physics</option><option>Chemistry</option><option>Biology</option><option>Mathematics (Class 12)</option></select></div><div><label for="pyqChapter" class="smallmuted">Chapter (optional)</label><select id="pyqChapter" class="field"><option value="all">All chapters</option><option>Real Numbers</option><option>Polynomials</option><option>Pair of Linear Equations</option><option>Light – Reflection and Refraction</option><option>Electricity</option><option>Life Processes</option><option>Nationalism in India</option><option>Power Sharing</option><option>Networking</option><option>HTML</option></select></div><div><label for="pyqType" class="smallmuted">Resource type</label><select id="pyqType" class="field"><option value="paper">Question paper</option><option value="answer">Answer key / marking scheme</option><option value="practice">Chapter practice</option></select></div></div><button class="toolaction" onclick="findPYQ()">Search library</button><div id="pyqOut" class="toolout">Filters chuno. Official PDFs tabhi khulenge jab verified links configured hon; warna AI-generated practice chat me aayegi.</div></article>
 
 
 
@@ -571,7 +571,10 @@ let activeChatId = null, activeChatMessages = [];
 let teacherModeEnabled=false;
 let mode='explain', language='en', questionCount=0, quizCount=0, noteCount=0, lastAnswer='', quizCurrent=null, focusSeconds=1500, focusInterval=null; const $=id=>document.getElementById(id);
 window.addEventListener('DOMContentLoaded',()=>{
-  renderChatHistory();updateGuestBadge();refreshGreeting();startTips();pyqClassChanged();
+  renderChatHistory();updateGuestBadge();refreshGreeting();if($('subjBoard'))$('subjBoard').value=selectedBoard;
+if($('pyqBoard'))$('pyqBoard').value=selectedBoard;
+if($('pyqBoard'))pyqBoardChanged();
+startTips();pyqClassChanged();
   if(cloudReady){
     firebaseAuth.onAuthStateChanged(async user=>{
       if(user && user.isAnonymous){
@@ -745,7 +748,8 @@ async function callBackend(message,extra){
   extra=extra||{};
   if(isOwnerQuestion(message))return ownerAnswer(language);
   const cls=userClass();
-  const ctx=cls?`[Student is in Class ${cls}. Keep difficulty and examples suitable for this class.] `:'';
+  const board=extra.board||selectedBoard||'CBSE';
+  const ctx=(cls?`[Student is in Class ${cls}. `:'[Student context: ')+`Board: ${board}. Use this board's syllabus and exam pattern. Keep difficulty suitable for this class.] `;
   const fmt=extra.plain?'':'\n\n[STYLE INSTRUCTIONS — follow strictly]\nFact about you: Medharya was created by and is owned by Rohit Gurjar from Gwalior, India. If anyone asks who made, built, owns or founded you, always say Rohit Gurjar from Gwalior — never name Google, Gemini, OpenAI or any other company as your creator.\nYou are Medharya, a warm, friendly tutor who talks like a smart older sibling or a favourite teacher sitting next to the student — the way ChatGPT chats, NOT like a textbook, Wikipedia page or study-guide PDF.\n1) Reply in the same language/style the student uses (Hindi, Hinglish or English). Use simple, spoken, everyday words.\n2) Start by directly answering or hooking the student in 1-2 natural lines (no "Introduction", no "Definition:" headers). Never begin with robotic openers like "Sure! Here is...".\n3) Then explain in short, flowing paragraphs as if speaking: when explaining a CONCEPT, use a relatable real-life example or analogy (cricket, chai, mobile, kitchen, bus etc.) before technical terms. Never use analogies or made-up stories to describe a real person. Build the idea step by step, give the reason WHY, not just what.\n4) Do NOT write ## headings, "Quick recap", "Conclusion", or long bullet-point lists for ordinary explanations. Use numbered steps only for maths/problem solving, and a tiny list only when comparing things. Bold only 1-3 truly key terms.\n5) Show feeling: be encouraging, curious and a little playful ("Dekho,", "Maan lo,", "Ye interesting hai kyunki..."). Occasionally use one fitting emoji, not many.\n6) End with ONE short natural follow-up that keeps the chat going (e.g. a quick check question or "Chaho to iska ek example aur dikhaun?"), not a summary.\n7) If anyone asks who owns, created, built or founded Medharya (or you), answer that Medharya was created by **Rohit Gurjar**. Never say Google, Gemini, OpenAI or any company created Medharya.\n8) PEOPLE & FACTS RULE (very important): never invent facts. If asked who a specific person is and you are not 100% sure this is a well-known public figure (leader, scientist, sportsperson, author, etc.), say honestly that you do not have reliable information about this name and ask for context ("Ye kaun sa Kushal hai? Kisi book/chapter ya kisi famous vyakti ke baare me puch rahe ho?"). Never describe private individuals, classmates or unknown people. Never guess dates, numbers or events.\n9) Keep it concise — only as long as needed. Exception: if the student asks for a question paper, practice set, marking scheme, answer key, notes or a revision plan, follow the exact requested format and ignore points 3-6 and 9; points 7 and 8 always apply.'
   let teacherContext='';
   if(extra.teacherMode){
@@ -759,7 +763,7 @@ async function callBackend(message,extra){
       (transcript?'Recent conversation (oldest first):\n'+transcript+'\n':'This is the start of a new lesson.\n')+
       'Teaching cycle: explain only one small concept at a time in simple language; then ask exactly ONE short understanding-check question. Wait for the student reply. When the student answers, evaluate it kindly: if correct, briefly praise and move to the next small step; if partly correct, acknowledge the correct part and give one hint; if incorrect, do not shame the student or immediately dump the full answer—give a helpful hint and invite another try. If the student asks a clarification, answer it before continuing. Keep the exchange natural, not like a worksheet. Do not ask multiple questions in one reply. When the student says they understand or asks for an exam answer/summary, provide a concise CBSE-ready recap and offer one final practice question. Never pretend the student answered correctly if they did not.\n[END_INTERACTIVE_TEACHER_MODE]\n\n';
   }
-  const payload={message:ctx+teacherContext+message+fmt,language,mode:extra.teacherMode?'learn':mode,student:{class:cls||''}};
+  const payload={message:ctx+teacherContext+message+fmt,language,mode:extra.teacherMode?'learn':mode,student:{class:cls||'',board:board}};
   if(extra.image)payload.image=extra.image;
   if (!firebaseAuth) throw new Error("Secure session unavailable. Please refresh the page.");
   try {
@@ -934,9 +938,13 @@ function startSpeech(){const SR=window.SpeechRecognition||window.webkitSpeechRec
 
 /* Optional: add REAL official PDFs here (verified links only). Key: year|class|subject|type  (type = paper | answer)
    Example: '2024|10|Science|paper':'https://your-storage-url/CBSE_2024_Class10_Science.pdf'  */
-const PYQ_SUBJ={10:['Science','Mathematics Standard','Mathematics Basic','Social Science','English Language and Literature','English Communicative','Hindi Course-A','Hindi Course-B','Computer Applications','Information Technology (402)','Artificial Intelligence (417)'],12:['Physics','Chemistry','Biology','Mathematics','English Core','Hindi Core','Computer Science','Economics','Accountancy','Business Studies']};
-function pyqClassChanged(){const cls=$('pyqClass').value;$('pyqSubject').innerHTML=(PYQ_SUBJ[cls]||[]).map(x=>`<option>${esc(x)}</option>`).join('');pyqSubjectChanged()}
-function pyqSubjectChanged(){const cls=$('pyqClass').value,sub=$('pyqSubject').value;let key=sub==='Science'?'Science':/^Mathematics/.test(sub)?'Mathematics':sub==='Social Science'?'Social Science':sub==='English Language and Literature'||sub==='English Communicative'?'English':sub==='Computer Applications'?'Computer':'';const list=key?((CH[key]||{})[cls]||[]):[];$('pyqChapter').innerHTML='<option value="all">All chapters</option>'+list.map(x=>`<option>${esc(x)}</option>`).join('')}
+const PYQ_SUBJ={
+ CBSE:{10:['Science','Mathematics Standard','Mathematics Basic','Social Science','English Language and Literature','English Communicative','Hindi Course-A','Hindi Course-B','Computer Applications','Information Technology (402)','Artificial Intelligence (417)'],12:['Physics','Chemistry','Biology','Mathematics','English Core','Hindi Core','Computer Science','Economics','History','Geography','Political Science','Sociology','Accountancy','Business Studies','Psychology']},
+ MPBSE:{10:['Hindi','English','Sanskrit','Science','Social Science','Mathematics (Basic)','Mathematics (Standard)'],12:['Hindi (General)','Hindi (Special)','English (General)','English (Special)','History','Geography','Political Science','Economics','Sociology','Psychology','Physics','Chemistry','Mathematics','Biology','Business Studies','Book Keeping & Accountancy']}
+};
+function pyqBoardChanged(){const board=$('pyqBoard').value||'CBSE',cls=$('pyqClass').value;$('pyqSubject').innerHTML=(PYQ_SUBJ[board][cls]||[]).map(x=>`<option>${esc(x)}</option>`).join('');pyqSubjectChanged()}
+function pyqClassChanged(){const board=$('pyqBoard').value||'CBSE',cls=$('pyqClass').value;$('pyqSubject').innerHTML=(PYQ_SUBJ[board][cls]||[]).map(x=>`<option>${esc(x)}</option>`).join('');pyqSubjectChanged()}
+function pyqSubjectChanged(){const board=$('pyqBoard').value||'CBSE',cls=$('pyqClass').value,sub=$('pyqSubject').value;let key=sub==='Science'?'Science':/^Mathematics|^Maths/.test(sub)?'Mathematics':sub==='Social Science'?'Social Science':/^English/.test(sub)?'English':sub;const list=board==='CBSE'?((CH[key]||{})[cls]||[]):((MP_CHAPTERS[key]||{})[cls]||((CH[key]||{})[cls]||[]));$('pyqChapter').innerHTML='<option value="all">All chapters</option>'+list.map(x=>`<option>${esc(x)}</option>`).join('')}
 const PYQ_PDFS={
   // Direct official CBSE PDF files verified from the CBSE previous-year question-paper archive.
   '2025|10|English Communicative|paper':'https://www.cbse.gov.in/cbsenew/question-paper/2025/X/1_eng_communicative.pdf',
@@ -944,26 +952,21 @@ const PYQ_PDFS={
   '2025|10|Information Technology (402)|paper':'https://www.cbse.gov.in/cbsenew/question-paper/2025/X/89_Information_Technology.pdf'
 };
 async function findPYQ(){
-  const y=$('pyqYear').value,s=$('pyqSubject').value,c=$('pyqChapter').value,t=$('pyqType').value,cls=$('pyqClass').value;
-  if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return}
-  const tl=t==='answer'?'Marking scheme':t==='practice'?'Chapter practice':'Question paper';
-  const disp=`📚 ${tl} · Class ${cls} · ${s} · ${y}${c!=='all'?' · '+c:''}`;
-  const url=PYQ_PDFS[[y,cls,s,t].join('|')];
-  $('pyqOut').textContent=url?'Opening the configured PDF…':'Verified official PDF not configured for this filter. Generating clearly labelled AI practice content…';
-  backHome();
-  if(url){
-    openChatPage();addMsg('user',esc(disp));
-    const d=addMsg('assistant','');const safe=encodeURI(url);
-    d.querySelector('.answertext').innerHTML=`<div class="pdfcard"><b>📄 CBSE ${esc(y)} · Class ${esc(cls)} · ${esc(s)}</b><div class="actions"><a class="toolaction" style="text-decoration:none" href="${safe}" target="_blank" rel="noopener" download>⬇ Download PDF</a></div><iframe src="${safe}" title="PDF viewer"></iframe></div>`;
-    updateLastChatMessage('PDF: '+url);return;
-  }
-  const chap=c==='all'?'':`, focusing only on the chapter "${c}"`;
-  let prompt;
-  if(t==='answer')prompt=`Create an AI-generated CBSE-style practice answer key for Class ${cls} ${s}, using ${y} only as a reference session${chap}. Do not claim it is an official past-paper marking scheme. Start with the note "CBSE-pattern practice marking scheme (AI-generated, not the official ${y} scheme)". Give question-wise answers with step-wise marks.`;
-  else if(t==='practice')prompt=`Create an AI-generated CBSE-style chapter practice set for Class ${cls} ${s}${chap||' (all important chapters)'}, using ${y} only as a reference session: 6 MCQs, 2 assertion-reason, 3 short answer, 2 long answer and 1 case-based question, followed by a full answer key. Label it clearly as practice, not official PYQ.`;
-  else prompt=`Create an AI-generated CBSE-style practice paper for Class ${cls} ${s}, using ${y} only as a reference session${chap}. Do not claim it is an official past paper. First line: "CBSE-pattern practice paper (AI-generated, not the official ${y} paper)". Then: title, Time & Maximum Marks, General Instructions, and all sections (A to E as per the latest CBSE pattern) with marks per question — MCQs with 4 options, assertion-reason, short/long answer and case-based questions. Do NOT put answers in this part. At the end add a divider (---) and then the full Answer Key / Marking Scheme.`;
-  const sent=await sendQuestion(prompt,{display:disp,pdfTitle:`CBSE ${y} · Class ${cls} · ${s}${c!=='all'?' · '+c:''} (${tl})`});
-  $('pyqOut').textContent=sent?'AI-generated practice content is ready in chat. It is not an official previous-year paper or official marking scheme.':'Could not generate the practice content. Check the connection/error shown in chat and try again.';
+ const board=$('pyqBoard').value||'CBSE',y=$('pyqYear').value,s=$('pyqSubject').value,c=$('pyqChapter').value,t=$('pyqType').value,cls=$('pyqClass').value;
+ if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return}
+ const tl=t==='answer'?'Marking scheme':t==='practice'?'Chapter practice':'Question paper',boardName=board==='MPBSE'?'MP Board (MPBSE)':'CBSE';
+ const disp=`📚 ${boardName} · ${tl} · Class ${cls} · ${s} · ${y}${c!=='all'?' · '+c:''}`;
+ const url=board==='CBSE'?PYQ_PDFS[[y,cls,s,t].join('|')]:null;
+ $('pyqOut').textContent=url?'Opening configured official PDF…':'Checking verified archive…';backHome();
+ if(url){openChatPage();addMsg('user',esc(disp));const d=addMsg('assistant',''),safe=encodeURI(url);d.querySelector('.answertext').innerHTML=`<div class="pdfcard"><b>📄 CBSE ${esc(y)} · Class ${esc(cls)} · ${esc(s)}</b><div class="actions"><a class="toolaction" style="text-decoration:none" href="${safe}" target="_blank" rel="noopener" download>⬇ Download PDF</a></div><iframe src="${safe}" title="PDF viewer"></iframe></div>`;updateLastChatMessage('PDF: '+url);return}
+ if(board==='MPBSE'&&t!=='practice'){
+  openChatPage();addMsg('user',esc(disp));addMsg('assistant',`<div class="notice"><b>Verified MP Board PYQ archive abhi connected nahi hai.</b><br>Isliye main ${esc(y)} ka actual previous-year question ya 10-year repeated-question list bana kar nahi dikhaunga. Official MPBSE Question Bank, Model Papers aur syllabus resources yahan milenge:<br><br><a href="https://mpbse.nic.in/qbank12.htm" target="_blank" rel="noopener">Official MPBSE Class 12 Question Bank</a><br><a href="https://mpbse.nic.in/ModelPaper.HTML" target="_blank" rel="noopener">Official MPBSE Model Papers</a><br><a href="https://www.mpbse.nic.in/academics.html" target="_blank" rel="noopener">MPBSE syllabus and marking schemes</a><br><br>“Chapter practice” choose karoge toh alag se labelled AI practice milegi, PYQ nahi.</div>`);$('pyqOut').textContent='No verified year-wise MPBSE PYQ mapped. No AI-generated PYQ substituted.';return;
+ }
+ const chap=c==='all'?'':`, focusing only on the chapter "${c}"`;let prompt;
+ if(t==='answer')prompt=`Create a clearly labelled AI-generated ${boardName}-style practice answer key for Class ${cls} ${s}${chap}. Do not claim it is an official past-paper marking scheme. Start with "AI-generated practice marking scheme — not official".`;
+ else if(t==='practice')prompt=`Create a clearly labelled AI-generated ${boardName}-style chapter practice set for Class ${cls} ${s}${chap||' (all chapters)'}. Never call a generated question PYQ or say it appeared in a past paper. Include MCQs, short and long answers, competency/source/case-based questions as appropriate, and a full answer key.`;
+ else prompt=`Create a clearly labelled AI-generated ${boardName}-style practice paper for Class ${cls} ${s}${chap}. Do not claim it is an official past paper.`;
+ const sent=await sendQuestion(prompt,{display:disp,pdfTitle:`${boardName} ${y} · Class ${cls} · ${s}${c!=='all'?' · '+c:''} (${tl})`});$('pyqOut').textContent=sent?'Clearly labelled AI-generated practice content is ready. It is not an official previous-year paper.':'Could not generate practice content. Check the chat error and try again.';
 }
 
 /* ================= Subjects → class → chapters → questions in chat ================= */
@@ -986,32 +989,24 @@ Science:{
  English:{10:['A Letter to God','Nelson Mandela: Long Walk to Freedom','Two Stories about Flying','From the Diary of Anne Frank','Glimpses of India','Mijbil the Otter','Madam Rides the Bus','The Sermon at Benares','The Proposal','Dust of Snow','Fire and Ice','A Tiger in the Zoo','How to Tell Wild Animals','The Ball Poem','Amanda!','The Trees','Fog','The Tale of Custard the Dragon','For Anne Gregory','A Triumph of Surgery','The Thief’s Story','The Midnight Visitor','A Question of Trust','Footprints Without Feet','The Making of a Scientist','The Necklace','Bholi','The Book That Saved the Earth']},
  Computer:{10:['Computer Applications (Code 165) — Networking','Computer Applications (Code 165) — HTML','Computer Applications (Code 165) — Cyber Ethics','Information Technology (Code 402) — Digital Documentation','Information Technology (Code 402) — Electronic Spreadsheet','Information Technology (Code 402) — Database Management System','Artificial Intelligence (Code 417) — Employability Skills','Artificial Intelligence (Code 417) — Subject Specific Skills']}
 };
-let subjState={sub:'',cls:''},chToken=0;
-function openSubject(sub){
-  subjState={sub,cls:userClass()};
-  $('subjTitle').textContent='📘 '+sub;
-  $('subjClass').value=subjState.cls;
-  openTool('subjectCard');
-  $('toplabel').textContent=sub;
-  loadChapters();
-}
-function subjClassChanged(){
-  const v=$('subjClass').value;subjState.cls=v;
-  if(v)localStorage.setItem('medharya_guest_class',v);
-  loadChapters();
-}
+const MP_CHAPTERS={Mathematics:{6:CH.Mathematics[6],7:CH.Mathematics[7],8:CH.Mathematics[8],9:CH.Mathematics[9],10:CH.Mathematics[10],11:CH.Mathematics[11],12:CH.Mathematics[12]},Science:{6:CH.Science[6],7:CH.Science[7],8:CH.Science[8],9:CH.Science[9],10:CH.Science[10]},'Social Science':{10:CH['Social Science'][10]}};
+let selectedBoard=localStorage.getItem('medharya_board')||'CBSE';
+let subjState={sub:'',cls:'',board:selectedBoard},chToken=0;
+function openSubject(sub){subjState={sub,cls:userClass(),board:selectedBoard};$('subjTitle').textContent='📘 '+sub+' · '+(selectedBoard==='MPBSE'?'MP Board':'CBSE');$('subjBoard').value=selectedBoard;$('subjClass').value=subjState.cls;openTool('subjectCard');$('toplabel').textContent=sub;loadChapters()}
+function subjBoardChanged(){selectedBoard=$('subjBoard').value||'CBSE';localStorage.setItem('medharya_board',selectedBoard);subjState.board=selectedBoard;$('subjTitle').textContent='📘 '+subjState.sub+' · '+(selectedBoard==='MPBSE'?'MP Board':'CBSE');loadChapters()}
+function subjClassChanged(){const v=$('subjClass').value;subjState.cls=v;if(v)localStorage.setItem('medharya_guest_class',v);loadChapters()}
 async function loadChapters(){
-  const {sub,cls}=subjState,box=$('chapterList');
+  const {sub,cls,board}=subjState,box=$('chapterList');
   if(!cls){box.innerHTML='<div class="smallmuted">⬆️ Pehle apni class chuniye — phir chapters yahin dikhenge.</div>';return}
-  let list=(CH[sub]&&CH[sub][cls])||null;
-  const ck='medharya_ch_'+sub+'_'+cls;
+  let list=board==='MPBSE'?((MP_CHAPTERS[sub]&&MP_CHAPTERS[sub][cls])||null):((CH[sub]&&CH[sub][cls])||null);
+  const ck='medharya_ch_'+board+'_'+sub+'_'+cls;
   if(!list){try{list=JSON.parse(localStorage.getItem(ck)||'null')}catch(e){list=null}}
   if(!list){
     if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){box.innerHTML='<div class="notice">Free guest requests khatam ho gaye. Chapter list generate karne ke liye login karein.</div>';showGate();return}
     box.innerHTML='<div class="smallmuted">Class '+esc(cls)+' ke '+esc(sub)+' chapters load ho rahe hain…</div>';
     const token=++chToken;
     try{
-      const ans=await callBackend(`List the chapter names of the current CBSE/NCERT ${sub} course for Class ${cls}. If this subject has multiple course options (such as Hindi A/B, English Communicative/Language & Literature, or Computer Applications/IT/AI), state the assumption briefly. Do not invent chapters; if the syllabus version is uncertain, say so.`,{plain:true});
+      const ans=await callBackend(`List the chapter names of the current ${board==='MPBSE'?'MP Board (MPBSE)':'CBSE'} Class ${cls} ${sub} syllabus. Use NCERT chapter titles only where the current board syllabus prescribes them. Prefer the official 2026-27 syllabus; if exact subject/course or syllabus cannot be verified, say so and ask the student to check the textbook. Do not mix board syllabi or invent chapters. Return a numbered list only.`,{plain:true,board});
       if(token!==chToken)return;
       list=ans.split('\n').map(s=>s.replace(/^[\s>*#\-\d.)]+/,'').replace(/\*\*/g,'').trim()).filter(s=>s.length>2&&s.length<100).slice(0,30);
       if(list.length<3)throw new Error('Chapters not found');
@@ -1025,12 +1020,12 @@ async function loadChapters(){
   box.dataset.list=JSON.stringify(list);
 }
 function askChapter(i){
-  const {sub,cls}=subjState;let list=[];try{list=JSON.parse($('chapterList').dataset.list||'[]')}catch(e){}
+  const {sub,cls,board}=subjState;let list=[];try{list=JSON.parse($('chapterList').dataset.list||'[]')}catch(e){}
   const ch=list[i];if(!ch)return;
   if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return}
   backHome();
   const prompt=`Class ${cls} · ${sub} · Chapter: "${ch}".\n1) Give a quick 5-line summary of the key concepts/formulas of this chapter as per NCERT/CBSE for Class ${cls}.\n2) Then give 10 questions strictly at Class ${cls} level in the latest CBSE pattern: 4 MCQs, 2 assertion-reason, 2 short-answer, 1 long-answer and 1 competency-based / real-life case question.\n3) Put the complete answers with short explanations at the end under "Answer Key".`;
-  sendQuestion(prompt,{display:`📘 Class ${cls} · ${sub} · ${ch}`,pdfTitle:`Class ${cls} ${sub} — ${ch}`});
+  sendQuestion(prompt,{display:`📘 ${board==='MPBSE'?'MP Board':'CBSE'} · Class ${cls} · ${sub} · ${ch}`,pdfTitle:`${board} Class ${cls} ${sub} — ${ch}`});
 }
 function previewQuestionImage(e){const f=e.target.files&&e.target.files[0];if(!f)return;if(questionPreviewUrl)URL.revokeObjectURL(questionPreviewUrl);$('imagePreview').innerHTML='';if(!String(f.type||'').startsWith('image/')||!f.size||f.size>IMG_MAX_INPUT){$('imagePreview').textContent='Please choose a valid image smaller than 30 MB.';e.target.value='';return}questionPreviewUrl=URL.createObjectURL(f);const img=document.createElement('img');img.src=questionPreviewUrl;img.alt='Selected question preview';img.style.maxWidth='100%';img.style.maxHeight='240px';img.style.borderRadius='10px';$('imagePreview').appendChild(img);const p=document.createElement('div');p.className='smallmuted';p.textContent='Image selected. It will be compressed and checked before upload.';$('imagePreview').appendChild(p);}
 async function usePhotoQuestion(){const f=$('questionImage').files&&$('questionImage').files[0];if(!f){$('imagePreview').textContent='Please select a question photo first.';return}const btn=document.querySelector('#imageCard .toolaction');if(btn)btn.disabled=true;$('imagePreview').textContent='⚡ Photo ko fast upload ke liye optimize kar rahe hain…';try{pendingImage=await compressImageFile(f);backHome();preset('Read this question image and solve it step by step. Explain in simple '+(language==='hi'?'Hindi':'English')+' and show the final answer.');$('question').focus();$('voiceStatus').textContent='Image attached. Sending it to Medharya now…';sendQuestion();}catch(e){$('imagePreview').textContent=e.message||'Could not read this image. Try another photo.'}finally{if(btn)btn.disabled=false}}
