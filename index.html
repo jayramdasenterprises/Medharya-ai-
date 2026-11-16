@@ -1036,44 +1036,44 @@ async function generateImportantQuestions(){
  if(!userClass()){showClassModal();return}
  if(!isLoggedIn()&&guestCount()>=GUEST_LIMIT){showGate();return}
 
- // Backend rejects any single question/message above 6,000 characters.
- // Split at paragraph/newline boundaries and keep each source excerpt comfortably below that limit.
- const maxChunk=3000, chunks=[];
- let remaining=String(source).trim();
- while(remaining.length){
-   if(remaining.length<=maxChunk){chunks.push(remaining);break;}
-   let cut=remaining.lastIndexOf('\n',maxChunk);
-   if(cut<maxChunk*0.55)cut=remaining.lastIndexOf(' ',maxChunk);
-   if(cut<maxChunk*0.55)cut=maxChunk;
-   chunks.push(remaining.slice(0,cut).trim());
-   remaining=remaining.slice(cut).trim();
+ const sourceText=String(source).trim();
+ const prompt=`IMPORTANT QUESTIONS EXTRACTION TASK
+Board: MP Board (MPBSE)
+Class: 12
+Subject: ${subject}
+Source file: ${MP12_IMP_SOURCE_NAMES[subject]}
+
+Use ONLY the supplied source text below. Extract all legible questions in their original order. Preserve original wording, numbering, options and marks wherever visible. Do not invent missing questions, options, marks or answers. If OCR/source text is unclear, mark it as [source text unclear].
+Give answers/solutions where the question and required information are legible. For numericals show formula, substitution and calculation steps; for theory give clear exam-ready points.
+Clearly label the material: "User-uploaded MP Board IMP material — practice/revision, not an exam guarantee". Do not claim official verification, previous-year status or guaranteed exam appearance.
+If the source has more questions than can fit in one answer, state exactly which question numbers were covered and which remain, rather than silently omitting them.
+
+SOURCE TEXT:
+${sourceText}`;
+
+ if(prompt.length>24000){
+   status.textContent='Source text bahut bada hai. Is subject ke liye file ko chhote parts mein upload karna hoga.';
+   return;
  }
  isSending=true;btn.disabled=true;btn.textContent='Preparing…';
  openChatPage();
  addMsg('user',esc(`⭐ IMP Questions · MP Board · Class 12 · ${subject}`));
  const d=addMsg('assistant','<div class="typing"><span></span><span></span><span></span></div>');
  const target=d.querySelector('.answertext');
- let results=[];
  try{
-   for(let i=0;i<chunks.length;i++){
-     status.textContent=`Preparing source part ${i+1} of ${chunks.length}…`;
-     const prompt=`You are Medharya AI, an exam preparation assistant. Student: MP Board (MPBSE), Class 12, Subject: ${subject}. Source file: ${MP12_IMP_SOURCE_NAMES[subject]}. This is source part ${i+1} of ${chunks.length}. Treat ONLY the excerpt below as source evidence. Preserve wording, numbering, options, marks and order wherever visible. Do not invent missing questions or options. Mark unclear OCR as [source text unclear].\n\nSOURCE EXCERPT:\n${chunks[i]}\n\nTASK: Extract and present every legible important question in this excerpt in its original order. Give answers/solutions only where the question and needed information are legible. For numericals show formula, substitution and steps; for theory use exam-ready points. Clearly label this as "User-uploaded MP Board IMP material — practice/revision, not an exam guarantee". Do not claim official, verified PYQ or guaranteed exam questions. If this excerpt has no complete question, say so briefly.`;
-     const answer=await callBackend(prompt,{board:'MPBSE'});
-     results.push(`## Source Part ${i+1} of ${chunks.length}\n\n${answer}`);
-   }
-   const combined=results.join('\n\n---\n\n');
+   status.textContent='Uploaded source se questions aur answers prepare ho rahe hain…';
+   const answer=await callBackend(prompt,{board:'MPBSE',plain:true});
    target.innerHTML='<div class="md ai-answer caret"></div>';
-   await streamMarkdown(target.firstChild,combined,()=>{const last=$('messages').lastElementChild;if(last)last.scrollIntoView({block:'end'})});
+   await streamMarkdown(target.firstChild,answer,()=>{const last=$('messages').lastElementChild;if(last)last.scrollIntoView({block:'end'})});
    target.firstChild.classList.remove('caret');
-   updateLastChatMessage(combined);lastAnswer=combined;
-   status.textContent=`Done. ${chunks.length} source part(s) processed; questions and solutions are in the chat.`;
+   updateLastChatMessage(answer);lastAnswer=answer;
+   status.textContent='Done. Questions and solutions are available in the Medharya chat.';
  }catch(err){
    const detail=String(err&&err.message||err||'Unknown error');
-   const partial=results.length?results.join('\n\n---\n\n')+'\n\n**Remaining source parts could not be processed.**\n\n':'';
-   const shown=partial+'**Medharya connection error**\n\n'+detail;
+   const shown='**Medharya connection error**\n\n'+detail+'\n\nAgar provider unavailable ya quota error hai, kuch der baad retry karein. Character-limit error ab is feature ke liye resolve hona chahiye.';
    target.innerHTML='<div class="md ai-answer">'+esc(shown).replace(/\n/g,'<br>')+'</div>';
    updateLastChatMessage(shown);
-   status.textContent=results.length?`Partially completed: ${results.length}/${chunks.length} parts. Error: ${detail}`:`Could not process the source: ${detail}`;
+   status.textContent='Could not process the source: '+detail;
  }finally{
    isSending=false;btn.disabled=false;btn.textContent='Show IMP Questions in Chat';
    const send=$('sendBtn');if(send){send.disabled=false;send.textContent='↑'}
